@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        div {
+            background-color:violet;
+            border:2px, solid;
+            width: 200px;
+            height: 200px;
+        }
+
+        img {
+        width:100px;
+        height:100px;
+        }
+    </style>
+    <script type="text/javascript">
+        //CREAREMOS 3 FUNCIONES
+        //onDragOver --> desabilitar la propagación de eventos
+        function disableEvento(ev) {
+            ev.preventDefault();
+        }
+
+        //onDragStart --> Iniciar el arrastre de un evento
+        function arrastrar(ev) {
+            //Lo que vamos a almacenar es el id de la img
+            ev.dataTransfer.setData("text", "imag1");
+        }
+
+        //onDrop --> soltar el objeto
+        function soltar(e) {
+            //Debemos desabilitar también el evento
+            e.preventDefault();
+            //Recuperamos el vlaor del datatranfer
+            var idImagen = e.dataTransfer.getData("text");
+            var img = document.getElementById(idImagen);
+            var capa = document.getElementById("capa");
+            capa.style.backgroundColor = "yellow";
+            //Añadimos el obj <img> a la capa
+            capa.appendChild(img);
+        }
+
+        // El resto son aditivos
+    </script>
+</head>
+<body>
+    <h1>Drag and Drop</h1>
+    <div id="capa" ondragover="disableEvento(event)" ondrop="soltar(event)"></div>
+    <img src="assets/descarga (noche).jpg" id="imag1" ondragstart="arrastrar(event)" draggable="true"/>
+</body>
+</html>

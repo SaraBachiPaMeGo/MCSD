@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/JS51HerenciaArray.js"></script>
+    <script src="js/JS51Extends.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn-herencia").click(function () {
+                var miArray = new ObjetoArray();
+                //ObjectArray tiene más características que el Array 
+                //Pero sigue siendo un array
+                miArray.push(55);
+                miArray.push(25);
+                miArray.push(8);
+                miArray.push(65);
+                var html = "<h2>" + miArray.description + "</h2>";
+                var numelem = miArray.contarElementos();
+                var sum = miArray.sumaElementos();
+                html += "<h3>Numero de elementos: " + numelem + "</h3>";
+                html += "<h3>Suma: " + sum + "</h3>";
+                $("#out").html(html);
+            });
+
+            $("#btn-extends").click(function () {
+                var miArray = new Array();
+                miArray.push(14);
+                miArray.push(8);
+                miArray.push(2);
+                var numelen = miArray.contarElementos();
+                var suma = miArray.sumaElementos();
+                var html = "<h3>Numero de elementos: " + numelen + "</h3>";
+                html += "<h3>Suma: " + suma + "</h3>";
+                $("#out").html(html);
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <h1>Herencia extends Array</h1>
+    <fieldset>
+        <form>
+            <button type="button" id="btn-herencia">Contar</button>
+            <button type="button" id="btn-extends">Sumar</button>
+            <div id="out"></div>
+        </form>
+    </fieldset>
+</body>
+</html>

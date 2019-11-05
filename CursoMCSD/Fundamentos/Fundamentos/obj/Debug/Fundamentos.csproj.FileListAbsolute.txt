@@ -1,0 +1,16 @@
+C:\Users\AlumnoMCSD\Documents\CursoMCSD\Fundamentos\Fundamentos\bin\Debug\Fundamentos.exe.config
+C:\Users\AlumnoMCSD\Documents\CursoMCSD\Fundamentos\Fundamentos\bin\Debug\Fundamentos.exe
+C:\Users\AlumnoMCSD\Documents\CursoMCSD\Fundamentos\Fundamentos\bin\Debug\Fundamentos.pdb
+C:\Users\AlumnoMCSD\Documents\CursoMCSD\Fundamentos\Fundamentos\obj\Debug\Fundamentos.csprojAssemblyReference.cache
+C:\Users\AlumnoMCSD\Documents\CursoMCSD\Fundamentos\Fundamentos\obj\Debug\Fundamentos.Properties.Resources.resources
+C:\Users\AlumnoMCSD\Documents\CursoMCSD\Fundamentos\Fundamentos\obj\Debug\Fundamentos.csproj.GenerateResource.cache
+C:\Users\AlumnoMCSD\Documents\CursoMCSD\Fundamentos\Fundamentos\obj\Debug\Fundamentos.exe
+C:\Users\AlumnoMCSD\Documents\CursoMCSD\Fundamentos\Fundamentos\obj\Debug\Fundamentos.pdb
+C:\Users\AlumnoMCSD\Documents\CursoMCSD\Fundamentos\Fundamentos\obj\Debug\Fundamentos.Form02TiposDatos.resources
+C:\Users\AlumnoMCSD\Documents\CursoMCSD\Fundamentos\Fundamentos\obj\Debug\Fundamentos.Form03SumarNumeros.resources
+C:\Users\AlumnoMCSD\Documents\CursoMCSD\Fundamentos\Fundamentos\obj\Debug\Fundamentos.Form04Colores.resources
+C:\Users\AlumnoMCSD\Documents\CursoMCSD\Fundamentos\Fundamentos\obj\Debug\Fundamentos.Form05PracticaNum.resources
+C:\Users\AlumnoMCSD\Documents\CursoMCSD\Fundamentos\Fundamentos\obj\Debug\Fundamentos.Form01.resources
+C:\Users\AlumnoMCSD\Documents\CursoMCSD\Fundamentos\Fundamentos\obj\Debug\Fundamentos.Form06DiaSemana.resources
+C:\Users\AlumnoMCSD\Documents\CursoMCSD\Fundamentos\Fundamentos\obj\Debug\Fundamentos.Form07DateTime.resources
+C:\Users\AlumnoMCSD\Documents\CursoMCSD\Fundamentos\Fundamentos\obj\Debug\Fundamentos.Form08ClaseChar.resources

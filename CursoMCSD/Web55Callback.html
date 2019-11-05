@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/JS55Callback.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").on("click", function () {
+                //Realizamos la peticion a la función
+                //callback con una función anónima
+                sumarNumeros(7, 3, function (suma) {
+                    //Realizamos el código para pintar
+                    //el objeto data (en este caso 
+                    //es un number)
+                    //suma:10
+                    $("#out").text("La suma callback es: " + suma);
+                });
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <h1>Funciones Callback</h1>
+    <div id="out"></div>
+    <fieldset>
+        <form>
+            <button type="button"> Llamar a la función callback </button>
+        </form>
+    </fieldset>
+</body>
+</html>

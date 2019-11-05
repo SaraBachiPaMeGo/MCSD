@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Manejadores de eventos</title>
+    <script type="text/javascript">
+
+        window.onload = function () {//window.addEventListener("load",function(){  ...  })
+            var btn51 = document.getElementById("51");
+            var btn2 = document.getElementById("2");
+            var btn20 = document.getElementById("20");
+            var btn4 = document.getElementById("4");
+
+        //En el caso de utilizar onclick este código iría dentro de la función ext
+            btn51.addEventListener("click", sumar); 
+            btn2.addEventListener("click", sumar);
+            btn20.addEventListener("click", sumar);
+            btn4.addEventListener("click", sumar);             
+
+            //Tmabien podemos hacerlo con funciones anónimas
+            // boton51.addEventListener("click", function() {  meter el código de suma()  })
+        }
+        
+        var resul = 0
+        function sumar() {
+            var out = document.getElementById("out");
+            resul += parseInt(this.value);
+           out.innerHTML= resul
+        }
+
+    </script>
+</head>
+<body>
+    <h1>Manejadores de eventos</h1>
+    <p>Sumar el valor de los botones</p>
+    <button type="button" id="51" value="51">51</button>
+    <button type="button" id="2" value="2">2</button>
+    <button type="button" id="20" value="20">20</button>
+    <button type="button" id="4" value="4">4</button>
+    <output id="out"></output>
+    <p>Hola</p>
+
+</body>
+</html>

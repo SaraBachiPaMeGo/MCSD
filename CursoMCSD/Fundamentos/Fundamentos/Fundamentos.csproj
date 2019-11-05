@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{236C7CC1-C1D2-4FBE-939A-338E38981852}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Fundamentos</RootNamespace>
+    <AssemblyName>Fundamentos</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form02TiposDatos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form02TiposDatos.Designer.cs">
+      <DependentUpon>Form02TiposDatos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form03SumarNumeros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form03SumarNumeros.Designer.cs">
+      <DependentUpon>Form03SumarNumeros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form04Colores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form04Colores.Designer.cs">
+      <DependentUpon>Form04Colores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form05PracticaNum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form05PracticaNum.Designer.cs">
+      <DependentUpon>Form05PracticaNum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form06DiaSemana.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form06DiaSemana.Designer.cs">
+      <DependentUpon>Form06DiaSemana.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form01.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form01.Designer.cs">
+      <DependentUpon>Form01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form07DateTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form07DateTime.Designer.cs">
+      <DependentUpon>Form07DateTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form08ClaseChar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form08ClaseChar.Designer.cs">
+      <DependentUpon>Form08ClaseChar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form02TiposDatos.resx">
+      <DependentUpon>Form02TiposDatos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form03SumarNumeros.resx">
+      <DependentUpon>Form03SumarNumeros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form04Colores.resx">
+      <DependentUpon>Form04Colores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form05PracticaNum.resx">
+      <DependentUpon>Form05PracticaNum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form01.resx">
+      <DependentUpon>Form01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form06DiaSemana.resx">
+      <DependentUpon>Form06DiaSemana.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form07DateTime.resx">
+      <DependentUpon>Form07DateTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form08ClaseChar.resx">
+      <DependentUpon>Form08ClaseChar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#botonleer").click(function () {
+                //METODO PARA LEER DATOS DEL SERVIDOR
+                $.get("XML/empleados.xml", function (data) {
+                    // data ES EL DOCUMENTO XML QUE PODEMOS TRATAR
+                    var apellidos = $(data).find("APELLIDO");
+                    console.log(apellidos.first());
+                    //VAMOS A RECORRER TODOS LOS APELLIDOS Y LOS
+                    //DIBUJAMOS
+                    var html = "<ul>";
+                    apellidos.each(function () {
+                        //this HACE REFERENCIA AL ELEMENTO DEL 
+                        //CONJUNTO, A CADA ETIQUETA APELLIDO DEL 
+                        //DOCUMENTO
+                        var ape = $(this).text(); //nodeValue 
+                        html += "<li>"+ ape +"</li>";
+
+                    });
+                    html += "</ul>";
+                    $("#out").html(html);
+
+                }) //Recibir el response como parámetro --> data 
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Lectura documentos con XML JQuery</h1>    
+    <form>
+        <button type="button" id="botonleer">Ver datos</button>
+    </form>
+    <div id="out"></div>
+</body>
+</html>

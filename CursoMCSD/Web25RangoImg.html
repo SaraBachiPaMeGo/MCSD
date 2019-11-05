@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <title></title>
+
+    <script type="text/javascript">
+
+        function generarImagenes() {
+
+            //CAPTURAMOS LA IMAGEN
+
+            //SELECCIONADA EN EL <select>
+
+            var imagen =
+                document.getElementById("selectimagen")
+                    .value;
+
+            var numeroimagenes =
+                parseInt(document.getElementById("rango")
+                    .value);
+
+            //BUSCAMOS LA CAPA DONDE DIBUJAREMOS
+
+            //LAS IMAGENES
+
+            var capa =
+                document.getElementById("capa");
+
+            var html = "";
+            var parent = document.getElementById("otro");
+
+            //REALIZAMOS UN BUCLE PARA DIBUJAR x IMAGENES
+
+           // for (var i = 1; i <= numeroimagenes; i++) {
+                var img = document.createElement("img");
+                img.src = "assets/descarga (noche).jpg"
+                img.addEventListener("click", function () {
+                    this.src = "assets/descarga (playa).jpg";
+                })
+                parent.appendChild(img); // Solamente crea un objeto si ponemos este código dos veces
+
+                //CREAMOS UN CODIGO HTML PARA <img>
+
+                //html += "<img src='" +
+                //    imagen + "'/>";
+          //  }
+
+            capa.innerHTML = html;
+
+            document.getElementById("valorrango")
+                .innerText = numeroimagenes;
+
+        }
+        function cambiarImg() {
+            var imgs = document.images;
+            for (var i = 0; i<imgs.length; i++) {
+                imgs[i].src ="assets/descarga (sol).jpg"
+            }
+        }
+
+    </script>
+
+    <style>
+
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Generar imágenes código HTML</h1>
+
+    <form>
+
+        <label>Seleccione imagen</label>
+
+        <select id="selectimagen">
+
+            <option value="assets/foto.jpg">
+
+                Foto 1
+
+            </option>
+
+            <option value="assets/descarga (montaña).jpg">
+
+                Foto 2
+
+            </option>
+
+        </select>
+
+        <br />
+
+        <input type="range" id="rango"
+               min="1" max="80"
+               value="1"
+               onchange="generarImagenes()" />
+
+        <span id="valorrango"></span>
+
+    </form>
+    <button onclick="cambiarImg()">Cambiar imagen</button>
+    <div id="otro"></divid="otro">
+    <div id="capa"></div>
+
+</body>
+
+</html>
+<!--<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Imágenes en rangos</title>
+    <script type="text/javascript">
+
+        function mostrarFotos() {
+            //var html = "<option>"
+
+            var select = document.forms.select;
+            var option = document.getElementsByTagName("option") //elementS te devuelve un array auqnue sólo haya 1
+            var aImg = ["<img src='assets / foto.jpg' />", "<img src='assets/iStock-944453634-750x450.jpg' />",
+                "<img src='assets / descarga(noche).jpg' />", "<img src='assets / descarga(playa).jpg' />"];
+            //var valorInput = document.getElementsByTagName("input").value;
+            var valorInput =parseInt( document.getElementById("rango").value);
+            console.log(valorInput);
+
+
+            for (var i = 1; i < valorInput; i++) { //Sacamos el valor del rango
+                        for (var j = 0; j < option.length; j++) {//cogemos cada option y le asignamos foto
+                            var opt = option[i];
+                            for (var k = 0; k < aImg.length; i++)
+                                var img = aImg[i]
+                            opt.innerHTML = img; //RENDERIZAMOS LA IMAGEN DENTRO DEL OPT
+                        }
+                    }
+            //CUANDO EL VALOR DE RANGE SEA X RENDERIZAR EL X DE FOTOS
+        }
+        // Cogeremos el value del rango para renderizar x fotos
+        // A cada option le podemos asignar un innerHTML (las fotos) en el caso de que se haya pulsado
+
+
+    </script>
+</head>
+<body>
+    <p>
+        Realizar una aplicación dónde generaremos imágenes al cambiar el rango.
+    </p>
+    <p>
+        Podremos seleccionar con un < select > la imagen a mostrar.
+    </p>
+    <form>
+        <input type="range" id="rango" max="4" step="1" min="0" value="0" onchange="mostrarFotos()" />
+        <select id="selec">
+            <option>Foto 1</option>
+            <option>Foto 2</option>
+            <option>Foto 3</option>
+            <option>Foto 4</option>
+        </select>
+    </form>
+</body>
+</html>-->

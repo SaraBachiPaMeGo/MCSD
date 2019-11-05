@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn-get").click(function () {
+                console.log("click");
+                $.getJSON("JSON/tareas.json", function (data) {
+                    $.each(data, function (key,value) {//RECORRER UN OBJETO SIMPLE {KEY:VALUE}
+                        // KEY --> NOMBRE DE LA CLAVE
+                        // VALUE --> VALOR DE LA CLAVE
+                        var p = $("<p>", {
+                            "text": "key: " + key + ", Value: " + value
+                        });
+                        p.appendTo($("#out"));
+                    })
+                });
+            })
+            $("#btn-ajax").click(function () {
+                console.log("click");
+                $.ajax({
+                    "url": "JSON/tareas.json",
+                    "method": "GET", //EL MÉTODO POR DEFECTO GET
+                    "success": function (data) {
+                        $.each(data, function (key, value) {
+                            var p = $("<p>", {
+                                "text": "key: " + key + ", value: " + value,
+                                "style": "color:blue"
+                            });
+                            $("#out").append(p);
+                        });
+                    },
+                    "error": function () { //CAPTURA LAS FUNCIONES SI NO FUNCIONA
+                        $("#out").html("<h2>Ha habido algún error</h2>");
+                    }
+                });
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <h1>Primer acceso al servidor con JSON</h1>
+    <button type="button" id="btn-get">Leer Datos JSON</button>
+    <div id="out"></div>
+    <button type="button" id="btn-ajax">Leer Datos Ajax</button>
+
+</body>
+</html>

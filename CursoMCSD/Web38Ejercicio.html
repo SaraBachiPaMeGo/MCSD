@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript">
+
+        function verDatos() {
+            var xhttp = new XMLHttpRequest;
+            xhttp.open("GET", "XML/datosempleados.xml");
+            xhttp.onreadystatechange = function () {
+                console.log(this)
+                if (this.status == 200 && this.readyState == 4) {
+                    
+                    document.getElementById("out").innerHTML = this.responseXML;
+                    var docXML = this.responseXML;
+                    var nodos = docXML.getElementsByTagName("EMPLEADO");
+                    console.log(nodos);
+                    var html = "<ul>";
+                    for (var i = 0; i < nodos.length; i++) {
+                        var emp = nodos[i];
+                        console.log(emp);
+                        //<EMPLEADO>
+                        //    <APELLIDO>SANCHEZ</APELLIDO>
+                        //    <OFICIO>EMPLEADO</OFICIO>
+                        //</EMPLEADO>
+                        //var apellido = emp.childNodes[1].childNodes[0].nodeValue;//nodeValue; debería de
+                        //con textContent
+                        var apellido = emp.childNodes[1].textContent;//nodeValue; debería de
+                        //var apellido = emp.childNodes[1].childNodes[0].textContent;//nodeValue; debería de
+                        //hacer otra vez childnodes para coger el texto que es su hijo
+                        console.log("apellido "+apellido)
+                        var oficio = emp.childNodes[3].textContent;//nodeValue;
+                        console.log("oficio " +oficio);
+                        html += "<li>" + apellido + "</li>";
+                        html += "<li>" + oficio + "</li>";
+                    }
+                    html += "<ul>";
+                    document.getElementById("out").innerHTML = html;
+                } else {
+                    console.log("ERROR");
+                    document.getElementById("out").innerHTML = "ERROR";
+                }
+            }            
+            xhttp.send();
+        }
+
+    </script>
+</head>
+<body>
+    <h1>Ejercicio con XML</h1>    
+    <button type="button" onclick="verDatos()">Ver datos</button>
+    <div id="out"></div>
+    <input id="nombre"/>
+    <input id="oficio"/>
+</body>
+</html>

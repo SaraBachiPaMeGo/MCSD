@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>String HTML</title>
+    <script>
+        function ver() {
+            var out = document.getElementById("resul");
+            var texto = "VISUAL STUDIO.NET";
+            var html = "<p>Length: " + texto.length
+                + "</p>"
+            html += "<p>IndexOf(U): " + texto.indexOf("U") + "</p>";
+            html += "<p>LastIndexOf(U): " + texto.lastIndexOf("U") + "</p>";
+            html += "<p>CharAt(1): " + texto.charAt(1) + "</p>";
+            html += "<p>substr(2,3): " + texto.substr(2, 3) + "</p>";
+            html += "<p>subString(2,3): " + texto.substring(2, 3) + "</p>";
+            html += "<p>startsWith('VI'): " + texto.startsWith('VI') + "</p>";
+            html += "<p>endsWith('OT'): " + texto.endsWith('OT') + "</p>";
+
+            //Ponemos espacios
+            texto = "      " + texto + "    "
+            html += "<p>Con espacios: " + texto.bold() + "</p>";
+            html += "<p>trim(): " + texto.trim() + "</p>";
+            out.innerHTML = html;
+
+        }
+    </script>
+</head>
+<body>
+    <h1>Métodos de la clase String</h1>
+    <div id="resul"></div>
+    <button type="button" onclick="ver()">Ver</button>
+</body>
+</html>

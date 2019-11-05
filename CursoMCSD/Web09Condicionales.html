@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Condicionales</title>
+    <script>
+        function evNum() {
+            var n1 = document.getElementById("n1");
+            var out1 = document.getElementById("out1");
+            var caja1 = parseInt(n1.value);
+
+            if (caja1 < 0) {
+                out1.innerHTML = `${caja1} es un número negativo`;
+            } else if (caja1 == 0) {
+                out1.innerHTML = `${caja1} es igual a 0`;
+            } else {
+                out1.innerHTML = `${caja1} es un número positivo`;
+            }
+        };
+
+        function mostrarEst() {
+            var n2 = document.getElementById("n2");
+            var caja2 = parseInt(n2.value);
+            var sol2 = document.getElementById("sol2");
+            
+            switch (caja2) {
+                case 1:
+                    sol2.innerText = "Primavera";
+                    break;
+                case 2:
+                    sol2.innerText = "Verano";
+                    break;
+                case 3:
+                    sol2.innerText = "Otoño";
+                    break;
+                case 4:
+                    sol2.innerText = "Invierno";
+                    break;
+                default:
+                    sol2.innerText = "Sin opción";
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1>Condicionales JavaScript</h1>
+    <label name="n1">Introcuce un número:</label>
+    <input id="n1" />
+    <button type="button" onclick="evNum()">Evaluar número</button>
+    <output id="out1"></output>
+    <label name="n2">Introcuce una estación:</label>
+    <input id="n2" />
+    <button type="button" onclick="mostrarEst()">Mostrar estación</button>
+    <output id="sol2"></output>
+</body>
+</html>

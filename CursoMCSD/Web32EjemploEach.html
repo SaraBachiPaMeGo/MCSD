@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $("p").mouseover(function () {
+                //ARRAY DE COLORES
+                var colores = ["yellow", "pink", "blue", "green"];
+                $("p").each(function () {
+                    var valor = parseInt(Math.random() * colores.length);
+                    $(this).css("color", colores[valor]);
+                    $(this).text(colores[valor]);
+                })
+            })
+
+        });
+
+    </script>
+</head>
+<body>
+    <h1>Ejemplo de Each</h1>
+    <p>q </p>
+    <p></p>
+    <p></p>
+    <p></p>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Tabla de multiplicar</title>
+    <script type="text/javascript">
+        function op() {
+
+            var n = parseInt(document.getElementById("n").value);
+            var out = document.getElementById("out");
+            var html = "<tr><th>Tabla</th></tr> ";
+            out.innerHTML = html;
+            console.log("000")jj
+                //n = n * 5;
+               // n *= i
+                var num = n*i
+                console.log(num + "*=" + i)
+                html += '<tr><td>' + n + '*' + i + '</td>';
+                html += '<td style="border:solid 0.5px black;">' + num + '</td></tr> ';
+            }
+            out.innerHTML = html;
+        }
+    </script>
+</head>
+<body>
+    <h1>
+        Tabla de multiplicar
+    </h1>
+    <p>Hacer la tabla de multiplicar en formato tabla. Metes un número y te hace la tabla de multipicar del 1 al 10</p>
+    <input id="n" />
+    <button type="button" onclick="op()">Calcular</button>
+    <table id="out" >
+
+    </table>
+</body>
+</html>

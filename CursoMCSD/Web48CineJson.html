@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").on("click", function () {
+                $.getJSON("JSON/cine.json", function (data) {                    
+                    //var nodos = $(data).find("PELICULAS");
+                    //var filtro = $("input").val();
+                    //console.log(data);
+                    var html = "";
+                    $.each(data.PELICULAS, function (indice, peli) { //Recorro todas las pelis y busco
+                        //a través de una regexp donde aparezca "filtro"
+                        //Nos devolverá el índice, la posición de cada elemento
+                        // y el objeto (clientes)
+                        console.log("INDICE");
+                        console.log(indice);
+                        console.log("PELICULAS");
+                        console.log(peli); 
+                        var key = peli.Argumento; 
+                        var value = $("input").val();
+                        //var exp = "/" + value + "/i"; //Donde aparezca el value te da ese txt   
+                        var exp = new RegExp(value); //Se tiene que poner así para poder pasarle un valor
+                        console.log("KEY");
+                        console.log(key);
+                        console.log("VALUE");
+                        console.log(value);
+
+                        if (exp.test(key)) {
+                            html += "Argumento: " + peli.Argumento + "<br\>"
+                                + "Título: " + peli.Titulo;
+                            var video = $("<video>");
+                            video.attr("src", "https://www.youtube.com/watch?v=" + peli.YouTube);
+                            video.html("<iframe width="560" height="315" src='https://www.youtube.com/embed/II-gskeb61w'
+                                "frameborder = "0" allow = "accelerometer;" autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                "allowfullscreen ></iframe > ")
+                            video.appendTo($("#out1"));
+                        }
+
+
+                    });
+                    $("#out").html(html);
+                })
+            })
+        });
+    </script>
+</head>
+<body>
+    <h1>Ejercicio JSON cine</h1>
+    <input type="text"/>
+    <button type="button">Mostrar Datos</button>
+    <div id="out"></div>
+    <div id="out1"></div>
+</body>
+</html>

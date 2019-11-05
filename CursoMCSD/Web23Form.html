@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Elementos de formulario. Arrays</title>
+    <script type="text/javascript">
+
+        function mostrarDeporte() {
+            var select = document.getElementById("deportes");
+            //ARRAY OPTIONS PARA ACCEDER A TODAS LAS OPCIONES
+            // RECORREMOS EL ARRAY Y PREGUNTAMOD POR EL 
+            //ATRIBUTO SELECTED
+            for (var i = 0; i < select.options.length; i++) {
+                //capturamos cada option
+                var opt = select.options[i];
+                if (opt.selected) {
+                    document.getElementById("out").innerHTML =
+                        "Deporte seleccionado: " + opt.value
+                    break; // cuando encuentre el opt seleccionado salta
+                }
+            }
+        }
+
+        function showSports() {
+            //recuperamos el array
+            var checks = document.forms[0].deportes;//name ó  document.getElementsByName("deportes");
+            //El atributo name sólo está asociado a los form. Para poder acceder a los elementos dentro del form,
+            //tenemos que pasar primero por el form, para acceder al array
+            var resp = "";
+            for (var i = 0; i < checks.length; i++) {
+                //capturamos cada check
+                var ck = checks[i];
+                if (ck.checked) {
+                    resp += ck.value + ", "
+                }
+            }
+            //Dibujamos el resultado
+            document.getElementById("out").innerText = "Deporte seleccionado: " + resp
+        }
+
+    </script>
+</head>
+<body>
+    <h1>Arrays dentro de un formulario</h1>
+    <fieldset>
+        <legend>Formulario</legend>
+        <form>
+            <label>Seleccione deporte</label>
+            <select id="deportes" onchange="mostrarDeporte()">
+                <!-- Cuando cambia el selected de algún option -->
+                <option value="futbol">Fútbol</option>
+                <option value="baloncesto">Baloncesto</option>
+                <option value="golf">Golf</option>
+                <option value="petanca">Petanca</option>
+            </select>
+            <label>Seleccione Deporte</label>
+            <ul>
+                <li><input type="checkbox" value="futbol" name="deportes" />futbol</li>
+                <li><input type="checkbox" value="baloncesto" name="deportes" />baloncesto</li>
+                <li><input type="checkbox" value="golf" name="deportes" />golf</li>
+                <li><input type="checkbox" value="petanca" name="deportes" />petanca</li>
+            </ul>
+            <br />
+            <button type="button" onclick="showSports()">Mostrar deportes seleccionados</button>
+            <output id="out"></output>
+        </form>
+    </fieldset>
+</body>
+</html>

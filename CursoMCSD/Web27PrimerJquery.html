@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <!-- LA PRIMERA LINEA SIEMPRE SERA LA REFENRECIA A JQUERY -->
+    <script src="js/jquery-3.4.1.min.js"></script> <!--//ARRASTRANDO-->
+    <!-- LA SIGUIENTE LINEA SERAN NUESTROS JS PROPIOS, YA SEAN EXTERNOS O EN PAGE -->
+    <script>
+        //CODIGO JS O JQUERY
+        $(document).ready(function () { // 
+            //TODAS LAS INSTRUCCIONES ACESSO A OBJ, ASOCIACIÓN DE EV (Listener)
+            //alert("funciona");
+            //LA CLAVE DE TODO SON LOS SELECTORES
+            $("h1").hide(); //PARA OCULTAR --> HIDE
+            //PODEMOS ASOCIAR EVENTOS
+            //SE REALIZAN CON FUNCIONES ANÓNIMAS SIEMPRE.
+            //AL PULSAR UN H2 OCULTAMOS
+            $("h2").click(function () {
+                //$("#titulos").hide(); //accede al id títulos
+                //LA PALABRA CLAVE THIS HACE REFERENCIA AL OBJ QUE 
+                //HA REALIZADO LA LLAMADA
+                //var js = this;
+                //var jquery = $(this);
+                $(this).fadeOut(); // que se oculte poco a poco. Para cmabiar el tiempo de 
+                // desvanecimiento se le pasa parámetros en milisegundos y también palabras 
+                // reservadas como slow, fast...
+            });
+
+            $(".rojo").mouseover(function () {
+                $(this).fadeOut();
+            });
+        });
+    </script>
+    <style>
+        .rojo {
+        background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="rojo">Primer JQUERY</h1>
+    <div id="titulos">
+        <h2 class="rojo">Primer titulo</h2>
+        <h2>Segundo titulo</h2>
+        <h2>Tercero titulo</h2>
+        <h2 class="rojo">Cuarto titulo</h2>
+    </div>
+    
+</body>
+</html>

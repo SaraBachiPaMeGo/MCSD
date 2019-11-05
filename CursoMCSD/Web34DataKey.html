@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $("#botones").click(function () {
+                for (var i = 0; i <= 5; i++) {
+                    var btn = $("<button>", {
+                        "text": "Sorpresa",
+                        "value": generarNumero(99)
+                    });
+                    $("#container").append(btn);
+                    btn.click(function () {
+                        $("#out").text($(this).val());
+                    });
+                }
+            });
+
+            $("#links").click(function () {
+                //GRACIAS A DATA-KEY PODEMOS ALMACENAR MÚLTIPLES VALORES DENTRO DE CUALQUIER
+                //ETIQUETA HTML. PODEMOS ASOCIAR UN ATRIBUTO DATA-CLAVE CON UN VALOR A CUALQUIER TAG
+                //EN VEZ DE VALUE --> DATA-NOMBRE=KEY PODEMOS TENER MUCHOS DATA-KEY DENTRO DE UNA MISMA ETIQUETA
+                for (var i = 0; i <= 5; i++) {
+                    var link = $("<a>", {
+                        "text": "Sorpresa",
+                        "data-valor": generarNumero(99), //NOS LO CREA COMO TUVIERA VALUE HAY QUE CMABIARLO A DATA
+                        "href": "#"
+                    });
+                    $("#container").append(link);
+                    link.click(function () {
+                        $("#out").text($(this).data("valor"));//RECUPERAMOS LO QUE HEMOS GUARDADO EN DATA
+                    });
+                }
+
+            });
+        });
+
+        function generarNumero(maximo) {
+            var aleat = parseInt(Math.random() * maximo);
+            return aleat; 
+        }
+
+    </script>
+</head>
+<body>
+    <h1>Concepto Data-Key</h1>
+    <h2 style="color:blue" id="out"></h2>
+    <form>
+        <button type="button" id="botones">Crear Botones</button>
+        <button type="button" id="links">Crear Links</button>
+    </form>
+    <div id="container">
+
+    </div>
+</body>
+</html>

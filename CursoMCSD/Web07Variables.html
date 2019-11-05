@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Variables</title>
+    <script type="text/javascript">
+        function usoVariables() {
+            var contenido;
+            contenido = "Soy un texto"; // Es un string por lo que podemos aplicarle métodos de dicho tipo
+            console.log(contenido.toLocaleUpperCase());
+            //Cambia dinámicamente
+            contenido = 22;
+            console.log(10 + contenido);
+            //Puede ser un objeto a la vez
+            contenido = window.location;
+            console.log(contenido.href);
+        }
+    </script>
+</head>
+<body>
+    <button type="button" onclick="usoVariables()">Uso de Variables</button>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Cambio de imágenes</title>
+    <script type="text/javascript">
+        window.onload = function () {
+
+            var aImg = document.getElementsByTagName("img");
+
+            for (var i = 0; i < aImg.length; i++) {
+                var img = aImg[i];
+                
+                img.onmouseover = function () {
+                    //alert(this.src)
+                    this.src = "assets/1.jpg";
+                }
+            }
+        }
+        //no se ven las variables dentro de las funciones si no estan declaradas
+        //No podemos coger variables globales y ponerlas en las funciones de los eventos
+        //Porque no se ejecutan a la misma vez
+        //por eso cogemos el objeto a través de this.
+        //Por esta razon no he podido coger aImg[0], dentro de la función anónima, porque aImg 
+        //se ejecuta nada mas abrir la página, y la imagen cambiará cuando en otro momento se
+        //ejecute la función encargada de hacerlo
+
+    </script>
+</head>
+<body>
+    <h1>Imágenes </h1>
+    <p>En nuestra página tenemos imágenes. Tenemos que usar una función anónima,
+    utilizando listener. Buscar las imágenes en la página y cuando pase por encima de la imagen que cambie la imagen</p>
+    <img src="assets/descarga (playa).jpg" />
+    <!--<img src="assets/descarga (montaña).jpg"/>-->
+    <img src="assets/descarga (sol).jpg" />
+    <!--<img src="assets/descarga (noche).jpg"/>-->
+</body>
+</html>

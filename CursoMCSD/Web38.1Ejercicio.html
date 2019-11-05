@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript">
+        window.onload=function () {
+            var xhttp = new XMLHttpRequest;
+            xhttp.open("GET", "XML/datosempleados.xml");
+            xhttp.onreadystatechange = function () {
+                console.log(this) //datalist
+                if (this.status == 200 && this.readyState == 4) {                    
+                    document.getElementById("out").innerHTML = this.responseXML;
+                    var docXML = this.responseXML;
+                    var nodos = docXML.getElementsByTagName("EMPLEADO");
+                    console.log(nodos);
+                    var inputNombres = document.getElementById("nombres");
+                    var inputOficios = document.getElementById("oficios");
+                    var html = "<datalist id='nombres'>";           //APPENDchil aquí          
+                    for (var i = 0; i < nodos.length; i++) {
+                        var emp = nodos[i];
+                        console.log(emp);
+                        var apellido = emp.childNodes[1].textContent;
+                        //html += "<option>" +  + "<option>";
+                        var opt = document.createElement("option");
+                        opt.value = apellido;
+                        var html2 = "<datalist id='oficios'>";
+                        //if (opt[0].checked) { //AQUÍ NO DEBERÍA IR PORQUE NO VA A SER CUANDO SE CARGUE LA PÁGINA
+                        //    var oficio = emp.childNodes[3].textContent;
+                        //    html2 += "<option>" + oficio + "<option>"; //CREATE ELEMENT 
+                        //}
+                        //SI HUBIERA UN APELLIDO U OFICIO REPETIDO DEBEREMOS COMPARARLOS POR LA POSICIÓN
+                        //sELECTEDiNDEX, ME DEVUELVE LA POSICION DEL OBEJTO SELECCIONADO EN UN DATALSIT NO VALDRÍA, sÓLO COGERIAMOS EL TEXTO
+                        //PARA SABER QUÉ ELEMENTO COINCIDE
+                    }
+                    html += "</datalist>";
+                    inputNombres.innerHTML = html;
+                    inputOficios.innerHTML = html;
+                } else {
+                    console.log("ERROR");
+                    inputNombres.innerHTML = "ERROR";
+                }
+            }            
+            xhttp.send();
+        }
+                        //var oficio = emp.childNodes[3].textContent;//nodeValue;
+                       
+    </script>
+</head>
+<body>
+    <h1>Ejercicio con XML</h1>
+    <p>Desplegable con todos los datos de los empleados.
+    Cuano seleccionemos un nombre, nos enseñará su oficio.</p>
+    <!--<button type="button" onclick="verDatos()">Ver datos</button>-->
+    <div id="out"></div>
+    <input list="nombres"/>
+    <input list="oficios"/>
+</body>
+</html>

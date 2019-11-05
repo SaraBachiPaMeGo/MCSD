@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <!-- Dos obj -> Peli y escena(tocar url con el nombre de la peli) -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/JS52Practica.js"></script>
+    <script src="js/JS52Herencia.js"></script>
+    <script>
+        $(document).ready(function () {            
+            $.get("XML/Peliculas.xml", function (data) { //Llamar al servidor
+                console.log("DATA");
+                    console.log(data);
+                var titulo = $(data).find("Titulo");                
+                titulo.each(function () { //Recorres las películas           
+                    //console.log($(this).prop("titulo"));
+                    console.log($(this).text());
+                    var opt = $("<option>"); //Creas 1 option por cada peli
+                    opt.val($(this).text());//opt.val($(this).prop("titulo")); // En el value añades el título ESTO ES JSON: this.titulo
+                    console.log(titulo);
+                    opt.text($(this).text());
+                        ////$(this).find("")
+                        //console.log(opt.val());
+                    opt.appendTo($("#select"));
+
+                        $("#select").change(function () {                            
+                            for (var i = 0; i < this.length; i++) {                                
+                                var opt = this[i];
+                                if (opt.selected) {
+                                    //console.log("OPT SELECTED");
+                                    //console.log(opt.selected);
+                                    console.log(opt.value);
+                                    $.get("XML/Peliculas.xml", function (data) {     
+                                        var pelis = $(data).find("Pelicula");    
+                                        var html = ("<div>");
+                                        var img = $("<img/>");
+                                        pelis.each(function () {
+                                            var title = $(this).find("Titulo").first().text();
+                                            //console.log("TITLE");
+                                            //console.log($(this).find("Titulo").first().text());
+                                            var obj = new Pelicula();
+                                            //Vamos a recorrer las pelis y vamos a meter las propiedades en los obj
+                                            if (opt.value == title) {
+                                            //    console.log("title");
+                                            //    console.log(title);
+                                            //    console.log("opt.val");
+                                                console.log(opt.value);
+                                                obj.description = $(this).find("Descripcion").first().text();//this.descripcion;
+                                                obj.titulo = opt.value;
+                                                obj.tituloOriginal = $(this).find("TituloOriginal").first().text();
+                                                obj.poster = $(this).find("Poster").first().text();
+                                                console.log(obj);
+                                                html += "<a>Título: " + opt.value + "</a>" + "<p>"
+                                                    +"Description: " + $(this).find("Descripcion").first().text() + "<p\>"
+                                                    + "<p>Título original: " + $(this).find("TituloOriginal").first().text() + "</p>"
+                                                    + "<p>Poster: " + "</p>"
+                                                
+                                                img.attr("src", $(this).find("Poster").first().text())
+                                                console.log(html);
+                                                
+                                                // html.appendTo($("#out"));      
+                                                $("#out").append(html);
+                                                $("#out").append(img);
+                                            }                                                     
+                                        });
+                                        
+                                        
+                                    })
+                                }
+                            }
+
+                        })
+                    });
+                });
+            
+            
+        });
+    </script>
+
+</head>
+<body>
+    <h1>Práctica Películas</h1>
+    <p>
+        Realizar una aplicación (con diseño libre, pero bonito…) dónde
+        Mostraremos las películas de un Servicio Web.
+        Tendremos la funcionalidad (de alguna forma…) de poder mostrar
+        Las escenas de una película determinada.
+        Utilizar POO para la práctica
+    </p>
+    <fieldset>
+        <form>
+            <!--<button type="button" id="botoncargar">
+                Cargar pelis
+            </button>-->
+            <select id="select">
+                <option>Selecciona</option>
+
+            </select>
+        </form>
+    </fieldset>
+    <div id="out"></div>
+</body>
+</html>

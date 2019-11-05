@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#btn").click(function () {
+                var n1 = $("#caja1").val();
+                var n2 = $("#caja2").val();
+                var suma = parseInt(n1) + parseInt(n2);
+                console.log(suma)
+                $("#out").html(suma);
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Acceso de texto de objetos</h1>
+    <form>
+        <label>Numero 1</label>
+        <input type="number" id="caja1" />
+        <br/>
+        <label>Numero 2</label>
+        <input type="number" id="caja2" />
+        <h1 id="out"></h1>
+        <button type="button" id="btn">Calcular</button>
+    </form>
+</body>
+</html>

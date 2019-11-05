@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript">
+        window.alert('Primer js');
+        function mostrarMensaje() {
+            alert('Mensaje en evento')
+            confirm("Desea continuar?")
+        }
+
+        function cambiarUrl(url) {
+            window.location.href = url; // Location= barra de direccion, href= url 
+        }
+
+        function oper(param1, param2) {
+            console.log("Suma " + (param1 + param2)); // Aislamos la operación suma para que nos nos lo concatene y no tome los valores como String
+            console.log("Resta " + (param1 - param2));
+            console.log("División  " + param1 / param2);
+            console.log("Multi " + param1 * param2);
+            console.log("Resto " + param1 % param2);
+        }
+    </script>
+</head>
+<body>
+    <h1>Primer Js</h1>
+    <button type="button" onclick="mostrarMensaje()"> Mostrar mensaje </button>
+    <button type="button" onclick="cambiarUrl('https://www.google.com')"> Ir a otra página </button>
+    <button type="button" onclick="oper(3, 4)">Calcular(3,4)</button>
+</body>
+</html>

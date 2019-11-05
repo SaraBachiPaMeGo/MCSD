@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn").click(function () {
+                $.getJSON("JSON/clientessimples.json", function (data) {
+                    $.each(data.clientes,//Recorrer sólo "clientes"
+                        function (indice,clientes) {
+                            //Nos devolverá el índice, la posición de cada elemento
+                            // y el objeto (clientes)
+                            console.log(data.clientes)
+                            var h2 = $("<h2>", {
+                                "text":
+                                    "posicion: " + indice
+                                    + ", Nombre: " + clientes.nombre
+                                //clientes.nombre es un atributo que está dentro de JSON
+                            });
+                            h2.appendTo("#out");
+                        });
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Leer documento JSON compuesto</h1>
+    <button type="button" id="btn">Ver datos</button>
+    <div id="out"></div>
+
+</body>
+</html>

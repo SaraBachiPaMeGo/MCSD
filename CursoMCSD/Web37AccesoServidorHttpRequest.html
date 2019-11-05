@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript">
+
+        //Tendremos una función para realizar la petición
+        function realizarPeticion() {
+            var xhttp = new XMLHttpRequest();
+            //Asociamos un evento con listener
+            xhttp.addEventListener("load", leerDatos);
+            //Abrimos la peticion indicando el tipo de 
+            //método y la URL
+            xhttp.open("GET", "XML/empleados.xml");
+            //Realizamos la peticion
+            xhttp.send();
+        }
+
+        //Otra función encargada de leer contenido una vez
+        //que la petición sea correcta
+        function leerDatos() {
+            console.log("Hemos accedido");
+            //En la función delegada de lectura viene con 
+            //this el objeto Request
+            //Tenemos dos opciones para leer el contenido:
+            //  1.- .responseText --> Texto plano son formato
+            //  2.- .responseXML --> Texto con formato XML (Objeto)
+            document.getElementById("resultado").innerText = this.responseXML;//.responseText;
+
+        }
+
+        
+    </script>
+</head>
+<body>
+    <h1>Llamadas con XMLHTTPREQUEST</h1>
+    <form>
+        <button type="button" onclick="realizarPeticion()">
+            Leer empleados.xml
+        </button>
+    </form>
+    <div id="resultado"></div>
+</body>
+</html>

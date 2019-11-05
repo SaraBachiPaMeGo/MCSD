@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Validar email</title>
+    <script type="text/javascript">
+
+        function validarEmail() {
+
+            var email = (document.getElementById("email")).value;
+            var out = document.getElementById("out");
+
+            if (!email.startsWith('@') && !email.endsWith('@')) {
+                console.log("Que no empiece ni termine en @")
+                if (email.lastIndexOf(".").length <= 5 && email.lastIndexOf(".").length >= 3) {
+                    console.log("Dominio de 2 a 4 caracteres OK")
+                    if (email.indexOf("@") < email.lastIndexOf(".")) {
+                    console.log("Que haya @ antes que .")
+                         for (var i = email.indexOf('@'); i > email.length; i++) {
+                            console.log("Que solo tenga 1 @")
+                         if (!email.indexOf('@') < 0) {
+                            out.innerHTML = "<p>Email válido </p>"
+                         }
+                        }
+                    }
+                }
+                    
+            } else {
+                out.innerHTML = "<p>Email no válido </p>"
+            }
+
+            //if (email.lastindexof(".").length >= 5 || email.lastindexof(".").length <= 3) {
+            //    console.log("dominio de 2 a 4 caracteres ok")
+            //} else {
+            //    out.innerhtml = "<p>email no válido </p>"
+            //}
+            
+        }
+    </script>
+</head>
+<body>
+    <h1>Validar Email</h1>
+    <ul>
+        <li>Que exista @</li>
+        <li>La @ ni al ppio ni al final </li> 
+        <li>Solamente 1 @</li>
+        <li>Exista un punto</li>
+        <li>Exista un punto después de @</li> 
+        <li>Dominio de 2 a 4 caracteres</li> 
+    </ul>
+    <input type="email" id="email"/>
+    <button type="button" id="btn" onclick="validarEmail()">Validar</button>
+    <output id="out"></output>
+</body>
+</html>
+
+

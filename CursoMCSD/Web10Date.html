@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Date</title>
+    <script type="text/javascript">
+        function calcFecha() {
+            var inputDia = parseInt(document.getElementById("dia").value);
+            var inputMes = parseInt(document.getElementById("mes").value);
+            var inputAño = parseInt(document.getElementById("año").value);
+            var outdia = document.getElementById("outdia");
+            var mes = Math.trunc(((inputMes + 1) * 3) / 5);
+            var año1 = Math.trunc(inputAño / 4);
+            var año2 = Math.trunc(inputAño / 100);
+            var año3 = Math.trunc(inputAño / 400);
+            switch (inputMes) {
+                case 1:
+                    inputMes = 13
+                    inputAño = inputAño - 1
+                    mes = Math.trunc(((inputMes + 1) * 3) / 5);
+                    var resul = (inputDia + (2 * inputMes) + inputAño + mes + año1 - año2 + año3 + 2)
+                    console.log("Datos = ", "(", inputDia, "+", "(2*", inputMes, ")+", inputAño, "+", mes, "+", año1, "-", año2, "+", año3, "+ 2")
+                    console.log("Resul " + resul)
+                    var resul2 = Math.trunc(resul / 7)
+                    console.log("Resul2 " + resul2)
+                    var resul3 = resul - (resul2 * 7)
+                    console.log("Resul3 " + resul3)
+                    switch (resul3) {
+                        case 0:
+                            outdia.innerHTML = "Sábado";
+                            break;
+                        case 1:
+                            outdia.innerHTML = "Domingo";
+                            break;
+                        case 2:
+                            outdia.innerHTML = "Lunes";
+                            break;
+                        case 3:
+                            outdia.innerHTML = "Martes";
+                            break;
+                        case 4:
+                            outdia.innerHTML = "Miércoles";
+                            break;
+                        case 5:
+                            outdia.innerHTML = "Jueves";
+                            break;
+                        case 6:
+                            outdia.innerHTML = "Viernes";
+                            break;
+                    }
+                    console.log(resul3)
+                    break;
+                case 2:
+                    inputMes = 14
+                    inputAño = inputAño - 1
+                    mes = Math.trunc(((inputMes + 1) * 3) / 5);
+                    var resul = (inputDia + (2 * inputMes) + inputAño + mes + año1 - año2 + año3 + 2)
+
+                    console.log("Datos = ", "(", inputDia, "+", "(2*", inputMes, ")+", inputAño, "+", mes, "+", año1, "-", año2, "+", año3, "+ 2")
+                    console.log("Resul " + resul)
+                    var resul2 = Math.trunc(resul / 7)
+                    console.log("Resul2 " + resul2)
+                    var resul3 = resul - (resul2 * 7)
+                    console.log("Resul3 " + resul3)
+                    switch (resul3) {
+                        case 0:
+                            outdia.innerHTML = "Sábado";
+                            break;
+                        case 1:
+                            outdia.innerHTML = "Domingo";
+                            break;
+                        case 2:
+                            outdia.innerHTML = "Lunes";
+                            break;
+                        case 3:
+                            outdia.innerHTML = "Martes";
+                            break;
+                        case 4:
+                            outdia.innerHTML = "Miércoles";
+                            break;
+                        case 5:
+                            outdia.innerHTML = "Jueves";
+                            break;
+                        case 6:
+                            outdia.innerHTML = "Viernes";
+                            break;
+                    }
+                    break;
+                    console.log(resul3)
+                default:
+                    var resul = (inputDia + (2 * inputMes) + inputAño + mes + año1 - año2 + año3 + 2)
+                    console.log("Datos = ", "(", inputDia, "+", "(2*", inputMes, ")+", inputAño, "+", mes, "+", año1, "-", año2, "+", año3, "+ 2")
+                    console.log("Resul " + resul)
+                    var resul2 = Math.trunc(resul / 7)
+                    console.log("Resul2 " + resul2)
+                    var resul3 = resul - (resul2 * 7)
+                    console.log("Resul3 " + resul3)
+                    switch (resul3) {
+                        case 0:
+                            outdia.innerHTML = "Sábado";
+                            break;
+                        case 1:
+                            outdia.innerHTML = "Domingo";
+                            break;
+                        case 2:
+                            outdia.innerHTML = "Lunes";
+                            break;
+                        case 3:
+                            outdia.innerHTML = "Martes";
+                            break;
+                        case 4:
+                            outdia.innerHTML = "Miércoles";
+                            break;
+                        case 5:
+                            outdia.innerHTML = "Jueves";
+                            break;
+                        case 6:
+                            outdia.innerHTML = "Viernes";
+                            break;
+                    }
+                    console.log(resul3)
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>CALCULAR DIA DE NACIMIENTO DE LA SEMANA </h1>
+    <p>
+        Pedir una fecha al usuario para calcular el día de la semana que nació. Tenemos que tener la tabla de días de la
+        semana para la correspondencia comenzando en sábado:
+    </p>
+    <p>
+        Debemos pedir el día, el número de mes y el año que el usuario haya nacido.
+
+        A partir de esto datos hay que calcular lo siguiente para averiguar el día de la semana de nacimiento:
+
+        Ejemplo: 15/06/1997
+
+        Hay que tener en cuenta el mes para realizar el cálculo, si el mes es Enero, el Mes será 13 y restaremos uno al
+        año.
+
+        Si el Mes es Febrero, el Mes será 14 y restaremos uno al año.
+    </p>
+    <label name="fecha">Introduce tu fecha de nacimiento</label>
+    <input id="dia" placeholder="dia" />
+    <input id="mes" placeholder="mes" />
+    <input id="año" placeholder="año" />
+    <button type="button" onclick="calcFecha()">Mostrar día de la semana</button>
+    <output id="outdia"></output>
+</body>
+
+</html>

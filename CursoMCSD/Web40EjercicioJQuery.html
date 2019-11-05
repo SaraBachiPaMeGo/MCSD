@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        table {
+            margin: 2rem;
+        }
+        tr th {
+            background-color: lightgray;
+            text-align: center;
+            padding: 0.5rem;
+        }
+        tr td:nth-of-type(even) {
+            background-color: lightpink;
+            text-align: center;
+            padding:0.5rem;
+        }
+        tr td:nth-of-type(odd) {
+            background-color: lightcyan;
+            text-align: center;
+            padding: 0.5rem;
+        }
+    </style>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            console.log("dentro 1");
+            $("#btn").click(function () {
+                console.log("dentro 2");
+                $.get("XML/HOSPITAL_ATRIBUTOS.xml", function (data) {//URL+FUNCION -- parámetro response --> data
+                    var hospitales = $(data).find("HOSPITAL");
+                    console.log(hospitales);                    
+                    hospitales.each(function () {
+                        var tr = $("<tr>");
+                        var hospi = $(this).attr("NOMBRE");
+                        tr += "<tr><td>" + hospi + "</td>";
+                        var direc = $(this).attr("DIRECCION");
+                        tr += "<td>" + direc + "</td></tr>";
+                        tr += $("</tr>");
+                        $("#table").append(tr);
+                    })                    
+                }
+                ) 
+            });
+        });
+    </script>
+</head>
+<body>
+    <p>Tabla que esté abajo dibujada y dibujar los objetos con $(tr) y jugar con append o appendTo</p>
+    <button type="button" id="btn">Ver datos</button>
+    <table >
+        <tbody id="table">
+            <tr>
+                <th>Hospital</th>
+                <th>Dirección</th>
+            </tr>
+            
+        </tbody>
+    </table>
+</body>
+</html>

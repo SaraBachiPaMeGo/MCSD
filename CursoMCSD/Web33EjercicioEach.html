@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $("#btn-iniciar").click(function () {
+                $("input").each(function () {
+                    var num = parseInt(Math.random() * 10)
+                    $(this).val(num);
+                    console.log(this.value);
+                });
+            });
+
+            $("#btn-calcular").on("click", function () {  
+                var resul = 0;
+                $("input").each(function () {
+                    resul += parseInt($(this).val());                    
+                });
+                $("#out").html(resul);
+                console.log(resul);
+            });
+
+            $("input").blur(function () {//CUANDO PIERDE EL FOCO DE CADA CAJA. 
+                //NO NECESARIAMENTE TIENE QUE TENER UN MOUSEOVER
+                //SINO TAMBIÉN CON EL TABULADOR
+                //MICROSOFT
+                console.log("dentro");
+                var colores = ["pink", "blue", "green", "yellow"];
+                $("input").each(function () {
+                    var num = parseInt(Math.random() * 10)
+                    $(this).val(num);
+                    console.log(this.value);
+                    var color = parseInt(Math.random() * colores.length);
+                    $(this).css("color", colores[color]);
+                });
+
+            });
+           
+        });
+
+    </script>
+</head>
+<body>
+    <h1>Ejercicio con each</h1>
+    <p>
+        Realizar una aplicación dónde sumaremos el contenido de varias cajas de texto. 
+    </p>
+    <p>
+        Las cajas estarán dibujadas dentro del código HTML.
+    </p>
+    <p>
+        Al pulsar sobre iniciar, generaremos números aleatorios sobre las cajas.
+    </p>
+    <p>
+        Al pulsar sobre Sumar, sumaremos el valor de todas las cajas.
+    </p>
+    <p>
+        Al perder el foco de cada caja, cambiaremos el número (value) de las cajas y le asignaremos un color random.
+    </p>
+    <input />
+    <input />
+    <input />
+    <input />
+    <button type="button" id="btn-iniciar">Inicio</button>
+    <button type="button" id="btn-calcular">Calcular</button>
+    <output id="out"></output>
+
+</body>
+</html>

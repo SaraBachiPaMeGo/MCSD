@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Web Worker</title>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn").click(function () {
+                var num = $("#cajanumero").val();
+                //CREAMOS EL WORKER CON LA PETICIÓN AL CÓDIGO JS
+                var worker = new Worker("js/JS54WorkerSimple.js");
+                //TENDREMOS UN EVENTO message DONDE CAPTURAMOS LA 
+                //RESPUESTA DEL WORKER(LO QUE TARDE...)
+                worker.addEventListener("message", function (e) {
+                    //DENTRO DE e.data, TENDREMOS LA RESPUESTA DEL
+                    //WORKER EN ALGÚN MOMENTO...
+                    $("#out").text(e.data);
+                });
+                //INICIAMOS LA PETICIÓN AL WORKER ENVIANDO LOS
+                //PARÁMETROS NECESARIOS PARA SU FUNCIONAMIENTO
+                //(SÓLO ARRAY,STRING O JSON)
+                worker.postMessage(num); 
+            });
+            $("#btn-worker").click(function () {
+                //var worker = new Worker();
+                for (var i = 1; i <=30 ; i++) {
+                    getNarcisista(i);
+                }          
+            });
+
+            $("#btnMensaje").click(function () {
+                alert("Mensaje desde la página");
+            })
+
+            function getNarcisista(proceso) {
+                for (var z = 0; z < 1000000; z++) {
+                    var num = z.toString();
+                //alert(num);
+                var longitud = num.length;
+                    var suma = 0;
+                    //console.log(z);
+                //RECORREMOS TODA LA LONGITUD DE LA CADENA
+                for (var i = 0; i < longitud; i++) {
+                    //CAPTURAMOS CADA DÍGITO INDIVIDUAL
+                    var digito = num.charAt(i);
+                    //console.log("Digito");
+                    //console.log(digito);
+                    //ELEVAMOS CADA DÍGITO A LA POTENCIA
+                    //DE LA LONGITUD
+                    var potencia = Math.pow(digito, longitud);
+                    //SUMAMOS CADA POTENCIA
+                    suma += potencia;
+                    //console.log(suma);
+                }
+                    if (suma == num) {
+                        var div = $("<div>");
+                        div.text("Proceso: "+ proceso + "-- El número "+num +" sí es narcisista");
+                        $("#out").append(div);
+                } 
+                }
+            }
+
+            $("#btnWorker").click(function () {
+                for (var i = 1; i <= 30; i++) {
+                    var worker = new Worker("js/JS54WorkerCompuesto.js");
+                    worker.addEventListener("message", function (e) {
+                        //CAPTURAMOS LA RESPUESTA (JSON)
+                        var idproceso = e.data.idproceso;
+                        var mensaje = e.data.mensaje;
+                        var p = $("<p>");
+                        p.text("Proceso: " + idproceso + ", Mensaje: " + mensaje);
+                        $("#out").append(p);
+                    });
+                    //ENVIAMOS EL CÓDIGO DEL PROCESO
+                    worker.postMessage(i);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Web Worker</h1>
+    <p>Un número narcisista es aquel cuya suma de la longitud de sus dígitos elevada a la potencia, devuelve el mismo número.</p>
+    <p>371 -->Longitud: 3</p>
+    <p>Elevar la potencia de cada dígito a su longitud</p>
+    <p>
+        Si la suma de todas las potencias ofrece 371 entonces es narcisista.
+    </p>
+    <fieldset>
+        <form>
+            <label>Número:</label>
+            <input type="text" id="cajanumero" />
+            <button type="button" id="btn">Comprobar número narcisista</button>
+            <br />
+            <button type="button" id="btn-worker">Narcisista sin worker</button>
+            <button type="button" id="btnWorker">Narcisista con worker</button>
+            <button type="button" id="btnMensaje">Mostrar mensaje</button>
+        </form>
+        <div id="out"></div>
+    </fieldset>
+</body>
+</html>

@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            //    $("#btnEdit").show();
+            $("#btn").click(function () {
+                var texto = $("#titulo").val()//CAPTURAMOS LA CAJA
+                // var h1 = $("h1");DE ESTA MANERA COGERÍAMOS LA ETIQUETA YA CREADA
+                //var h1 = $("<h1>");//CREAMOS LA ETIQUETA
+                //h1.text(texto);
+                //h1.css("color", "blue");
+                //h1.css("background-color:", "yellow");
+
+                //PADRE-->HIJO
+                //$("#padre").append(h1);LO AÑADIMOS AL PADRE
+
+                //con objetos creados dinámicamente no puede haber eventos excepto
+                //si le añadimos un onclick
+                //TAMBIÉN PODEMOS AÑADIR EL OBJETO CON APPENDTO
+
+                //PODEMOS CREAR OBJETOS CON INICIO DE PROPIEDADES
+                //CON JSON
+                //SI LAS PROPIEDADES SON RECONOCIBLES(value,text), PODEMOS SALTAR
+                //LAS COMILLAS
+                //LAS NO RECONOCIBLES: el nombre que le quieras dar a la propiedad
+                var h1 = $("<h1>", {
+                    "text": texto, // PODRÍA IR SIN COMILLAS PORQUE ES UNA PROPIEDAD RECONOCIBLE
+                    "style": "color:blue;",
+                });
+                //crear sobre objetos dinámicos
+
+                //HIJO-->PADRE
+                h1.appendTo($("#padre"));
+
+                //NO ENTRARÍAN EN PROCESOS DE EVENTOS LOS NUEVOS OBJ DINÁMICOS
+
+                //1.- Sintaxis Jquery
+
+                //h1.click(function () {
+                //    $(this).text("cambiando...");
+                //});
+
+                //2.- Sintaxis Jquery antigua
+
+                //h1.on("click",(function () {
+                //    $(this).text("cambiando...");
+                //}));
+
+                //
+
+            });
+
+        });
+
+
+       
+    </script>
+    <style>
+        h1 { color:fuchsia;}
+    </style>
+</head>
+<body>
+    <!--<button id="btnEdit" style="visibility:hidden">Edit
+    </button>-->
+    <!-- En el caso de style = "display: none" y depués hacer la función .show() se verá. En este caso, con visi
+        bility hidden no se aplica el .show()-->
+    <h1>Generar controles Jquery</h1>
+    <form>
+        <label>Título:</label>        
+        <input type="text" id="titulo"/>
+        <button type="button" id="btn">Crear título</button>
+    </form>
+    <div id="padre"></div>
+</body>
+</html>

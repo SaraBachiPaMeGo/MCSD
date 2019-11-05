@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Ejercicio 3 cajas</title>
+    <script type="text/javascript">
+        function op() {
+            
+            var n1 = parseInt(document.getElementById("n1").value); 
+            var n2 = parseInt(document.getElementById("n2").value);
+            var n3 = parseInt(document.getElementById("n3").value);
+            var out = document.getElementById("out");
+
+            if (n1 > n2 && n2 > n3) {
+                out.innerHTML = `${n1} mayor,${n2} intermedio, ${n3} peque  `;
+                console.log(`${n1} mayor,${n2} intermedio, ${n3} peque  `);
+            } else if (n2 > n1 && n1 > n3) {;
+                out.innerHTML = `${n2} mayor,${n1} intermedio, ${n3} peque  `;
+                console.log(`${n2} mayor,${n1} intermedio, ${n3} peque  `);
+            } else if (n3 > n1 && n1 > n2) {
+                out.innerHTML = `${n3} mayor,${n1} intermedio, ${n2} peque  `;
+                console.log(`${n3} mayor,${n1} intermedio, ${n2} peque  `);
+            } else if (n3 > n2 && n2 > n1) {
+                    out.innerHTML = `${n3} mayor,${n2} intermedio, ${n1} peque  `;
+                console.log(`${n3} mayor ${n2} intermedio, ${n1} peque  `);
+            } else if (n1 > n3 && n3 > n2) {
+                out.innerHTML = `${n1} mayor,${n3} intermedio, ${n2} peque  `;
+                console.log(`${n1} mayor,${n3} intermedio, ${n2} peque  `);
+            } else if (n2 > n3 && n3 > n1) {
+                out.innerHTML = `${n2} mayor,${n3} intermedio, ${n1} peque  `;
+                console.log(`${n2} mayor,${n3} intermedio, ${n1} peque  `);
+            }else {
+                out.innerHTML = "Todos los número son iguales";
+            }
+            //Math.Max(n1,n2.n3)
+        }
+    </script>
+</head>
+<body>
+    <h1>Ejercicio 3 cajas</h1>
+    <p>
+        Realizar una aplicación en la que pediremos al usuario tres números. Debemos mostrar por pantalla (h1) lo siguiente:
+        <ul>
+            <li>Mayor</li>
+            <li>Menor</li>
+            <li>Intermedio</li>
+        </ul>
+    </p>
+    <input id="n1" />
+    <input id="n2" />
+    <input id="n3" />
+    <button type="button" id="btn" onclick="op()">Calcular</button>
+    <output id="out"></output>
+</body>
+</html>

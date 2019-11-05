@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $("#btn-guardar").click(function () {
+                //RECUPERAMOS EL VALOR SELECCIONADO
+                //DEL STORAGE
+                var valor = $("input[name='storage']:checked").val();
+                var marca = $("#cajamarca").val();
+                var modelo = $("#cajamodelo").val();
+                if (valor == 0) {
+                    //Local
+                    localStorage.setItem("MARCA", marca);
+                    localStorage.setItem("MODELO", modelo);
+                    $("#out").text("Datos almacenador en LOCAL ")
+                } else {
+                    //session
+                    sessionStorage.setItem("MARCA", marca);
+                    sessionStorage.setItem("MODELO", modelo);
+                    $("#out").text("Datos almacenador en session");
+
+                }
+            });
+
+            $("#btn-leer").click(function () {
+                var valor = $("input[name='storage']:checked").val();
+                var marca = "";
+                var modelo = "";
+                if (valor == 0) {
+                    marca = localStorage.getItem("MARCA");
+                    modelo = localStorage.getItem("MODELO");
+                } else {
+                    marca = sessionStorage.getItem("MARCA");
+                    modelo = sessionStorage.getItem("MODELO");
+                }
+                $("#out").text("Marca: " + marca + ",Modelo: " + modelo);
+            });
+
+            $("#btn-delete").click(function () {
+                var valor = $("input[name='storage']:checked").val();
+                //localStorage.removeItem("MARCA");
+                if (valor == 0) {
+                    localStorage.clear();
+                } else {
+                    sessionStorage.clear();
+                }
+                $("#out").text("Datos eliminados");
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Almacenar información: Storage</h1>
+    <p>Almacenar en sesión y en local </p>
+    <fieldset>
+        <form>
+            <label>Marca</label>
+            <input type="text" id="cajamarca" />
+            <label>Modelo</label>
+            <input type="text" id="cajamodelo" />
+            <ul>
+                <li><input type="radio" name="storage" value="0" />LocalStorage</li>
+                <li><input type="radio" name="storage" value="1" />SessionStorage</li>
+            </ul>
+
+            <hr />
+            <button type="button" id="btn-guardar">Guardar datos</button>
+            <button type="button" id="btn-leer">Leer</button>
+            <button type="button" id="btn-delete">Borrar</button>
+        </form>
+    </fieldset>
+    <div id="out"></div>
+
+    <div style="display:flex; height:300px;background-color:red">
+        <div style="height:100px;background-color:yellow; margin:auto">
+            Yellow div text
+        </div>
+    </div>
+</body>
+</html>

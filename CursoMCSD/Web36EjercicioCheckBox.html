@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn1").click(function () {
+                console.log("dentro btn 1")
+                if ($("input").attr("style", "visibility:hidden") || $("label").attr("style", "visibility:hidden")) {
+                    $("input").attr("style", "visibility:visible");
+                    $("label").attr("style", "visibility:visible");
+                    var num = parseInt(Math.random() * 10) 
+                    $("input").val(num);
+                    $("label").text($("input").val());
+                    console.log("valor del input" + $("input").val());
+                }
+            });
+
+            $("#btn2").click(function () {
+                console.log("dentro btn 2")
+                var newCheck = $("<input/>");
+                var newLabel = $("<label>");
+
+                newCheck.attr("type", "checkbox");
+
+                var num = parseInt(Math.random() * 10);
+                newCheck.val(num);
+                newLabel.text(newCheck.val());
+
+                newCheck.appendTo($("#parent"));
+                $("#parent").append(newCheck);
+                newLabel.appendTo($("#parent"));
+                $("#parent").append(newLabel);
+                //console.log("PROP" + newCheck.prop("checked"));  
+
+                newCheck.on("click", function () {
+                    //LA SUMA SIEMPRE SERA 0
+                    //RESULT DEBERA SER EL VALOR ANTERIOR (</div>)
+                    var result = $("#out").val();//NO TIENE VALUE, SOLO LOS OBJETOS DE FORMULARIO COMO INPUT, SELECT...
+                    console.log("dentro del click del check");    
+                    if ($(this).prop("checked") == true) { //CUANDO LOS ATRIBUTOS ESTAN SIN VALOR COM CHECKED -->> IS(":") ó PROP("");
+                        result += parseInt($(this).val());
+                        //$("#out").val("Resultado: " + parseInt(result));
+                        //$("#out").html("Resultado: " + parseInt(result));
+                        console.log("dentro if");
+                        console.log(result);
+                        console.log($("#out").val());
+                    } else {
+                        result -= parseInt($(this).val());
+                        $("#out").val("Resultado: " + result);
+                    }                    
+                });                
+                //TIENE QUE SUMAR TAMBIÉN LOS CHECKBOX QUE ESTÁN CREADOS
+            });         
+        });
+
+
+    </script>
+</head>
+<body>
+    <h1>Ejercico check Box</h1>
+    <p>Crear la práctica de dos formas:</p>
+
+    <ul>
+        <li>Que los Checkbox sean estáticos, es decir, que ya estén en la página y accedemos a ellos.</li>
+        <li>Que los checkbox se generen al pulsar el botón.</li>
+        <li>Sumaremos o restaremos el valor del checkbox, tal y cómo hemos visto en prácticas anteriores con JS.</li>
+    </ul>
+    <p> Recomendación:  Mirar :checked </p>
+    <label style="visibility:hidden"></label>
+    <input type="checkbox" style="visibility:hidden" />
+    <label style="visibility:hidden"></label>
+    <input type="checkbox" style="visibility:hidden" />
+    <button type="button" id="btn1">Ver ChecksBox ocultos </button>
+    <button type="button" id="btn2">Crear más ChecksBox</button>
+    <div id="parent"></div>
+    <output id="out">0</output>
+
+</body>
+</html>

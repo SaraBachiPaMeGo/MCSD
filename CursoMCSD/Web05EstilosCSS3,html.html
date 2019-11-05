@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        /*a[href$="es"] {
+            background-color:aqua;
+        }*/
+        /*a[href^="www"] {
+            background-color: pink;
+        }*/
+        a[href*="go"] {
+            background-color: orange;
+        }
+
+        /*h1 + h2 {
+            background-color: aqua;
+        }*/
+
+        h1 ~ h2 {
+            background-color: pink;
+        }
+
+        div > h2 {
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="www.google.es"> Google</a></li>
+        <li><a href="www.microsoft.es">Microsoft</a></li>
+        <li><a href="www.amazon.es">Amazon</a></li>
+    </ul>
+    <h1>H1</h1>
+
+    <h2>H2 detrás de h1</h2>
+    <h2>2 H2</h2>
+    <h2>3 H2 </h2>
+
+    <p>Párrafo</p>
+
+    <div>
+        <h2>h2 dentro de un div</h2>
+        <h2>2 h2 dentro de un div</h2>
+    </div>
+
+    <div>
+        <h1>h1 dentro de div</h1>
+        <h2>h2 dentro de un div después de h1</h2>
+
+    </div>
+    <div>
+        <h2>h2 dentro de un div</h2>
+        <div>
+            <h2>div h2 dentro de un div</h2>
+        </div>
+        <span>
+            <h2>Div p h2. No es hijo directo (?)</h2>
+        </span>
+    </div>
+
+    <h2>último h2</h2>
+    <section>
+        <style>
+
+            tr:nth-child(odd) {
+                background-color: red
+            }
+
+            tr td:nth-child(even) {
+                background-color: blue
+            }
+        </style>
+        <table>
+            <tr>
+                <th>fru</th>
+                <th>qua</th>
+                <th>pri</th>
+            </tr>
+            <tr>
+                <td>app</td>
+                <td>48</td>
+                <td>0.29</td>
+            </tr>
+            <tr>
+                <td>ban</td>
+                <td>48</td>
+                <td>0.29</td>
+            </tr>
+
+            <tr>
+                <td>wat</td>
+                <td>48</td>
+                <td>0.29</td>
+            </tr>
+        </table>
+    </section>
+</body>
+</html>

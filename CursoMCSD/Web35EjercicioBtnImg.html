@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#range").change(function () {
+                //var img = "";
+                //var btn = "";
+                var parent = $("#parent"); //Cojo el padre
+                for (var i = 0; i < $(this).val(); i++) {
+                    console.log(this.value)
+                    var img = $("<img>"); //Creo la etiqueta
+                    var btn = $("<button>");
+                    btn.text("Imagen " + i);
+                    btn.data("id", i); //data.id= i
+                    img.data("id", i);//EL DATA SE PUEDE REPETIR
+                    //tengo que guardar el número del id data para luego decirle a la imagen que quiero la imagen x
+                    //También puedo crear dentro de los objetos btn e img una propiedad no reglada
+                    // "posicion": i;
+                    //btn.value = "Valor";
+                    //btn.val("Valor");
+
+                    btn.on("click", function () { //Posicion del btn con la posicion de la img
+                        //var imagen = $("img").data("id");
+                        //imagen.src = "assets/descarga (sol).jpg";
+                        console.log("dentro del click"); //hacer un each para comparar todas las img y dentro un if
+                        if ($("img").data("id") == $(this).data("id")) {
+                            var codigo2 = img.attr("src", "assets/descarga (sol).jpg");
+                           
+                        }
+                    });
+                    
+                    var codigo = img.attr("src", "assets/descarga (noche).jpg");
+                    //codigo = ;
+                   // img.attr("style") = "border: 2px solid black";
+                    parent.append(btn); //LO METO DENTRO PARA QUE A LA VEZ QUE SE CREEN SE RENDERICE
+                    parent.append(img);
+                    //img.appendTo(parent);
+                    console.log("Imagen " + img); //Existe pero no se renderiza
+                }
+                
+            })
+
+        });
+
+    </script>
+</head>
+<body>
+    <h1>Ejercicio Botones con imágenes</h1>
+    <p> Mediante un control range crearemos controles button e img a la par.</p>
+    <p> Todas las imágenes serán iguales al ser creadas.</p>
+    <p> Cuando pulsemos sobre un botón, cambiaremos la imagen asociada por otra.</p>
+    <input type="range" max="8" min="0" step="1" id="range" />
+    <div id="parent"></div>
+</body>
+</html>

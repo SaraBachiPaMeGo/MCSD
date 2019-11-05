@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Calcular ISBN</title>
+    <script type="text/javascript">
+        function validar() {
+            var out = document.getElementById("out")
+            var isbn = document.getElementById("isbn").value
+
+            var suma = 0;
+          
+            if (isbn.length == 10) {
+                for (var i = 0; i < isbn.length; i++) {
+                    var n = parseInt(isbn[i])
+                    n *= i + 1;
+                    suma += n;
+                    console.log("Suma " + suma)
+                    console.log("n" + n)
+                }
+                if (suma % 11 == 0) {
+                    out.innerHTML = "El número ISBN es correcto.";
+                }
+            } else {
+                out.innerHTML = "El número ISBN es incorrecto.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Calcular ISBN</h1>
+    <p>
+        EJEMPLO DE NUMERO ISBN QUE ESTÁ BIEN:
+        8441513929</p>
+      <p>  1.- Se descompone la cadena y se multiplica cada número por la posición que ocupa en la cadena:
+
+        8 * 1
+
+        4 * 2
+
+        4 * 3
+
+        1 * 4
+
+        5 * 5
+
+    </p>
+       <p> 2.- La suma de todas estas multiplicaciones se divide entre 11, y si el resto es cero, el número ISBN es correcto.
+        INTRODUZCA EL NUMERO ISBN A VALIDAR (10 CIFRAS)
+
+        1234567891
+
+        LA LONGITUD DE CARACTERES ES 10
+
+        COMPROBANDO ISBN 1234567891
+
+        NUMERO ISBN 1234567891 NO CORRECTO
+        FIN DE PROGRAMA
+
+    </p>
+    <form>
+        <label name="isbn">
+            <input id="isbn" />
+        </label>
+        <button type="button" onclick="validar()">Validar</button>
+        <output id="out"></output>
+    </form>
+    
+</body>
+</html>

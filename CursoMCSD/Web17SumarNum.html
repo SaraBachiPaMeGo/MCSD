@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Sumar números</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            var obj = document.getElementById("btn-accion");
+            obj.addEventListener("click", mostrarMensaje)
+        }
+
+        //window.onload = asociarEvento;
+
+        function sumar() {
+            var aNum = document.getElementById("num").value;
+            var out = document.getElementById("out");
+            var html =""
+
+            console.log("dentro función");
+
+            var n2 = 0;
+
+            for (var i = 0; i < aNum.length; i++) {
+                var n = parseInt(aNum[i]);                
+                n2 += n;
+                
+                console.log(n2);
+            }
+            out.innerHTML = html += "La suma de los números es: " + n2;
+            out.innerHTML = html += "La media de los números es: " + n2 / aNum.length;
+
+        }
+
+        function ver() {
+            var num = document.getElementById("num2").value
+            var sol = document.getElementById("sol")
+
+            if (num === 75) {
+                sol.innerHTML = "num ===75"
+            //} /*else if (num == 75) {*/
+                sol.innerHTML = "num ==75"
+            } else if (num != 75) {
+                sol.innerHTML = "num!=75"
+            } else if (num=="75") {
+                sol.innerHTML = "num=='75'"
+            }
+        }
+
+        var button = document.getElementById("About");
+        //ScriptEngine.call(button, About()) --> NO
+        //ScriptEngine.bind(button, About()) --> NO
+        //button.addEventListener("click", About)
+        button.attachEvent("onclick", About)
+        function About() {
+        alert("Hola")}
+
+    </script>
+</head>
+<body>
+    <h1>Suma de números</h1>
+    <fieldset>
+        <form>
+            <label>Introduce los números</label>
+            <input id="num" />
+            <button id="btn" type="button" onclick="sumar()"> Sumar</button>
+            <output id="out"></output>
+
+        </form>
+    </fieldset>
+    <fieldset>
+        <label>meter "75" y comparar</label>
+        <input id="num2" />
+        <button id="btn" type="button" onclick="ver()"> ver</button>
+        <output id="sol"></output>
+    </fieldset>
+    <fieldset>
+        <form>
+            <input type="button" id="About" value="About"/>
+        </form>
+    </fieldset>
+</body>
+</html>

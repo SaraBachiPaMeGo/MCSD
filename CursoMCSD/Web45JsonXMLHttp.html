@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript">
+        function realizarPeticion() {
+            var xhr = new XMLHttpRequest;
+            xhr.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) { //Para hacer un else necesitarías hacer un load
+                    //NECESITAMOS TODOS EL TEXTO PLANO DE LA PETICION
+                    //JSON
+                    var texto = this.responseText; //Tiene que tener la estructura de json
+                    //Sino no lo ve aunque sea XML
+                    //DEBEMOS CONVERTIR EL TEXTO EN UN OBJ JSON
+                    //UTILIZAMOS EL MÉTODO JSON.parse
+                    //QUE DEVUELVE UN OBJTO
+                    var json = JSON.parse(texto);
+                    leerDatosJson(json);
+                }
+            }
+            xhr.open("GET", "JSON/clientessimples.json",true); // PARA QUE SEA ASÍNCRONO O NO  --> BOOLEANO
+            xhr.send();
+        }
+
+        function leerDatosJson(data) {
+            for (var i = 0; i < data.clientes.length; i++) {
+                var cliente = data.clientes[i]; // Cliente es un objeto 
+                var h2 = document.createElement("h2");
+                h2.innerHTML = cliente.nombre;
+                document.getElementById("out").appendChild(h2);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Json con HTTPRquest</h1>
+    <button id="btn" type="button" onclick="realizarPeticion()">
+        Leer datos
+    </button>
+    <div id="out"></div>
+</body>
+</html>

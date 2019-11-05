@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript">
+        window.onload = function () {
+            //Llamar al servidor para 
+            //Crear options y añadirlos al padre
+            //Cada jugador en un opt --> FOR o EACH
+            var xhr = new XMLHttpRequest;
+            xhr.addEventListener("load", function () { //IGUAL QUE .onreadystatechange
+                var texto = this.responseText;
+                var json = JSON.parse(texto);
+                console.log(json);
+                verDatos(json);
+            });
+            xhr.open("GET","JSON/jugadores.json");
+            xhr.send();
+        }
+
+        function verDatos(data) {
+            for (var i = 0; i < data.jugadores.length; i++) {
+                var opt = document.createElement("option");
+                var obj = data.jugadores[i];
+                //obj.nombre --> Nombre de cada jugador
+                opt.value = obj.nombre;
+                opt.text = obj.nombre;
+                console.log(opt)
+                document.getElementById("selecto").appendChild(opt);
+            }
+        }        
+
+        function renderData() {
+            console.log("dentro")
+            var select = document.getElementById("selecto");
+
+            //RECORRER TODOS LOS OPT Y ENCONTRAR SU VAL 
+            console.log(select.options.length);
+            for (var i = 0; i < select.options.length; i++) {
+                var option = select.options[i];
+                //console.log(option.selected);               
+                if (option.selected) {       
+                    var optNombre = option.value;
+                    //console.log(option.value);
+                    var http = new XMLHttpRequest;
+                    http.onreadystatechange = function () {
+                        if (this.status == 200 && this.readyState == 4) {
+                            //Enseñar info
+                            var texto = this.responseText;
+                            var json = JSON.parse(texto);
+                            // renderData(json);
+                            //Comparar optVal con el nombre del jugador
+                            for (var i = 0; i < json.jugadores.length; i++) {
+                                var obj = json.jugadores[i];                            
+                                if (optNombre == obj.nombre) {
+                                    console.log(obj.nombre);
+                                    var img = document.createElement("img");
+                                    img.setAttribute("src", obj.imagen);
+                                    document.getElementById("out").innerHTML = "Nombre: " +
+                                        obj.nombre + "<br/>" + "Número: " + obj.numero + "<br/>"
+                                        + "Posición: " + obj.posicion + "<br/>";
+                                    document.getElementById("out").appendChild(img);
+                                    //console.log(obj.imagen);
+                                }
+                            }
+                        }
+                    }
+                    http.open("GET", "JSON/jugadores.json");
+                    http.send();  
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <h1>Ejercicio select con jugadores</h1>
+    <fieldset>
+        <form>
+            <select id="selecto" onchange="renderData()">
+                <option>Selecciona jugador</option>
+            </select>
+        </form>
+    </fieldset>
+    <div id="out"></div>
+</body>
+</html>

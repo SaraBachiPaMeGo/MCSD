@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Acceso a DOM</title>
+    <style>
+        img {
+        
+        width: 250px;
+        height: 150px;
+        }
+    </style>
+    <script type="text/javascript">
+        function sumarNumeros() {
+            //Seleccionar elementos del DOM
+
+            var valor1 = document.getElementById("valor1");
+            var valor2 = document.getElementById("valor2");
+            var sol = document.getElementById("sol");
+
+            var v1 = valor1.value;
+            var v2 = valor2.value;
+            v1 = parseInt(v1);
+            v2 = parseInt(v2);
+            console.log(v1 + v2);
+            var resul= v1+v2
+            //Objetos HTML que incluyen texto: hx, span, div, p...
+            //Para acceder al contenido o modificarlo: 
+            /**
+             objeto.innerHTM : Escribe contenido y ofrece formato HTML
+             objeto.innerText: Escribe texto plano sin formato
+             Las dos hacen lo mismo, pero uno puede ser contenido interpretado y el otro no.
+             */
+            //sol.innerText = resul
+            sol.innerHTML = resul;
+        }
+
+        function entrarImagen() {
+            var img = document.getElementById("img1");
+            img.src = "assets/iStock-944453634-750x450.jpg"
+        }
+
+        function salirImagen() {
+            var img = document.getElementById("img1");
+            img.src = "assets/foto.jpg"
+        }
+    </script>
+</head> 
+<body>
+    <h1>Acesso de objetos DOM</h1>
+    <img id="img1" src="assets/foto.jpg" onmouseover="entrarImagen()" onmouseout="salirImagen()"/>
+    <!-- onmouseover para cuando poner el ratón encima y el otro para te vas -->
+    <fieldset>
+        <legend>
+            Acceso a Dom
+        </legend>
+        <label name="valor1">Valor 1</label>
+        <input id="valor1" />
+        <label name="valor2">Valor 2</label>
+        <input id="valor2" />
+        <button type="button" onclick="sumarNumeros()" id="button">Calcular</button>
+        <label name="sol">Solución</label>
+        <output id="sol"></output>
+    </fieldset>
+    
+    
+</body>
+</html>

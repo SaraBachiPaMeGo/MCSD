@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn-email").click(function () {
+                //OBJETO
+                var exp = new RegExp("^[A - Za - z0 - 9]+@{ 1 }[a - z]{5}[.a - z]{ 2, 4 } $ "); //CAMBIAR. ESTA MAL QUITAR 
+                //^[A - Za - z0 - 9]+(@){ 1 }[a - z]{5}[.a - z]{ 2, 4 } $ 
+                // No valida si empieza o acaba con / / SE PONEN DOS (SI ESTA ASÍ \d TAMPOCO A SI QUE \\d)
+                if (exp.test($("#email").val())) {
+                    $("#out").html("Email validado!");
+                } else {
+                    $("#out").html("Email NO validado!")
+                }
+                
+            })
+            $("#btn-cod").click(function () {
+                //LITERAL
+                var exp = /^[0-9]{5}$/;
+                var resp = exp.test($("#cod").val());
+                $("#out").html(resp.toString().toUpperCase());//.toUpperCase()
+                console.log(resp.toString());
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Expresiones regulares</h1>
+    <fieldset>
+        <legend>VALIDACION CON REGEXP</legend>
+        <form>
+            <label>Email</label>
+            <input type="text" id="email" />
+            <button type="button" id="btn-email">Validar</button>
+            <label>Código postal</label>
+            <input type="text" id="cod" />
+            <button type="button" id="btn-cod">Validar</button>
+        </form>
+        <div id="out"></div>
+    </fieldset>
+</body>
+</html>

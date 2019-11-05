@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript">
+        function añadir() {
+            var valorRango = parseInt(document.getElementById("rango").value);
+            var parent = document.getElementById("parent");
+            var out = document.getElementById("out");
+            var resul = parseInt(0);
+            out.innerHTML = "";
+            for (var i = 0; i < valorRango; i++) {
+                var check = document.createElement("input"); //CREAMOS EN CADA VUELTA UN input
+                var label = document.createElement("label");
+                console.log(check + " dentro");
+                check.type = "checkbox";
+                var num = Math.random() * 10;
+                check.value = Math.trunc(num); //Metemos el valor en una propiedad del objeto
+                label.innerHTML = check.value;
+                //LIMPIAMOS EL CONTENIDO DEL DIV
+                //out.innerHTML = "";
+
+                check.addEventListener("click", function () { //CHECKED CON UN IF
+                    var isCheck = this.checked;
+                    if (isCheck) {
+                        resul += parseInt(this.value);
+                        out.innerHTML = resul;
+                        //console.log("Sumatorio " + resul + parseInt(this.value));
+                        console.log("Resul checked"+resul);
+                        console.log(this.value);
+                    } else {
+                        resul -= parseInt(this.value);
+                        out.innerHTML = resul;
+                        //console.log("Sumatorio " + resul - parseInt(this.value));
+                        console.log(resul);
+                    }
+                })
+
+                console.log(parseInt(check.value));
+                parent.appendChild(check);
+                parent.appendChild(label);
+
+            }
+        }
+    </script>
+</head>
+<body>
+    <p>A través de un rango, crearemos checkbox con números aletorios.</p>
+    <p>
+        Cada checkbox que seleccionemos sumará y si deseleccionamos restará.
+    </p>
+    <p>
+        El valor apareerá en un output valor:
+    </p>
+    <form>
+        <label name="">Elementos</label>
+        <input type="range" min="0" max="8" step="1" value="0" onchange="añadir()" id="rango"/>
+        <output id="out"></output>
+    </form>
+    <div id="parent"></div>
+</body>
+</html>

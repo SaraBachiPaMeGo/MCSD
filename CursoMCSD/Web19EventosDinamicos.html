@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Eventos dinámicos</title>
+    <script type="text/javascript">
+
+        var out = document.getElementById("out")
+        //Vamos a ir asociando evento a evento cada vez que pulsemos
+        //Necesitaremos saber cuántas veces realiza la acción para diferenciar 
+        //accion de listener
+        var contador = 0;
+
+        function asociarEventos() {
+            //Increementamos el contador para ver el num de veces que ha sido pulsado
+            contador++;
+            //Buscamos el resultado para dibujar el num
+            var resul = document.getElementById("out")
+            resul.innerHTML = "Has asociado " + contador + " veces";
+            //Onclick
+            var btnAsociar = document.getElementById("btn-accion");
+            //btnAsociar.onclick = mostrarMensaje;
+            //No se pone () cuando se llama con onclick
+            
+            //No hace pila de llamadas (no hace 50 alert cuando hacemos 50 click)
+            //btnAsociar.onclick = mostrarMensaje2; 
+            //En el caso de asignar dos funciones a un mismo botón,
+            // Hará sólo la última función. SÓLO CON FUNCIONES EXTERNAS
+
+            //Asociar onclick con funciones anónimas
+            //btnAsociar.onclick = function () {
+            //    alert("function anónima") //
+            //}
+
+            //btnAsociar.onclick = function () {
+            //    alert("function anónima 2") //Hace lo mismo que la de arriba
+            //}
+
+            //Asociar eventos con listener
+            //btnAsociar.addEventListener("click", mostrarMensaje)
+
+            ///Asociamos otra acción más
+            //btnAsociar.addEventListener("click", mostrarMensaje2)
+            //Salen los dos mensajes, uno detrás de otro (Tiene pila de llamadas cuando asocicamos distintas FUNCIONES EXTERNAS)
+
+            //Asociando con funciones anónimas
+            btnAsociar.addEventListener("click", function () {
+                alert("función anónima " + this); //Objeto asociado a la funcion = THIS
+            });
+            //Tantas veces asociemos, veremos el mensaje (Tienen pila de llamadas)
+            //Al no tener nombre, las toma como individuales
+            //Siempre realiza la acción n veces
+        }
+
+        function mostrarMensaje() {
+            alert("Mensaje");
+        }
+
+        function mostrarMensaje2(boton) {
+            alert("Otro Mensaje"+boton);
+        }
+
+    </script>
+</head>
+<body>
+    <h1>Eventos Dinámicos</h1>
+    <form>
+        <button type="button" onclick="asociarEventos()">Asociar eventos</button>
+        <button type="button" id="btn-accion">Realizar acciones</button>
+        <output id="out"></output>
+    </form>
+</body>
+</html>

@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#btnhospi").click(function () {
+                var codigo = $("#hospi").val();
+                var filtro = "HOSPITAL[HOSPITAL_COD=" + codigo + "]";
+                $.get("XML/HOSPITAL_ATRIBUTOS.xml", function(data) {
+                    var hospitales = $(data).find(filtro);
+                    if (hospitales.length == 0) {
+                        $("#out").html("<output>Sin resultados</output>");
+                    } else {
+                        var hosp = hospitales.first();
+                        var dir = hosp.attr("DIRECCION");
+                        $("#out").html("<output>" + dir + "</output>");
+                    }
+                });
+            });
+
+            $("#btnape").click(function () {
+                var ape = $("#ape").val();
+                var filtro = $("APELLIDO:contains(" + ape + ")"); //En el caso de que apellido tuviera espacios
+                //Se dejaría espacios entre (  )
+                $.get("XML/empleados.xml", function (data) {
+                    var empleados = $(data).find(filtro);
+                    var html = "";
+                    empleados.each(function () {
+                        var texto ?$(this).text();
+                        html += "<h1>" + texto "</h1>";
+                    });
+                    $("#out").html(html);
+                    //if (empleados.length == 0) {
+                    //    $("#out").html("<output>Sin resultados</output>");
+                    //} else {
+                    //    var hosp = hospitales.first();
+                    //    var dir = hosp.attr("DIRECCION");
+                    //    $("#out").html("<output>" + dir + "</output>");
+                    //}
+                })
+
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Búsqueda de datos</h1>
+    <fieldset>
+        <legend>Formulario</legend>
+        <form>
+            <label for="ape">Introduzca apellido:</label>
+            <input id="ape" name="ape" />
+            <button type="button" id="btnape">Buscar empleados</button>
+            <hr/>
+            <label>Introduzca código de hospital:</label>
+            <input type="text" id="hospi"/>
+            <button type="button" id="btnhospi">Buscar Hospital</button>
+        </form>
+        <div id="out"></div>
+        
+    </fieldset>
+</body>
+</html>

@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/JS52Corrección1.js"></script>
+    <script src="js/JS52Correción3.js"></script>
+    <script src="js/JS52Correción3.js"></script>
+    <script src="js/Prueba.js"></script>
+    <script>
+        var accion = new AccionPeliculas();
+        $(document).ready(function () {
+            var html = accion.cargarPeliculas();
+            $("#menupelis").html(html);
+        });
+
+        function detallesPelicula(link) {
+            var posicion = $(link).data("posicion");
+            var peli = accion.getPelicula(posicion);
+            var html = "<h2>" + peli.titulo + "</h2>";
+            html += "<h2>" + peli.tituloOriginal + "</h2>";
+            html += "<img src='" + peli.poster + "'"
+                + " onclick='detallesEscenas(\""
+                + peli.titulo + "\")'"
+                + "/>";
+            $("#detallepelicula").html(html);
+        }
+
+        function detallesEscenas(titulo) {
+            var arrayescenas = accion.buscarEscenas(titulo);
+            for (var i = 0; i < arrayescenas.length; i++) {
+                //esc HACE REFERENCIA A UN OBJETO DENTRO
+                //DEL ARRAY
+                var esc = arrayescenas[i];
+            }
+            //BUCLE DE REFERENCIA CON INDICE
+            for (var indice in arrayescenas) {
+                //arrayescenas[indice]
+                console.log("Indice:" + indice);
+            }
+            //BUCLE DE REFERENCIA CON OBJETO
+            var html = "";
+            for (var esc of arrayescenas) {
+                html += "<p>" + esc.descripcion
+                    + "</p>";
+                html += "<img src='" + esc.imagen + "'/>";
+            }
+            $("#escenas").html(html);
+        }
+
+    </script>
+    <style>
+        img {
+            width: 100px;
+            height: 130px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Práctica Objetos y Json Películas</h1>
+    <div id="menupelis"></div>
+    <div id="detallepelicula"></div>
+    <div id="escenas"></div>
+</body>
+</html>

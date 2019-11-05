@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Manejadores de eventos</title>
+    <script type="text/javascript">
+        window.onload = function () {
+
+            var aBtn = document.getElementsByTagName("button");
+
+            for (var i = 0; i < aBtn.length; i++) {
+                var btn = aBtn[i];
+                btn.addEventListener("click", function () {
+                    var resul = document.getElementById("out").innerText
+
+                   // var out = document.getElementById("out");
+                    alert("Boton " + this.value);
+                    resul += parseInt(this.value);//Se supone que al poner el innerHTML en resul te lo va a renderizar no? pero por otro lado quizás solo coja el valor
+                    //resul.innerHTML = resul
+                })
+            }
+        }
+
+        //var resul = 0
+        //function sumar() {
+        //    var out = document.getElementById("out");
+        //    resul += parseInt(this.value);
+        //   out.innerHTML= resul
+        //}
+    </script>
+</head>
+<body>
+    <h1>Manejadores de eventos</h1>
+    <p>Sumar el valor de los botones</p>
+    <button type="button" value="51">51</button>
+    <button type="button" value="2">2</button>
+    <button type="button" value="20">20</button>
+    <button type="button" value="4">4</button>
+    <output id="out">0</output>
+</body>
+</html>

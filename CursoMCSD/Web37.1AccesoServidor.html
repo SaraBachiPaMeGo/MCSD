@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function peticion() {
+            var xhttp = new XMLHttpRequest;
+            //Se puede asociar el evento con on...
+            // en este caso, el evento no es load
+            //es readystatechanged con la misma teoría
+            // de lectura anterior
+            //xhttp.onreadystatechange = function () { }
+            xhttp.addEventListener("load", leerDatos);
+            xhttp.open("GET", "XML/empleados.xml");
+            xhttp.send();
+        }
+
+        function leerDatos() {
+            console.log("Leyendo datos");
+            document.getElementById("contenedor").innerHTML = this.responseXML//responseText;
+            //Tenemos opciones para saber si el acceso
+            // al servicio ha sido correcto o no
+            //dichas opciones vienen como propiedades
+            console.log(this.readyState); // 4 la peticion ha sido correcta. 
+            //corresponde al 200
+            console.log(this.status); //Estado de la peticion : 200
+            if (this.status == 200 && this.readyState == 4) {
+                console.log("Peticion correcta");
+                //.responseXML devuelve un objeto XML que podemos manejar como el DOM de HTML
+                var docXml = this.responseXML;
+                var nodosApellidos = docXml.getElementsByTagName("APELLIDO");
+                var html = "<ul>";
+                //Tenemos un conjunto de etiquetas
+                for (var i = 0; i < nodosApellidos.length; i++) {
+                    console.log("dentro")
+                    //Recuperamos cada nodo individual
+                    var apellido = nodosApellidos[i];
+                    //El nodo apellido tiene un hijo text que es un ChildNode(JIMENEZ)
+                    //esto tendríamos guardado : <APELLIDO>JIMENEZ</APELLIDO>
+                    //Cada etiqueta trata a los elementos como hijos,
+                    //Aunque sea text. Jimenez es un hijo text, no un value
+                    //Tenemos un array que es childNodes[] que tiene todos los
+                    //hijos de un nodo
+                    //para recuperar el valor se utiliza la propiedad nodeValue;
+                    var ape = apellido.childNodes[0].nodeValue; //accede al hijo y dame el valor
+                    //.nodeValue; Te devuelve un String
+                    //.textContent coge todo el contenido como childNodes[0]
+                    html += "<li>" + ape + "</li>";
+                }
+                console.log(html);
+                html += "</ul>";
+                document.getElementById("contenedor").innerHTML = html;
+            } else {
+                console.log("Peticion incorrecta");
+            }
+        }
+
+    </script>
+
+</head>
+<body>
+    <h1>Mismo ejercicio</h1>
+    <button type="button" onclick="peticion()">Ver datos</button>
+    <div id="contenedor"></div>
+
+</body>
+</html>

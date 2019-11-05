@@ -1,0 +1,65 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        input:nth-of-type(odd) {
+            background-color:bisque;
+        }
+        input:nth-of-type(even) {
+            background-color: aqua;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+
+            var aInputs = document.getElementsByTagName("input");
+            //var btn = document.getElementById("btn");   
+            console.log(aInputs.length);
+            for (var i = 0; i < aInputs.length; i++) {
+                
+                //CREAR UNA VARIABLE DONDE ALMACENAMOS LA CAJA
+                var input = aInputs[i];
+                //GENERAMOS UN NUMERO ALEATORIO
+                var num = Math.random() * 10;
+                //ASIGNAR EL VALOR A CADA CAJA
+                //input.value = "aaa";
+                //CAMBIAMOS EL VALOR DE LA CAJA CON UN RANDOM
+                input.value = Math.trunc(num);
+                //aInputs[i].value = Math.random() * 10;
+                //var input = Math.random(aInputs[i].value) * 10;
+                //input.innerHTML = input.value//= Math.random(input.value)*10
+            }
+
+            //btn.addEventListener("click", sumar)
+        }
+
+        function sumar() {
+            console.log("dentro");
+            var aInputs = document.getElementsByTagName("input");
+            var out = document.getElementById("out")
+            var result = 0;
+            for (var i = 0; i < aInputs.length; i++) {
+                var n = parseInt(aInputs[i].value);
+                result += n
+                out.innerHTML = result
+                console.log(result);
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <h1>Numeros aleatorios</h1>
+    <p>Hay 5 cajas de input. Debemos de meter números aleatorios y cuando se pulse el botón, sumar todos.
+    Si seleccionamos odd cogemos las casillas pares de x color, even los impares</p>
+    <input />
+    <input />
+    <input />
+    <input />
+    <button type="button" onclick="sumar()" id="btn">Sumar</button>
+    <output id="out"></output>
+</body>
+</html>
