@@ -21,7 +21,8 @@ namespace Fundamentos
         {
             //Random random = new Random();
             //int aleatorio = random.Next(NUMERO INICIAL, NUMERO FINAL);
-
+            //Antes de generar limpio la lista
+            this.listNum.Items.Clear();
             Random random = new Random();
             int num = 0;
             for (int i = 1; i <= 30; i++) {

@@ -94,6 +94,138 @@
     <Compile Include="Form08ClaseChar.Designer.cs">
       <DependentUpon>Form08ClaseChar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form09ValidarEmail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form09ValidarEmail.Designer.cs">
+      <DependentUpon>Form09ValidarEmail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form10ISBN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form10ISBN.Designer.cs">
+      <DependentUpon>Form10ISBN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form11Reverse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form11Reverse.Designer.cs">
+      <DependentUpon>Form11Reverse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form12Abstraccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form12Abstraccion.Designer.cs">
+      <DependentUpon>Form12Abstraccion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form13ColeccionGrafica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form13ColeccionGrafica.Designer.cs">
+      <DependentUpon>Form13ColeccionGrafica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form14ListBoxMulti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form14ListBoxMulti.Designer.cs">
+      <DependentUpon>Form14ListBoxMulti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form15PracticaNum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form15PracticaNum.Designer.cs">
+      <DependentUpon>Form15PracticaNum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form16Tienda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form16Tienda.Designer.cs">
+      <DependentUpon>Form16Tienda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form17MetodoReferencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form17MetodoReferencia.Designer.cs">
+      <DependentUpon>Form17MetodoReferencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form18MetodosEvento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form18MetodosEvento.Designer.cs">
+      <DependentUpon>Form18MetodosEvento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form19ColeccionesNOgraficas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form19ColeccionesNOgraficas.Designer.cs">
+      <DependentUpon>Form19ColeccionesNOgraficas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form20EventosDinámicos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form20EventosDinámicos.Designer.cs">
+      <DependentUpon>Form20EventosDinámicos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form21AsociarEventos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form21AsociarEventos.Designer.cs">
+      <DependentUpon>Form21AsociarEventos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form22SumarNum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form22SumarNum.Designer.cs">
+      <DependentUpon>Form22SumarNum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form23tablaMulti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form23tablaMulti.Designer.cs">
+      <DependentUpon>Form23tablaMulti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form24Temperatura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form24Temperatura.Designer.cs">
+      <DependentUpon>Form24Temperatura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form25Calc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form25Calc.Designer.cs">
+      <DependentUpon>Form25Calc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form26ControlesEnEjecuccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form26ControlesEnEjecuccion.Designer.cs">
+      <DependentUpon>Form26ControlesEnEjecuccion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form26NumDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form26NumDialog.Designer.cs">
+      <DependentUpon>Form26NumDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form27Primitiva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form27Primitiva.Designer.cs">
+      <DependentUpon>Form27Primitiva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form28Clases.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form28Clases.Designer.cs">
+      <DependentUpon>Form28Clases.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form29Meses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form29Meses.Designer.cs">
+      <DependentUpon>Form29Meses.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form02TiposDatos.resx">
@@ -120,6 +252,72 @@
     <EmbeddedResource Include="Form08ClaseChar.resx">
       <DependentUpon>Form08ClaseChar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form09ValidarEmail.resx">
+      <DependentUpon>Form09ValidarEmail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form10ISBN.resx">
+      <DependentUpon>Form10ISBN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form11Reverse.resx">
+      <DependentUpon>Form11Reverse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form12Abstraccion.resx">
+      <DependentUpon>Form12Abstraccion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form13ColeccionGrafica.resx">
+      <DependentUpon>Form13ColeccionGrafica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form14ListBoxMulti.resx">
+      <DependentUpon>Form14ListBoxMulti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form15PracticaNum.resx">
+      <DependentUpon>Form15PracticaNum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form16Tienda.resx">
+      <DependentUpon>Form16Tienda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form17MetodoReferencia.resx">
+      <DependentUpon>Form17MetodoReferencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form18MetodosEvento.resx">
+      <DependentUpon>Form18MetodosEvento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form19ColeccionesNOgraficas.resx">
+      <DependentUpon>Form19ColeccionesNOgraficas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form20EventosDinámicos.resx">
+      <DependentUpon>Form20EventosDinámicos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form21AsociarEventos.resx">
+      <DependentUpon>Form21AsociarEventos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form22SumarNum.resx">
+      <DependentUpon>Form22SumarNum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form23tablaMulti.resx">
+      <DependentUpon>Form23tablaMulti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form24Temperatura.resx">
+      <DependentUpon>Form24Temperatura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form25Calc.resx">
+      <DependentUpon>Form25Calc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form26ControlesEnEjecuccion.resx">
+      <DependentUpon>Form26ControlesEnEjecuccion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form26NumDialog.resx">
+      <DependentUpon>Form26NumDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form27Primitiva.resx">
+      <DependentUpon>Form27Primitiva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form28Clases.resx">
+      <DependentUpon>Form28Clases.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form29Meses.resx">
+      <DependentUpon>Form29Meses.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -141,6 +339,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProyectoClases\ProyectoClases.csproj">
+      <Project>{ad0fdc56-767f-4acc-9318-f1f230767526}</Project>
+      <Name>ProyectoClases</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

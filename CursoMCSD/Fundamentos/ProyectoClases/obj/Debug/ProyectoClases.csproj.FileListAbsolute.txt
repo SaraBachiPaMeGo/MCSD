@@ -1,0 +1,5 @@
+C:\Users\AlumnoMCSD\Documents\CursoMCSD\Fundamentos\ProyectoClases\bin\Debug\ProyectoClases.dll
+C:\Users\AlumnoMCSD\Documents\CursoMCSD\Fundamentos\ProyectoClases\bin\Debug\ProyectoClases.pdb
+C:\Users\AlumnoMCSD\Documents\CursoMCSD\Fundamentos\ProyectoClases\obj\Debug\ProyectoClases.csprojAssemblyReference.cache
+C:\Users\AlumnoMCSD\Documents\CursoMCSD\Fundamentos\ProyectoClases\obj\Debug\ProyectoClases.dll
+C:\Users\AlumnoMCSD\Documents\CursoMCSD\Fundamentos\ProyectoClases\obj\Debug\ProyectoClases.pdb

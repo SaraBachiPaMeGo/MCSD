@@ -23,18 +23,20 @@ namespace Fundamentos
             int posY = 0;
             int posX = 0;
             //Random alea = new Random();
-            for (int i = 1; i <= 20; i++) {
+            for (int i = 1; i <= 20; i++)
+            {
                 Button btn = new Button();
-                btn.Size = new Size(40,40);
-                btn.Location = new Point(posX,posY);
+                btn.Size = new Size(40, 40);
+                btn.Location = new Point(posX, posY);
                 //int num = alea.Next(1, 20);                
                 btn.Text = i.ToString();
-                this.aBtn.Add(btn);
+                //this.aBtn.Add(btn);
                 this.panelNum.Controls.Add(btn);
                 btn.Click += Btn_Click;
-               // posY += 40;
+                // posY += 40;
                 posX += 40;
-                if (i% 4 ==0 ) {
+                if (i % 4 == 0)
+                {
                     posY += 40;
                     posX = 0;
                 }
@@ -43,50 +45,99 @@ namespace Fundamentos
 
         private void Btn_Click(object sender, EventArgs e)
         {
-            
-           String num = ((Button)sender).Text;
-            if (this.lstNumSelect.Items.Count != 6 && this.aBtn.Count != 6)
+            this.aBtn.Add(((Button)sender));
+            String num = ((Button)sender).Text;
+            if (this.lstNumSelect.Items.Count != 7 && this.aBtn.Count != 7)
             {
                 this.lstNumSelect.Items.Add(num);
                 ((Button)sender).BackColor = Color.Yellow;
             }
-            else {
+            else
+            {
                 MessageBox.Show("No se pueden elegir más de 6 números", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }            
+            }
         }
 
         private void btnSortear_Click(object sender, EventArgs e)
         {
-           // List<int> premio = new List<int>();
-            Random alea = new Random();
-            List<int> num=new List<int>();
-            for (int i = 1; i <= 6; i++)
             {
-                int numer = alea.Next(1, 20);
-                num.Add(numer);
-                this.label2.Text = "";
-                foreach (int number in num)
+                // List<int> premio = new List<int>();
+                //List<int> num = new List<int>();            
+                //for (int i = 1; i <= 6; i++)
+                //{
+                //    int number = alea.Next(1, 20);
+                //    comprobarNum = number;
+                //    //if (comprobarNum == number) {
+                //    //    number = alea.Next(1, 20);
+                //    //}
+                //    num.Add(number);
+                //    //this.label2.Text = "";
+
+                //    foreach (int numer in num)
+                //    {
+                //        if (comprobarNum == numer)
+                //        {
+                //            number = alea.Next(1, 20);
+                //        }
+                //        this.label2.Text += "\n" + numer.ToString();
+                //    }
+                //}
+                //List<int> premio = new List<int>();
+            }
+            int num = 0;
+            int comprobarNum = 0;
+            Random alea = new Random();
+            List<int> listaNum = new List<int>();
+            do
+            {
+                for (int i = 1; i <= 7; i++)
                 {
-                this.label2.Text +="\n"+ numer.ToString();
+                    num = alea.Next(1, 20);
+                    comprobarNum = num;
+                    listaNum.Add(num);
+                    //// this.label2.Text += "\n" + num.ToString();
                 }
-                    
-            }  
-                
-            foreach (Button obj in this.aBtn) {
+            } while (comprobarNum != num); //Tendría que hacer hasta que sea 6
+
+
+            foreach (Button obj in this.aBtn)
+            {
                 int valorBoton = int.Parse(obj.Text);
-                foreach (int number in num) { 
-                    if (valorBoton == number) {
+
+                foreach (string number in this.lstNumSelect.Items)
+                {
+                    this.label2.Text += "\n" + valorBoton.ToString() + "    " + number.ToString();
+                    if (valorBoton == int.Parse(number))
+                    {
+                        obj.Text = number;
                         obj.BackColor = Color.LightGreen;
-                        //this.lstNumSelect.Contains(num);
+                        //this.lstnumselect.contains(num);
                     }
                     else /*if (!obj)*/
                     {
-                        obj.BackColor = Color.Red;
+                        obj.BackColor = Color.Yellow;
                     }
                 }
-                
+            }
+
+            foreach (Button otrosBtn in this.panelNum.Controls)
+            {
+                int valorBoton = int.Parse(((Button)otrosBtn).Text);
+                this.label2.Text += "\n" + valorBoton.ToString();
+                foreach (String otro in this.lstNumSelect.Items)
+                {
+                    if (valorBoton == int.Parse(otro))
+                    {
+                        otrosBtn.BackColor = Color.LightGreen;
+                        //this.lstnumselect.contains(num);
+                    }
+                    else /*if (!obj)*/
+                    {
+                        otrosBtn.BackColor = Color.Red;
+                    }
+                }
             }
         }
-        
+
     }
-}
+} 
