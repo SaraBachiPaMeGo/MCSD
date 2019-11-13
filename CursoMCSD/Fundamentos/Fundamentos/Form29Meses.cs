@@ -53,6 +53,9 @@ namespace Fundamentos
             this.txtMax.Text =(obj.Maximo).ToString();
             this.txtMin.Text =(obj.Minimo).ToString();
             this.txtMedia.Text = (obj.CalcularMedia(obj.Maximo,obj.Minimo)).ToString();
+            //Sería repetitivo en calcularmedia porque no debería de recirbir parámetros,
+            //ya que el objeto que recogemos ya lo tiene, deberíamos coger en la clase di-
+            //rectamente 
         }
     }
 }

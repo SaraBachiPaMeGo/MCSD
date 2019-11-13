@@ -83,6 +83,7 @@
             this.lstNumSelect.ItemHeight = 20;
             this.lstNumSelect.Location = new System.Drawing.Point(482, 69);
             this.lstNumSelect.Name = "lstNumSelect";
+            this.lstNumSelect.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lstNumSelect.Size = new System.Drawing.Size(182, 244);
             this.lstNumSelect.TabIndex = 4;
             // 

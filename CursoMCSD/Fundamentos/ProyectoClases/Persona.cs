@@ -19,7 +19,23 @@ namespace ProyectoClases
     #endregion
     public class Persona
     {
-       // public Persona(string nombre) { 
+        #region CONSTRUCTORES
+        public Persona() {
+
+            this.Nombre = "Paula";
+            this.Apellido = "Garcia";
+            this.Edad = 29;
+            this.Nacionalidad = Paises.Alemania;
+        }
+
+        //public Persona(int numero) {
+        //    this.Nombre = "PARAMETROS";
+        //    this.Apellido = "PARAMETROS";
+        //}
+
+        #endregion
+
+        // public Persona(string nombre) { 
         //Obligación de crear una persona
         //sí o sí con nombre
         // }
