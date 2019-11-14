@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfProducto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Producto>
+    <Nombre>erert</Nombre>
+    <Precio>1</Precio>
+  </Producto>
+  <Producto>
+    <Nombre>tertr</Nombre>
+    <Precio>2</Precio>
+  </Producto>
+  <Producto>
+    <Nombre>yuijkh</Nombre>
+    <Precio>3</Precio>
+  </Producto>
+  <Producto>
+    <Nombre>uiotuty</Nombre>
+    <Precio>4</Precio>
+  </Producto>
+</ArrayOfProducto>

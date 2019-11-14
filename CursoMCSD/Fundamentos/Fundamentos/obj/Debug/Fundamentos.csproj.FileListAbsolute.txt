@@ -39,3 +39,8 @@ C:\Users\AlumnoMCSD\Documents\CursoMCSD\Fundamentos\Fundamentos\bin\Debug\Proyec
 C:\Users\AlumnoMCSD\Documents\CursoMCSD\Fundamentos\Fundamentos\obj\Debug\Fundamentos.Form28Clases.resources
 C:\Users\AlumnoMCSD\Documents\CursoMCSD\Fundamentos\Fundamentos\obj\Debug\Fundamentos.csproj.CopyComplete
 C:\Users\AlumnoMCSD\Documents\CursoMCSD\Fundamentos\Fundamentos\obj\Debug\Fundamentos.Form29Meses.resources
+C:\Users\AlumnoMCSD\Documents\CursoMCSD\Fundamentos\Fundamentos\obj\Debug\Fundamentos.Form30LeerFicheros.resources
+C:\Users\AlumnoMCSD\Documents\CursoMCSD\Fundamentos\Fundamentos\obj\Debug\Fundamentos.Form31ObjetoFichero.resources
+C:\Users\AlumnoMCSD\Documents\CursoMCSD\Fundamentos\Fundamentos\obj\Debug\Fundamentos.Form32SerializacionProducto.resources
+C:\Users\AlumnoMCSD\Documents\CursoMCSD\Fundamentos\Fundamentos\obj\Debug\Fundamentos.Form33SerializarProductoS.resources
+C:\Users\AlumnoMCSD\Documents\CursoMCSD\Fundamentos\Fundamentos\obj\Debug\Fundamentos.Form34EjercicioCoches.resources

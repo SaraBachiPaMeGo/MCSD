@@ -16,7 +16,7 @@ namespace Fundamentos
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form29Meses());
+            Application.Run(new Form34EjercicioCoches());
         }
     }
 }

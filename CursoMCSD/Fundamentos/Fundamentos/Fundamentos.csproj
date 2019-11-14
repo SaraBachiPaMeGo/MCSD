@@ -226,6 +226,36 @@
     <Compile Include="Form29Meses.Designer.cs">
       <DependentUpon>Form29Meses.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form30LeerFicheros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form30LeerFicheros.Designer.cs">
+      <DependentUpon>Form30LeerFicheros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form31ObjetoFichero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form31ObjetoFichero.Designer.cs">
+      <DependentUpon>Form31ObjetoFichero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form32SerializacionProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form32SerializacionProducto.Designer.cs">
+      <DependentUpon>Form32SerializacionProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form33SerializarProductoS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form33SerializarProductoS.Designer.cs">
+      <DependentUpon>Form33SerializarProductoS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form34EjercicioCoches.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form34EjercicioCoches.Designer.cs">
+      <DependentUpon>Form34EjercicioCoches.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form02TiposDatos.resx">
@@ -317,6 +347,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form29Meses.resx">
       <DependentUpon>Form29Meses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form30LeerFicheros.resx">
+      <DependentUpon>Form30LeerFicheros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form31ObjetoFichero.resx">
+      <DependentUpon>Form31ObjetoFichero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form32SerializacionProducto.resx">
+      <DependentUpon>Form32SerializacionProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form33SerializarProductoS.resx">
+      <DependentUpon>Form33SerializarProductoS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form34EjercicioCoches.resx">
+      <DependentUpon>Form34EjercicioCoches.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
