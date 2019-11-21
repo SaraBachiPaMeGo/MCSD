@@ -1,0 +1,15 @@
+C:\Users\AlumnoMCSD\source\repos\ProyectoAdo\ProyectoAdo\bin\Debug\ProyectoAdo.exe.config
+C:\Users\AlumnoMCSD\source\repos\ProyectoAdo\ProyectoAdo\bin\Debug\ProyectoAdo.exe
+C:\Users\AlumnoMCSD\source\repos\ProyectoAdo\ProyectoAdo\bin\Debug\ProyectoAdo.pdb
+C:\Users\AlumnoMCSD\source\repos\ProyectoAdo\ProyectoAdo\obj\Debug\ProyectoAdo.csprojAssemblyReference.cache
+C:\Users\AlumnoMCSD\source\repos\ProyectoAdo\ProyectoAdo\obj\Debug\ProyectoAdo.Form01PrimerConectado.resources
+C:\Users\AlumnoMCSD\source\repos\ProyectoAdo\ProyectoAdo\obj\Debug\ProyectoAdo.Properties.Resources.resources
+C:\Users\AlumnoMCSD\source\repos\ProyectoAdo\ProyectoAdo\obj\Debug\ProyectoAdo.csproj.GenerateResource.cache
+C:\Users\AlumnoMCSD\source\repos\ProyectoAdo\ProyectoAdo\obj\Debug\ProyectoAdo.exe
+C:\Users\AlumnoMCSD\source\repos\ProyectoAdo\ProyectoAdo\obj\Debug\ProyectoAdo.pdb
+C:\Users\AlumnoMCSD\source\repos\ProyectoAdo\ProyectoAdo\obj\Debug\ProyectoAdo.Form02BuscarEmpleado.resources
+C:\Users\AlumnoMCSD\source\repos\ProyectoAdo\ProyectoAdo\obj\Debug\ProyectoAdo.Form03EliminarEnfermo.resources
+C:\Users\AlumnoMCSD\source\repos\ProyectoAdo\ProyectoAdo\obj\Debug\ProyectoAdo.Form04ModificarSalas.resources
+C:\Users\AlumnoMCSD\source\repos\ProyectoAdo\ProyectoAdo\obj\Debug\ProyectoAdo.Form05Apellidos.resources
+C:\Users\AlumnoMCSD\source\repos\ProyectoAdo\ProyectoAdo\obj\Debug\ProyectoAdo.Form06EliminarEnfParam.resources
+C:\Users\AlumnoMCSD\source\repos\ProyectoAdo\ProyectoAdo\obj\Debug\ProyectoAdo.Form07MensajesServidor.resources
