@@ -13,3 +13,4 @@ C:\Users\AlumnoMCSD\source\repos\ProyectoAdo\ProyectoAdo\obj\Debug\ProyectoAdo.F
 C:\Users\AlumnoMCSD\source\repos\ProyectoAdo\ProyectoAdo\obj\Debug\ProyectoAdo.Form05Apellidos.resources
 C:\Users\AlumnoMCSD\source\repos\ProyectoAdo\ProyectoAdo\obj\Debug\ProyectoAdo.Form06EliminarEnfParam.resources
 C:\Users\AlumnoMCSD\source\repos\ProyectoAdo\ProyectoAdo\obj\Debug\ProyectoAdo.Form07MensajesServidor.resources
+C:\Users\AlumnoMCSD\source\repos\ProyectoAdo\ProyectoAdo\obj\Debug\ProyectoAdo.Form08ModificarEmpTriggers.resources
