@@ -14,3 +14,6 @@ C:\Users\AlumnoMCSD\source\repos\ProyectoAdo\ProyectoAdo\obj\Debug\ProyectoAdo.F
 C:\Users\AlumnoMCSD\source\repos\ProyectoAdo\ProyectoAdo\obj\Debug\ProyectoAdo.Form06EliminarEnfParam.resources
 C:\Users\AlumnoMCSD\source\repos\ProyectoAdo\ProyectoAdo\obj\Debug\ProyectoAdo.Form07MensajesServidor.resources
 C:\Users\AlumnoMCSD\source\repos\ProyectoAdo\ProyectoAdo\obj\Debug\ProyectoAdo.Form08ModificarEmpTriggers.resources
+C:\Users\AlumnoMCSD\source\repos\ProyectoAdo\ProyectoAdo\obj\Debug\ProyectoAdo.Form09ParametrosSalida.resources
+C:\Users\AlumnoMCSD\source\repos\ProyectoAdo\ProyectoAdo\obj\Debug\ProyectoAdo.Form10MaestroDetalle.resources
+C:\Users\AlumnoMCSD\source\repos\ProyectoAdo\ProyectoAdo\obj\Debug\ProyectoAdo.Form11EjercPlantillaChecbox.resources

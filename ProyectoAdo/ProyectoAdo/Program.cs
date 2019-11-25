@@ -16,7 +16,7 @@ namespace ProyectoAdo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form08ModificarEmpTriggers());
+            Application.Run(new Form11EjercPlantillaChecbox());
         }
     }
 }
