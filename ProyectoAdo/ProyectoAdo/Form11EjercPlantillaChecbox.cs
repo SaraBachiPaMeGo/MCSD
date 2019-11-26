@@ -27,8 +27,8 @@ namespace ProyectoAdo
             int y = 0;
             foreach (Hospital hospi in listaHospi) {
                 CheckBox chk = new CheckBox();
-                y+=3;
-                chk.Location = new Point(2,y);
+                y+=20;
+                chk.Location = new Point(0,y);
                 chk.Text = hospi.NombreHospi;
                 chk.Tag = hospi.Cod_Hospi;//TAG 
                 listacod_hospital.Add(hospi.Cod_Hospi);
@@ -41,12 +41,25 @@ namespace ProyectoAdo
 
         private void Chk_Click(object sender, EventArgs e)
         {
-            CheckBox ck= (CheckBox)sender;
-            int cod_hospital = int.Parse(ck.Tag.ToString());
+            //RECORRER TODOS LOS BOTONES Y PREGUNTAR SI ESTAN CHECKED
+            //LIMPIAR LA CAJA LISTVIEW
+            this.listView1.Items.Clear();
+
+            foreach (CheckBox checke in this.panelCheck.Controls) {
+                if (checke.Checked)
+                {
+                    int cod_hospital = int.Parse(checke.Tag.ToString());
+                    PintarPlantilla(cod_hospital);                   
+                }
+            }
+        }
+
+        private void PintarPlantilla(int cod_hospital) {
             List<Plantilla> listaPlantilla = datos.ListarPlantilla(cod_hospital);
 
-            foreach (Plantilla plant in listaPlantilla) {
-                ListViewItem it = new ListViewItem();
+            foreach (Plantilla plant in listaPlantilla)
+            {
+                ListViewItem it = new ListViewItem(); 
                 it.Text = plant.Apellido.ToString();
                 it.SubItems.Add(plant.Funcion.ToString());
                 it.SubItems.Add(plant.Salario.ToString());
