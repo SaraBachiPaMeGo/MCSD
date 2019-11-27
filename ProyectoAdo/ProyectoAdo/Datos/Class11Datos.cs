@@ -56,7 +56,7 @@ namespace ProyectoAdo.Datos
             this.com.Connection = this.cn;
             this.com.CommandType = System.Data.CommandType.Text;
             this.com.CommandText = "SELECT APELLIDO, FUNCION, SALARIO FROM PLANTILLA" +
-                "WHERE HOSPITAL_COD = @COD_HOSPI";
+                " WHERE HOSPITAL_COD = @COD_HOSPI";
 
             this.cn.Open();
 
