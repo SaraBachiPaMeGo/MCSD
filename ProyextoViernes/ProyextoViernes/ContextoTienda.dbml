@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Tienda" Class="ContextoTiendaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost;Initial Catalog=Tienda;Persist Security Info=True;User ID=SA" SettingsObjectName="ProyextoViernes.Properties.Settings" SettingsPropertyName="TiendaConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Clientes" Member="Clientes">
+    <Type Name="Cliente">
+      <Column Name="CodigoCliente" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Empresa" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Contacto" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Cargo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Ciudad" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Telefono" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
