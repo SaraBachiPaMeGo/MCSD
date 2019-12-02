@@ -1,0 +1,12 @@
+C:\Users\AlumnoMCSD\source\repos\PracticaSaraBachiller\PracticaSaraBachiller\bin\Debug\PracticaSaraBachiller.exe.config
+C:\Users\AlumnoMCSD\source\repos\PracticaSaraBachiller\PracticaSaraBachiller\bin\Debug\PracticaSaraBachiller.exe
+C:\Users\AlumnoMCSD\source\repos\PracticaSaraBachiller\PracticaSaraBachiller\bin\Debug\PracticaSaraBachiller.pdb
+C:\Users\AlumnoMCSD\source\repos\PracticaSaraBachiller\PracticaSaraBachiller\obj\Debug\PracticaSaraBachiller.csprojAssemblyReference.cache
+C:\Users\AlumnoMCSD\source\repos\PracticaSaraBachiller\PracticaSaraBachiller\obj\Debug\PracticaSaraBachiller.Form1.resources
+C:\Users\AlumnoMCSD\source\repos\PracticaSaraBachiller\PracticaSaraBachiller\obj\Debug\PracticaSaraBachiller.Properties.Resources.resources
+C:\Users\AlumnoMCSD\source\repos\PracticaSaraBachiller\PracticaSaraBachiller\obj\Debug\PracticaSaraBachiller.VerProductos.resources
+C:\Users\AlumnoMCSD\source\repos\PracticaSaraBachiller\PracticaSaraBachiller\obj\Debug\PracticaSaraBachiller.csproj.GenerateResource.cache
+C:\Users\AlumnoMCSD\source\repos\PracticaSaraBachiller\PracticaSaraBachiller\obj\Debug\PracticaSaraBachiller.exe
+C:\Users\AlumnoMCSD\source\repos\PracticaSaraBachiller\PracticaSaraBachiller\obj\Debug\PracticaSaraBachiller.pdb
+C:\Users\AlumnoMCSD\source\repos\PracticaSaraBachiller\PracticaSaraBachiller\obj\Debug\PracticaSaraBachiller.VerPedidos.resources
+C:\Users\AlumnoMCSD\source\repos\PracticaSaraBachiller\PracticaSaraBachiller\obj\Debug\PracticaSaraBachiller.VerCliente.resources

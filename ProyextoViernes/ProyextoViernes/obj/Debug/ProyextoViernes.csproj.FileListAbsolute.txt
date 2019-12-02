@@ -1,0 +1,11 @@
+C:\Users\AlumnoMCSD\source\repos\ProyextoViernes\ProyextoViernes\bin\Debug\ProyextoViernes.exe.config
+C:\Users\AlumnoMCSD\source\repos\ProyextoViernes\ProyextoViernes\bin\Debug\ProyextoViernes.exe
+C:\Users\AlumnoMCSD\source\repos\ProyextoViernes\ProyextoViernes\bin\Debug\ProyextoViernes.pdb
+C:\Users\AlumnoMCSD\source\repos\ProyextoViernes\ProyextoViernes\obj\Debug\ProyextoViernes.csprojAssemblyReference.cache
+C:\Users\AlumnoMCSD\source\repos\ProyextoViernes\ProyextoViernes\obj\Debug\ProyextoViernes.Form1.resources
+C:\Users\AlumnoMCSD\source\repos\ProyextoViernes\ProyextoViernes\obj\Debug\ProyextoViernes.Properties.Resources.resources
+C:\Users\AlumnoMCSD\source\repos\ProyextoViernes\ProyextoViernes\obj\Debug\ProyextoViernes.csproj.GenerateResource.cache
+C:\Users\AlumnoMCSD\source\repos\ProyextoViernes\ProyextoViernes\obj\Debug\ProyextoViernes.exe
+C:\Users\AlumnoMCSD\source\repos\ProyextoViernes\ProyextoViernes\obj\Debug\ProyextoViernes.pdb
+C:\Users\AlumnoMCSD\source\repos\ProyextoViernes\ProyextoViernes\obj\Debug\ProyextoViernes.Form2BuscarEmp.resources
+C:\Users\AlumnoMCSD\source\repos\ProyextoViernes\ProyextoViernes\obj\Debug\ProyextoViernes.Form3Clientes.resources

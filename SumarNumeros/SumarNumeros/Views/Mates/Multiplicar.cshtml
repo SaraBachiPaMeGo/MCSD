@@ -1,0 +1,21 @@
+﻿@model List<int>
+@{
+    ViewBag.Title = "Multiplicar";
+}
+
+<h2>Multiplicar</h2>
+
+<form method="post">
+    <label>Número:</label>
+    <input type="number" name="num" class="input-sm" />
+    <button type="submit" class="btn-success">Calcular</button>
+</form>
+
+
+@foreach (int? numero in Model)
+{
+    <p>@numero</p>
+}
+
+
+
