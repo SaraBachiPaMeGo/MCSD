@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Página inicial</h2>
+
+<button type="button" id="otrobtn" class="btn-danger">Otro botón</button>
+<h1 id="titulopagina">Hoy es Martes</h1>
+
+@section img {
+    <p>Imagen desde página hija</p>
+    <img src="~/Images/descarga.jpg" style="
+    width:250px; height:250px" />
+    
+}
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $("#otrobtn").click(function () {
+                $("#titulopagina").text("Mañana Miércoles");
+            });
+        });
+    </script>
+}
+
+
+
