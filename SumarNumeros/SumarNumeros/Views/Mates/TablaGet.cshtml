@@ -1,0 +1,41 @@
+﻿@model List<int>
+@{
+    ViewBag.Title = "TablaGet";
+
+}
+
+<h2>TablaGet</h2>
+
+<table style="border: solid 2px black; width:50px; height:300px">
+    <tr>
+        <th style="color:cornflowerblue; font-size:x-large"> Operación</th>
+        <th style="color:brown; font-size:x-large"> Resultado</th>
+    </tr>
+    <tr>
+        <td>
+            <ul>
+                @for (int i = 1; i <= 10; i++)
+                {
+                    <li>@i * @ViewBag.Dato =</li>
+                }
+            </ul>
+            </td>
+    
+        <td>
+            @if (Model != null)
+            {
+                <ul >
+                    @foreach (int number in Model)
+                    {
+                        <li style="list-style:none">@number</li>
+
+                    }
+                </ul>
+            }
+        </td>
+    </tr>
+</table>
+
+@Html.ActionLink("Volver", "GenerarNumeros","Mates")
+
+

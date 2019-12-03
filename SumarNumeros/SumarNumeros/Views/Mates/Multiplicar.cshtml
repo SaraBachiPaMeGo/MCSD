@@ -1,4 +1,4 @@
-﻿@model List<int>
+﻿@model List<int?>
 @{
     ViewBag.Title = "Multiplicar";
 }
@@ -11,11 +11,17 @@
     <button type="submit" class="btn-success">Calcular</button>
 </form>
 
-
-@foreach (int? numero in Model)
+@if (Model != null)
 {
-    <p>@numero</p>
+    <ul>
+        @foreach (int? numero in Model)
+        {
+
+        <li>@numero</li>
+         }
+    </ul>
 }
+
 
 
 

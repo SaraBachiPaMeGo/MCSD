@@ -1,0 +1,24 @@
+﻿@model List<int>
+@{
+    ViewBag.Title = "GenerarNumeros";
+}
+
+<h2>Generar Numeros</h2>
+
+@if (Model!=null)
+{
+<ul>
+    @foreach (int num in Model)
+    {
+    <li>
+        @Html.ActionLink(num.ToString(), "TablaGet", "Mates", new
+        {
+            Parametro = num
+        },null)
+     </li>
+
+    }
+</ul>
+}
+
+
