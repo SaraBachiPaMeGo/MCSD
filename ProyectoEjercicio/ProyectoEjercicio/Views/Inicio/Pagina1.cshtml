@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Pagina1";
+}
+
+    <section class="feature-section">
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col-lg-8">
+                    <div class="section-title text-center">
+                        <h2>Página <span>1</span> </h2>
+                        <p class="section-title text-center">Estás en la Página 1</p>
+                        <button class="site-logo ib-icon" id="boton" type="button">Mensaje</button>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> 
+    <section class="hero-section set-bg" data-setbg="img/hero-bg.jpg" id="hero" style="display:none">
+        <div class="container">Hola
+            <div class="hero-text">
+                <h2 id="div"></h2>
+            </div>
+        </div>
+    </section>
+
+@section scripts{
+  <script>
+        $(document).ready(function () {
+            $("#boton").click(function () {
+                $("#hero").css("display","block");                
+                //alert("Hola");
+                $("#div").addClass("section-title text-center");
+                $("#div").css("color","black"); 
+                $("#div").text("Ha pulsado el botón");
+                $("#boton").addClass("btn-dark");
+                Swal.fire({
+                  position: 'top-end',
+                  icon: 'success',
+                  title: 'Your work has been saved',
+                  showConfirmButton: false,
+                  timer: 1500
+                })
+            });
+        });
+
+  </script>
+}
