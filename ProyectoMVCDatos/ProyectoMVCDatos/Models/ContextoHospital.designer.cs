@@ -70,10 +70,48 @@ namespace ProyectoMVCDatos.Models
 			}
 		}
 		
+		public System.Data.Linq.Table<EMP> EMPs
+		{
+			get
+			{
+				return this.GetTable<EMP>();
+			}
+		}
+		
+		public System.Data.Linq.Table<HOSPITAL> HOSPITALs
+		{
+			get
+			{
+				return this.GetTable<HOSPITAL>();
+			}
+		}
+		
+		public System.Data.Linq.Table<PLANTILLA> PLANTILLAs
+		{
+			get
+			{
+				return this.GetTable<PLANTILLA>();
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.EliminarDept")]
 		public int EliminarDept([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> dept_no)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), dept_no);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ModificarSalario")]
+		public int ModificarSalario([global::System.Data.Linq.Mapping.ParameterAttribute(Name="INCR", DbType="Int")] System.Nullable<int> iNCR, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DEPT_NO", DbType="Int")] System.Nullable<int> dEPT_NO)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iNCR, dEPT_NO);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.EliminarPlantilla")]
+		public int EliminarPlantilla([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> emp_no)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), emp_no);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -136,6 +174,393 @@ namespace ProyectoMVCDatos.Models
 				if ((this._LOC != value))
 				{
 					this._LOC = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EMP")]
+	public partial class EMP
+	{
+		
+		private System.Nullable<int> _EMP_NO;
+		
+		private string _APELLIDO;
+		
+		private string _OFICIO;
+		
+		private System.Nullable<int> _DIR;
+		
+		private System.Nullable<System.DateTime> _FECHA_ALT;
+		
+		private System.Nullable<int> _SALARIO;
+		
+		private System.Nullable<int> _COMISION;
+		
+		private System.Nullable<int> _DEPT_NO;
+		
+		public EMP()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMP_NO", DbType="Int")]
+		public System.Nullable<int> EMP_NO
+		{
+			get
+			{
+				return this._EMP_NO;
+			}
+			set
+			{
+				if ((this._EMP_NO != value))
+				{
+					this._EMP_NO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_APELLIDO", DbType="NVarChar(50)")]
+		public string APELLIDO
+		{
+			get
+			{
+				return this._APELLIDO;
+			}
+			set
+			{
+				if ((this._APELLIDO != value))
+				{
+					this._APELLIDO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OFICIO", DbType="NVarChar(50)")]
+		public string OFICIO
+		{
+			get
+			{
+				return this._OFICIO;
+			}
+			set
+			{
+				if ((this._OFICIO != value))
+				{
+					this._OFICIO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIR", DbType="Int")]
+		public System.Nullable<int> DIR
+		{
+			get
+			{
+				return this._DIR;
+			}
+			set
+			{
+				if ((this._DIR != value))
+				{
+					this._DIR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHA_ALT", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FECHA_ALT
+		{
+			get
+			{
+				return this._FECHA_ALT;
+			}
+			set
+			{
+				if ((this._FECHA_ALT != value))
+				{
+					this._FECHA_ALT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SALARIO", DbType="Int")]
+		public System.Nullable<int> SALARIO
+		{
+			get
+			{
+				return this._SALARIO;
+			}
+			set
+			{
+				if ((this._SALARIO != value))
+				{
+					this._SALARIO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMISION", DbType="Int")]
+		public System.Nullable<int> COMISION
+		{
+			get
+			{
+				return this._COMISION;
+			}
+			set
+			{
+				if ((this._COMISION != value))
+				{
+					this._COMISION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEPT_NO", DbType="Int")]
+		public System.Nullable<int> DEPT_NO
+		{
+			get
+			{
+				return this._DEPT_NO;
+			}
+			set
+			{
+				if ((this._DEPT_NO != value))
+				{
+					this._DEPT_NO = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.HOSPITAL")]
+	public partial class HOSPITAL
+	{
+		
+		private string _HOSPITAL_COD;
+		
+		private string _NOMBRE;
+		
+		private string _DIRECCION;
+		
+		private string _TELEFONO;
+		
+		private string _NUM_CAMA;
+		
+		public HOSPITAL()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HOSPITAL_COD", DbType="NVarChar(50)")]
+		public string HOSPITAL_COD
+		{
+			get
+			{
+				return this._HOSPITAL_COD;
+			}
+			set
+			{
+				if ((this._HOSPITAL_COD != value))
+				{
+					this._HOSPITAL_COD = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOMBRE", DbType="NVarChar(50)")]
+		public string NOMBRE
+		{
+			get
+			{
+				return this._NOMBRE;
+			}
+			set
+			{
+				if ((this._NOMBRE != value))
+				{
+					this._NOMBRE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIRECCION", DbType="NVarChar(50)")]
+		public string DIRECCION
+		{
+			get
+			{
+				return this._DIRECCION;
+			}
+			set
+			{
+				if ((this._DIRECCION != value))
+				{
+					this._DIRECCION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TELEFONO", DbType="NVarChar(50)")]
+		public string TELEFONO
+		{
+			get
+			{
+				return this._TELEFONO;
+			}
+			set
+			{
+				if ((this._TELEFONO != value))
+				{
+					this._TELEFONO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUM_CAMA", DbType="NVarChar(50)")]
+		public string NUM_CAMA
+		{
+			get
+			{
+				return this._NUM_CAMA;
+			}
+			set
+			{
+				if ((this._NUM_CAMA != value))
+				{
+					this._NUM_CAMA = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PLANTILLA")]
+	public partial class PLANTILLA
+	{
+		
+		private string _HOSPITAL_COD;
+		
+		private string _SALA_COD;
+		
+		private string _EMPLEADO_NO;
+		
+		private string _APELLIDO;
+		
+		private string _FUNCION;
+		
+		private string _T;
+		
+		private string _SALARIO;
+		
+		public PLANTILLA()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HOSPITAL_COD", DbType="NVarChar(50)")]
+		public string HOSPITAL_COD
+		{
+			get
+			{
+				return this._HOSPITAL_COD;
+			}
+			set
+			{
+				if ((this._HOSPITAL_COD != value))
+				{
+					this._HOSPITAL_COD = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SALA_COD", DbType="NVarChar(50)")]
+		public string SALA_COD
+		{
+			get
+			{
+				return this._SALA_COD;
+			}
+			set
+			{
+				if ((this._SALA_COD != value))
+				{
+					this._SALA_COD = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMPLEADO_NO", DbType="NVarChar(50)")]
+		public string EMPLEADO_NO
+		{
+			get
+			{
+				return this._EMPLEADO_NO;
+			}
+			set
+			{
+				if ((this._EMPLEADO_NO != value))
+				{
+					this._EMPLEADO_NO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_APELLIDO", DbType="NVarChar(50)")]
+		public string APELLIDO
+		{
+			get
+			{
+				return this._APELLIDO;
+			}
+			set
+			{
+				if ((this._APELLIDO != value))
+				{
+					this._APELLIDO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FUNCION", DbType="NVarChar(50)")]
+		public string FUNCION
+		{
+			get
+			{
+				return this._FUNCION;
+			}
+			set
+			{
+				if ((this._FUNCION != value))
+				{
+					this._FUNCION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_T", DbType="NVarChar(50)")]
+		public string T
+		{
+			get
+			{
+				return this._T;
+			}
+			set
+			{
+				if ((this._T != value))
+				{
+					this._T = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SALARIO", DbType="NVarChar(50)")]
+		public string SALARIO
+		{
+			get
+			{
+				return this._SALARIO;
+			}
+			set
+			{
+				if ((this._SALARIO != value))
+				{
+					this._SALARIO = value;
 				}
 			}
 		}

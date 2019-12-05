@@ -1,0 +1,47 @@
+﻿@using ProyectoMVCDatos.Models
+@model List<EMP>
+@*@model List<EMP>*@
+@{
+    ViewBag.Title = "Index";
+}
+
+@{ 
+    List<DEPT> listadep = ViewBag.Dept;
+}
+
+<h2>Incremento Departamento</h2>
+<form method="post">
+    <select name="numero">
+        @foreach (DEPT dept in listadep)
+        {
+            <option value="@dept.DEPT_NO">@dept.DNOMBRE</option>
+        }
+    </select>
+    <label>Incremento</label>
+    <input type="number" class="input-lg" name="incr" required/>
+    <button type="submit" class="btn-warning">Modificar</button>
+</form>
+<table class="table-bordered table-responsive table">
+    <thead>
+        <tr>
+            <th>NOMBRE</th>
+            <th>OFICIO</th>
+            <th>SALARIO</th>
+        </tr>
+    </thead>
+    <tbody>
+            @if (Model != null)
+            {
+                foreach (EMP emp in Model)
+                {
+                    <tr>
+                        <td>@emp.APELLIDO</td>
+                        <td>@emp.OFICIO</td>
+                        <td>@emp.SALARIO</td>
+                    </tr>
+                }
+            }
+    </tbody>
+</table>
+
+

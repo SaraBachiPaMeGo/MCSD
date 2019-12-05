@@ -10,6 +10,17 @@ using System.Web;
 //	delete FROM DEPT WHERE DEPT_NO = @dept_no
 //go
 
+//CREATE PROCEDURE ModificarSalario
+//(@INCR int, @DEPT_NO int)
+//AS
+// --	from datos in context.EMPs
+//  --    where datos.DEPT_NO == numero
+//  --    select datos;
+//UPDATE EMP SET SALARIO = SALARIO + @INCR
+
+//    WHERE EMP.DEPT_NO = @dept_no
+//GO
+
 namespace ProyectoMVCDatos.Repositories
 {
     public class RepositoryDepartamentos
@@ -31,7 +42,22 @@ namespace ProyectoMVCDatos.Repositories
 
         public void EliminarDepto(int deptno) {
             context.EliminarDept(deptno);
-            //GetDepartamentos();
         }
+
+        public void ModificarEmpleados(int incr, int numero) {
+            //var consulta = from datos in context.EMPs
+            //               where datos.DEPT_NO == numero
+            //               select datos;
+             context.ModificarSalario(incr, numero);
+  
+        }
+        public List<EMP> GetEmpleadosDepartamento(int numero) {
+            var consulta = from datos in context.EMPs
+                           where datos.DEPT_NO == numero
+                           select datos;
+
+            return consulta.ToList();
+        }
+        
     }
 }
