@@ -1,0 +1,23 @@
+﻿@model ProyectoMVCDatos.Models.DOCTOR
+@{
+    ViewBag.Title = "Editar";
+}
+
+<h2>Editar</h2>
+@Html.ActionLink("Volver al listado","Index","Doctores")
+
+<form class="form-group" method="post">    
+    <hr />
+    <label>Hospital</label>
+    <input type="number" class="form-control" name="hospicod" value="@Model.HOSPITAL_COD" />
+    <label>Id</label>
+    <input type="number" class="form-control" name="id" value="@Model.DOCTOR_NO" readonly />
+    <label>Apellido</label>
+    <input type="text" class="form-control" name="apellido" value="@Model.APELLIDO" />
+    <label>Especialidad</label>
+    <input type="text" class="form-control" name="especialidad" value="@Model.ESPECIALIDAD" />
+    <label>Salario</label>
+    <input type="number" class="form-control" name="salario" value="@Model.SALARIO" />
+    <hr />
+    <button type="submit" class="btn-danger">Modificar datos</button>
+</form>

@@ -1,0 +1,41 @@
+﻿@using ProyectoMVCDatos.Models
+@model List<PLANTILLA>
+@{
+    ViewBag.Title = "VerPlantilla";
+}
+
+<h2>Ver Plantilla</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Apellido</th>
+            <th>Función</th>
+            <th>Salario</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null){ 
+            foreach (PLANTILLA plant in Model)
+            {
+                <tr>
+                    <td>@plant.APELLIDO</td>
+                    <td>@plant.SALARIO</td>
+                    <td>@plant.FUNCION</td>
+                </tr>
+                <tr>
+                    <form method="post">
+                        <input name="emp_no"
+                                value="@plant.HOSPITAL_COD" style="display:none;"/>
+
+                        <button type="submit" class="btn-danger" 
+                                name="emp_no"
+                                value="@plant.EMPLEADO_NO">Eliminar</button>                        
+                    </form>
+                </tr>
+                }
+            }
+    </tbody>
+</table>
+
+@Html.ActionLink("Volver","VerHospital","HospitalPlantilla")

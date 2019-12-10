@@ -1,0 +1,34 @@
+﻿@using ProyectoMVCDatos.Models
+@model List<DEPT>
+@{
+    ViewBag.Title = "Delete";
+}
+
+@Html.ActionLink("Departamentos", "Index", "Departamentos")
+
+<h2>Eliminar departamentos</h2>
+
+<fieldset>
+    <form class="form-group" method="post">
+        <label>Número del departamento:</label>
+        <input type="number" name="deptno" />
+        <button type="submit" class="btn-danger">Delete DEPT</button>
+    </form>
+</fieldset>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Nombre</th>
+        <th>Número</th>
+        <th>Localización</th>
+    </tr>
+    @foreach (DEPT dept in Model)
+    {
+<tr>
+    <td><dt><b>@dept.DNOMBRE</b></dt></td>
+    <td><dd> @dept.DEPT_NO</dd></td>
+    <td><dd> @dept.LOC</dd></td>
+</tr>
+    }
+
+</table>

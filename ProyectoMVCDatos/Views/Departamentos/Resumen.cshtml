@@ -1,0 +1,29 @@
+﻿@using ProyectoMVCDatos.Models
+@model ResumenDepartamentos
+@{
+    ViewBag.Title = "Resumen";
+}
+
+<h2>Resumen</h2>
+
+<form method="post">
+    <label>Número de departamento:</label>
+    <input type="number" class="form-control" name="deptno" />
+    <button type="submit">Mostrar Resumen</button>
+
+</form>
+
+@if (Model != null)
+{
+
+    <p>Máximo salario: @Model.MaximoSalario</p>
+    <p>Media salarial: @Model.MediaSalarial</p>
+    <p>Personas : @Model.Personas</p>
+    <ul>
+        @foreach (EMP emp in Model.Empleados) { 
+            <li>@emp.APELLIDO</li>
+        }
+    </ul>
+
+
+}

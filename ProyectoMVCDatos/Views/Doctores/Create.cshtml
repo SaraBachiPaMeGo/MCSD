@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Nuevo doctor</h2>
+
+@Html.ActionLink("Volver a la lista","Index","Doctores")
+
+<form class="form-group" method="post" >
+    <hr />
+    <label>Hospital</label>
+    <input type="number" class="form-control" name="HOSPITAL_COD"/>
+    <label>Id</label>
+    <input type="number" class="form-control" name="DOCTOR_NO"/>
+    <label>Apellido</label>
+    <input  type="text" class="form-control" name="APELLIDO"/>
+    <label>Especialidad</label>
+    <input type="text" class="form-control" name="ESPECIALIDAD"/>
+    <label>Salario</label>
+    <input type="number" class="form-control" name="SALARIO"/>
+    <hr />
+    <button type="submit" class="btn-info">Insertar doctor</button>
+</form>

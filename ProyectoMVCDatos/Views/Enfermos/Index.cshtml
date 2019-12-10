@@ -1,0 +1,40 @@
+﻿@using ProyectoMVCDatos.Models
+@model List<ENFERMO>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@Html.ActionLink("Insertar ", "Crear", "Enfermos")
+
+<table class="table table-bordered">
+    <tr>
+        <th>Inscriptción</th>
+        <th>Apellido</th>
+        <th>Dirección</th>
+        <th>Fecha de nacimiento</th>
+        <th>Sexo</th>
+        <th>Número de la SS</th>
+    </tr>
+    @foreach (ENFERMO enf in Model)
+    {
+        <tr>
+            <td>@enf.INSCRIPCION</td>
+            <td>@enf.APELLIDO</td>
+            <td>@enf.DIRECCION</td>
+            <td>@enf.FECHA_NAC</td>
+            <td>@enf.S</td>
+            <td>@enf.NSS</td>
+            <td>
+
+                @Html.ActionLink("Eliminar ", "Eliminar", "Enfermos", new { insc = enf.INSCRIPCION }, null)
+                @Html.ActionLink("Editar ", "Editar", "Enfermos", new { insc = enf.INSCRIPCION }, null)
+
+            </td>
+        </tr>
+
+    }
+
+
+</table>

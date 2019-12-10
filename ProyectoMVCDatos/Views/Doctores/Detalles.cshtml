@@ -1,0 +1,15 @@
+﻿@model ProyectoMVCDatos.Models.DOCTOR
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Detalles</h2>
+@Html.ActionLink("Volver a la lista", "Index", "Doctores")
+
+<dl>
+    <dt><b>@Model.APELLIDO</b></dt>
+    <dd>Especialidad : @Model.ESPECIALIDAD</dd>
+    <dd>Hospital : @Model.HOSPITAL_COD</dd>
+    <dd>Salario : @Model.SALARIO</dd>
+</dl>
