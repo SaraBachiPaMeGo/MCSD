@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29411.108
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoPlantillaHospitalLambda", "ProyectoPlantillaHospitalLambda\ProyectoPlantillaHospitalLambda.csproj", "{05E54EAC-F2E5-4AA0-8C72-C596F9FC1A38}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05E54EAC-F2E5-4AA0-8C72-C596F9FC1A38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05E54EAC-F2E5-4AA0-8C72-C596F9FC1A38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05E54EAC-F2E5-4AA0-8C72-C596F9FC1A38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05E54EAC-F2E5-4AA0-8C72-C596F9FC1A38}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {439C3F96-4C53-48EE-AF0B-8B5579CCC772}
+	EndGlobalSection
+EndGlobal

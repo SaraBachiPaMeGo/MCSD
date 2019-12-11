@@ -1,0 +1,45 @@
+﻿@using ProyectoPlantillaHospitalLambda.Models
+@{
+    ViewBag.Title = "Index";
+}
+@{
+    List<HOSPITAL> listaHospi = ViewBag.Hospitales;
+}
+
+<h2>Index</h2>
+
+<form method="post">
+    <select name="hospi_cod">
+        @foreach (HOSPITAL hospi in listaHospi)
+        {
+            <option value="@hospi.HOSPITAL_COD">@hospi.NOMBRE</option>
+        }
+    </select>
+    <button type="submit" class="btn-info">Mostrar Empleados</button>
+</form>
+
+<hr />
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>Apellido</th>
+        <th>Trabajo</th>
+        <th>Salario</th>
+        <th>Suma Salarial</th>
+        <th>Media Salarial</th>
+    </tr>
+    @if (Model != null)
+    {
+        foreach (DoctoresPlantilla emp in Model)
+        {
+            <tr>
+                <td>@emp.apellido</td>
+                <td>@emp.trabajo</td>
+                <td>@emp.salario</td>
+                <td>@emp.SumaSalarial</td>
+                <td>@emp.MediaSalarial</td>
+            </tr>
+        }
+    }
+</table>
