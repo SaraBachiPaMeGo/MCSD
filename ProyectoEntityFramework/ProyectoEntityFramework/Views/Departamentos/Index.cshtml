@@ -1,0 +1,33 @@
+﻿@using ProyectoEntityFramework.Models
+@model List<DEPT>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<h3>Departamentos</h3>
+
+<table class="table table-bordered">
+    <tr>
+        <td>Número de departamento :</td>
+        <td>Nombre :</td>
+        <td>Localidad :</td>
+        <td>ACCIONES :</td>
+    </tr>
+    @foreach (DEPT dept in Model)
+    {
+        <tr>
+            <td>@dept.DEPT_NO</td>
+            <td>@dept.DNOMBRE</td>
+            <td>@dept.LOC</td>
+            <td>
+                @Html.ActionLink("Modificar", "Modificar", "Departamentos", new
+                { deptno = @dept.DEPT_NO, nombre = @dept.DNOMBRE, loc = @dept.LOC }, null)
+                @Html.ActionLink("Eliminar", "Eliminar", "Departamentos", new { deptno = dept.DEPT_NO }, null)
+
+            </td>
+        </tr>
+    }
+</table>
+
+@Html.ActionLink("Crear un nuevo Departamento", "Crear", "Departamentos")

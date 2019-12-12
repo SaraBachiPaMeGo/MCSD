@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HospitalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="DEPT">
+    <Key>
+      <PropertyRef Name="DEPT_NO" />
+    </Key>
+    <Property Name="DEPT_NO" Type="Int32" Nullable="false" />
+    <Property Name="DNOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LOC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="ContextoHospital" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="DEPT" EntityType="Self.DEPT" />
+    <EntitySet Name="EMP" EntityType="HospitalModel.EMP" />
+    <FunctionImport Name="SubirSalarioOficio">
+      <Parameter Name="oficio" Mode="In" Type="String" />
+      <Parameter Name="incr" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="EMP">
+    <Key>
+      <PropertyRef Name="EMP_NO" />
+    </Key>
+    <Property Name="EMP_NO" Type="Int32" Nullable="false" />
+    <Property Name="APELLIDO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OFICIO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DIR" Type="Int32" />
+    <Property Name="FECHA_ALT" Type="DateTime" Precision="3" />
+    <Property Name="SALARIO" Type="Int32" />
+    <Property Name="COMISION" Type="Int32" />
+    <Property Name="DEPT_NO" Type="Int32" />
+  </EntityType>
+</Schema>

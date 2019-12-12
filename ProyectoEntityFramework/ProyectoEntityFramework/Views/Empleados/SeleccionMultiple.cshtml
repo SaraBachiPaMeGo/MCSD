@@ -1,0 +1,42 @@
+﻿@using ProyectoEntityFramework.Models
+@model List<EMP>
+@{
+    ViewBag.Title = "SeleccionMultiple";
+}
+
+@{ 
+    List<String> oficios = ViewBag.Oficios;
+}
+
+<h2>SeleccionMultiple</h2>
+
+<form method="post">
+    <select name="oficio" size="10" class="form-control" multiple>
+        @foreach (String ofi in oficios) { 
+            <option value="@ofi">@ofi</option>
+        }
+    </select>
+    <label>Incrementar salario:</label>
+    <input name="incr" type="number"/>
+    <br />
+    <button type="submit" class="btn-warning">Ver empleados</button>
+</form>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Apellido :</th>
+        <th>Salario :</th>
+        <th>Número de departamento :</th>
+    </tr>
+    @if (Model != null)
+    {
+        foreach (EMP emp in Model)
+        {
+            <tr>
+                <td>@emp.APELLIDO</td> 
+                <td>@emp.SALARIO</td>
+                <td>@emp.DEPT_NO</td>
+            </tr>
+        }
+    }
+</table>

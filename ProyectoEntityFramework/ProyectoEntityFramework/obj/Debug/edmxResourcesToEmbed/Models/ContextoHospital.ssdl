@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HospitalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DEPT">
+    <Key>
+      <PropertyRef Name="DEPT_NO" />
+    </Key>
+    <Property Name="DEPT_NO" Type="int" Nullable="false" />
+    <Property Name="DNOMBRE" Type="nvarchar" MaxLength="50" />
+    <Property Name="LOC" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="EMP">
+    <Key>
+      <PropertyRef Name="EMP_NO" />
+    </Key>
+    <Property Name="EMP_NO" Type="int" Nullable="false" />
+    <Property Name="APELLIDO" Type="nvarchar" MaxLength="50" />
+    <Property Name="OFICIO" Type="nvarchar" MaxLength="50" />
+    <Property Name="DIR" Type="int" />
+    <Property Name="FECHA_ALT" Type="datetime" />
+    <Property Name="SALARIO" Type="int" />
+    <Property Name="COMISION" Type="int" />
+    <Property Name="DEPT_NO" Type="int" />
+  </EntityType>
+  <Function Name="SubirSalarioOficio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="oficio" Type="nvarchar" Mode="In" />
+    <Parameter Name="incr" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="HospitalModelStoreContainer">
+    <EntitySet Name="DEPT" EntityType="Self.DEPT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EMP" EntityType="Self.EMP" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

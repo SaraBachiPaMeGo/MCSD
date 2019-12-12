@@ -1,0 +1,17 @@
+﻿@using ProyectoEntityFramework.Models
+@model DEPT
+@{
+    ViewBag.Title = "Modificar";
+}
+
+<h2>Modificar</h2>
+
+<form method="post">
+    <label>Número de departamento:</label>
+    <input type="number" name="deptno" value="@Model.DEPT_NO" readonly class="form-control"/>
+    <label>Nombre:</label>
+    <input type="text" name="nombre" value="@Model.DNOMBRE" class="form-control" />
+    <label>Localización:</label>
+    <input type="text" name="loc" value="@Model.LOC" class="form-control" />
+    <button type="submit">Modificar</button>
+</form>

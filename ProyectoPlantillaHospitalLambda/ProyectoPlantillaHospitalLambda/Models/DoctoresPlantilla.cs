@@ -10,9 +10,12 @@ namespace ProyectoPlantillaHospitalLambda.Models
         public String apellido { get; set; }
         public String trabajo { get; set; }
         public int salario { get; set; }
+        public int Hospital_cod { get; set; }
+
+        //ESTO EN OTRA CLASE
         public int SumaSalarial { get; set; }
         public double MediaSalarial { get; set; }
-        public int Hospital_cod { get; set; }
+        
 
     }
 }
