@@ -29,6 +29,8 @@ namespace ProyectoEntityFramework.Models
     
         public virtual DbSet<DEPT> DEPT { get; set; }
         public virtual DbSet<EMP> EMP { get; set; }
+        public virtual DbSet<DOCTOR> DOCTOR { get; set; }
+        public virtual DbSet<HOSPITAL> HOSPITAL { get; set; }
     
         public virtual int SubirSalarioOficio(string oficio, Nullable<int> incr)
         {
@@ -51,6 +53,33 @@ namespace ProyectoEntityFramework.Models
         public virtual ObjectResult<EMP> TODOSEMP(MergeOption mergeOption)
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<EMP>("TODOSEMP", mergeOption);
+        }
+    
+        public virtual ObjectResult<PAGINAR_DEPT_Result> PAGINAR_DEPT(Nullable<int> pOSICION)
+        {
+            var pOSICIONParameter = pOSICION.HasValue ?
+                new ObjectParameter("POSICION", pOSICION) :
+                new ObjectParameter("POSICION", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PAGINAR_DEPT_Result>("PAGINAR_DEPT", pOSICIONParameter);
+        }
+    
+        public virtual ObjectResult<PAGINARGRUPO_Result> PAGINARGRUPO(Nullable<int> pOSICION, ObjectParameter rEGISTROS)
+        {
+            var pOSICIONParameter = pOSICION.HasValue ?
+                new ObjectParameter("POSICION", pOSICION) :
+                new ObjectParameter("POSICION", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PAGINARGRUPO_Result>("PAGINARGRUPO", pOSICIONParameter, rEGISTROS);
+        }
+    
+        public virtual ObjectResult<PAGINARHOSPITALES_Result> PAGINARHOSPITALES(Nullable<int> pOSICION, ObjectParameter rEGISTROS)
+        {
+            var pOSICIONParameter = pOSICION.HasValue ?
+                new ObjectParameter("POSICION", pOSICION) :
+                new ObjectParameter("POSICION", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PAGINARHOSPITALES_Result>("PAGINARHOSPITALES", pOSICIONParameter, rEGISTROS);
         }
     }
 }

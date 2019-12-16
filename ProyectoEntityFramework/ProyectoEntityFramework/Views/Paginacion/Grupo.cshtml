@@ -1,0 +1,28 @@
+﻿@using ProyectoEntityFramework.Models
+@model List<PAGINARGRUPO_Result>
+@{
+    ViewBag.Title = "Grupo";
+}
+
+<h2>Paginación Grupo</h2>
+
+@Html.Raw(ViewBag.Registros) @*Para transformar a HTML*@
+@Html.Raw(ViewBag.Link) 
+
+<table class="table table-bordered">
+    <tr>
+        <th>Apellido</th>
+        <th>Función</th>
+        <th>Turno</th>
+        <th>Salario</th>
+    </tr>
+    @foreach (PAGINARGRUPO_Result p in Model)
+    {
+        <tr>
+            <td>@p.APELLIDO</td>
+            <td>@p.FUNCION</td>
+            <td>@p.TURNO</td>
+            <td>@p.SALARIO</td>
+        </tr>
+    }
+</table>

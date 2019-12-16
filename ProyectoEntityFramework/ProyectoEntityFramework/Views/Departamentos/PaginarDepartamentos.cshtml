@@ -1,0 +1,32 @@
+﻿@model ProyectoEntityFramework.Models.PAGINAR_DEPT_Result
+
+@{
+    ViewBag.Title = "PaginarDepartamento";
+}
+
+<h2>Paginar Departamentos un registro</h2>
+
+<dl>
+    <dt><b>Número: </b>@Model.DEPT_NO</dt>
+    <dd>Nombre: @Model.DNOMBRE</dd>
+    <dd>Localidad: @Model.LOC</dd>
+</dl>
+
+<hr />
+
+@Html.ActionLink("Primero", "PaginarDepartamentos", "Departamentos"
+
+    , new { posicion = 1 }, null) |
+
+@Html.ActionLink("Anterior", "PaginarDepartamentos", "Departamentos"
+
+    , new { posicion = ViewBag.Anterior }, null) |
+
+@Html.ActionLink("Siguiente", "PaginarDepartamentos", "Departamentos"
+
+    , new { posicion = ViewBag.Siguiente }, null) |
+
+@Html.ActionLink("Ultimo", "PaginarDepartamentos", "Departamentos"
+
+    , new { posicion = ViewBag.Ultimo }, null)
+

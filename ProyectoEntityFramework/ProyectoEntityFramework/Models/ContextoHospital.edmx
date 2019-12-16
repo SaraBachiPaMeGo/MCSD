@@ -13,6 +13,16 @@
           <Property Name="DNOMBRE" Type="nvarchar" MaxLength="50" />
           <Property Name="LOC" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="DOCTOR">
+          <Key>
+            <PropertyRef Name="DOCTOR_NO" />
+          </Key>
+          <Property Name="HOSPITAL_COD" Type="int" />
+          <Property Name="DOCTOR_NO" Type="int" Nullable="false" />
+          <Property Name="APELLIDO" Type="nvarchar" MaxLength="50" />
+          <Property Name="ESPECIALIDAD" Type="nvarchar" MaxLength="50" />
+          <Property Name="SALARIO" Type="int" />
+        </EntityType>
         <EntityType Name="EMP">
           <Key>
             <PropertyRef Name="EMP_NO" />
@@ -26,6 +36,27 @@
           <Property Name="COMISION" Type="int" />
           <Property Name="DEPT_NO" Type="int" />
         </EntityType>
+        <EntityType Name="HOSPITAL">
+          <Key>
+            <PropertyRef Name="HOSPITAL_COD" />
+          </Key>
+          <Property Name="HOSPITAL_COD" Type="int" Nullable="false" />
+          <Property Name="NOMBRE" Type="nvarchar" MaxLength="50" />
+          <Property Name="DIRECCION" Type="nvarchar" MaxLength="50" />
+          <Property Name="TELEFONO" Type="nvarchar" MaxLength="50" />
+          <Property Name="NUM_CAMA" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Function Name="PAGINAR_DEPT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="POSICION" Type="int" Mode="In" />
+        </Function>
+        <Function Name="PAGINARGRUPO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="POSICION" Type="int" Mode="In" />
+          <Parameter Name="REGISTROS" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="PAGINARHOSPITALES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="POSICION" Type="int" Mode="In" />
+          <Parameter Name="REGISTROS" Type="int" Mode="InOut" />
+        </Function>
         <Function Name="SubirSalarioOficio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="oficio" Type="nvarchar" Mode="In" />
           <Parameter Name="incr" Type="int" Mode="In" />
@@ -33,7 +64,9 @@
         <Function Name="TODOSEMP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="HospitalModelStoreContainer">
           <EntitySet Name="DEPT" EntityType="Self.DEPT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DOCTOR" EntityType="Self.DOCTOR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EMP" EntityType="Self.EMP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HOSPITAL" EntityType="Self.HOSPITAL" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -55,6 +88,19 @@
             <Parameter Name="incr" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="TODOSEMP" EntitySet="EMP" ReturnType="Collection(HospitalModel.EMP)" />
+          <FunctionImport Name="PAGINAR_DEPT" ReturnType="Collection(HospitalModel.PAGINAR_DEPT_Result)">
+          <Parameter Name="POSICION" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="PAGINARGRUPO" ReturnType="Collection(HospitalModel.PAGINARGRUPO_Result)">
+            <Parameter Name="POSICION" Mode="In" Type="Int32" />
+            <Parameter Name="REGISTROS" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="DOCTOR" EntityType="HospitalModel.DOCTOR" />
+          <EntitySet Name="HOSPITAL" EntityType="HospitalModel.HOSPITAL" />
+          <FunctionImport Name="PAGINARHOSPITALES" ReturnType="Collection(HospitalModel.PAGINARHOSPITALES_Result)">
+            <Parameter Name="POSICION" Mode="In" Type="Int32" />
+            <Parameter Name="REGISTROS" Mode="InOut" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="EMP">
           <Key>
@@ -69,6 +115,47 @@
           <Property Name="COMISION" Type="Int32" />
           <Property Name="DEPT_NO" Type="Int32" />
         </EntityType>
+        <ComplexType Name="PAGINAR_DEPT_Result">
+          <Property Type="Int64" Name="POSICION" Nullable="true" />
+          <Property Type="Int32" Name="DEPT_NO" Nullable="false" />
+          <Property Type="String" Name="DNOMBRE" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LOC" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="PAGINARGRUPO_Result">
+          <Property Type="Int64" Name="POSICION" Nullable="true" />
+          <Property Type="String" Name="APELLIDO" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="FUNCION" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="TURNO" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SALARIO" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="DOCTOR">
+          <Key>
+            <PropertyRef Name="DOCTOR_NO" />
+          </Key>
+          <Property Name="HOSPITAL_COD" Type="Int32" />
+          <Property Name="DOCTOR_NO" Type="Int32" Nullable="false" />
+          <Property Name="APELLIDO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ESPECIALIDAD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SALARIO" Type="Int32" />
+        </EntityType>
+        <EntityType Name="HOSPITAL">
+          <Key>
+            <PropertyRef Name="HOSPITAL_COD" />
+          </Key>
+          <Property Name="HOSPITAL_COD" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DIRECCION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TELEFONO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NUM_CAMA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="PAGINARHOSPITALES_Result">
+          <Property Type="Int64" Name="POSICION" Nullable="true" />
+          <Property Type="String" Name="NOMBRE" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DIRECCION" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="TELEFONO" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NUM_CAMA" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="HOSPITAL_COD" Nullable="false" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -100,6 +187,61 @@
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="SubirSalarioOficio" FunctionName="HospitalModel.Store.SubirSalarioOficio" />
           <FunctionImportMapping FunctionImportName="TODOSEMP" FunctionName="HospitalModel.Store.TODOSEMP" />
+          <FunctionImportMapping FunctionImportName="PAGINAR_DEPT" FunctionName="HospitalModel.Store.PAGINAR_DEPT">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HospitalModel.PAGINAR_DEPT_Result">
+                <ScalarProperty Name="POSICION" ColumnName="POSICION" />
+                <ScalarProperty Name="DEPT_NO" ColumnName="DEPT_NO" />
+                <ScalarProperty Name="DNOMBRE" ColumnName="DNOMBRE" />
+                <ScalarProperty Name="LOC" ColumnName="LOC" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="PAGINARGRUPO" FunctionName="HospitalModel.Store.PAGINARGRUPO">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HospitalModel.PAGINARGRUPO_Result">
+                <ScalarProperty Name="POSICION" ColumnName="POSICION" />
+                <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+                <ScalarProperty Name="FUNCION" ColumnName="FUNCION" />
+                <ScalarProperty Name="TURNO" ColumnName="TURNO" />
+                <ScalarProperty Name="SALARIO" ColumnName="SALARIO" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="DOCTOR">
+            <EntityTypeMapping TypeName="HospitalModel.DOCTOR">
+              <MappingFragment StoreEntitySet="DOCTOR">
+                <ScalarProperty Name="SALARIO" ColumnName="SALARIO" />
+                <ScalarProperty Name="ESPECIALIDAD" ColumnName="ESPECIALIDAD" />
+                <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+                <ScalarProperty Name="DOCTOR_NO" ColumnName="DOCTOR_NO" />
+                <ScalarProperty Name="HOSPITAL_COD" ColumnName="HOSPITAL_COD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HOSPITAL">
+            <EntityTypeMapping TypeName="HospitalModel.HOSPITAL">
+              <MappingFragment StoreEntitySet="HOSPITAL">
+                <ScalarProperty Name="NUM_CAMA" ColumnName="NUM_CAMA" />
+                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="HOSPITAL_COD" ColumnName="HOSPITAL_COD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="PAGINARHOSPITALES" FunctionName="HospitalModel.Store.PAGINARHOSPITALES">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HospitalModel.PAGINARHOSPITALES_Result">
+                <ScalarProperty Name="POSICION" ColumnName="POSICION" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+                <ScalarProperty Name="NUM_CAMA" ColumnName="NUM_CAMA" />
+                <ScalarProperty Name="HOSPITAL_COD" ColumnName="HOSPITAL_COD" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

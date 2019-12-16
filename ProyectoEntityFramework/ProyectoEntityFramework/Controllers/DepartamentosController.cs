@@ -1,4 +1,5 @@
-﻿using ProyectoEntityFramework.Repositories;
+﻿using ProyectoEntityFramework.Models;
+using ProyectoEntityFramework.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,11 @@ namespace ProyectoEntityFramework.Controllers
     public class DepartamentosController : Controller
     {
         RepositoryDepartamento repo;
+        ModeloDepartamento modelo;
 
         public DepartamentosController() {
             repo = new RepositoryDepartamento();
+            modelo = new ModeloDepartamento();
         }
 
         // GET: Departamentos
@@ -57,6 +60,42 @@ namespace ProyectoEntityFramework.Controllers
         {
             repo.EliminarDepartamento(deptno);
             return RedirectToAction("Index");
+        }
+
+        public ActionResult PaginarDepartamentos(int? posicion)
+        { 
+            if (posicion == null)
+            {
+                posicion = 1;
+            }
+
+            PAGINAR_DEPT_Result dept = modelo.PaginarDepartamentos(posicion.GetValueOrDefault());
+
+            int ultimo = modelo.GetNumeroDepartamentos();
+
+            //DEBEMOS VERIFICAR QUE NO NOS PASAMOS PARA SIGUIENTE 
+
+            int siguiente = posicion.GetValueOrDefault() + 1;
+
+            if (siguiente > ultimo)
+            {
+                siguiente = ultimo;
+            }
+
+            //VERIFICAMOS ANTERIOR TAMBIEN 
+
+            int anterior = posicion.GetValueOrDefault() - 1;
+
+            if (anterior < 1)
+            {
+                anterior = 1;
+            }
+
+            ViewBag.Siguiente = siguiente;
+            ViewBag.Anterior = anterior;
+            ViewBag.Ultimo = ultimo;
+
+            return View(dept);
         }
     }
 }

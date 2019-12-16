@@ -4,6 +4,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
+//CREATE PROCEDURE PAGINAR_DEPT
+
+//(@POSICION INT)
+
+//AS 
+
+//--UN SELECT DE UN SELECT
+
+//SELECT* FROM
+
+//(SELECT ROW_NUMBER()
+
+//OVER (ORDER BY DEPT_NO) AS POSICION
+
+//, DEPT_NO, DNOMBRE, LOC
+
+//FROM DEPT) DEPARTAMENTOS
+
+//WHERE POSICION = @POSICION
+
+//GO
+
 namespace ProyectoEntityFramework.Repositories
 {
     public class RepositoryDepartamento
@@ -63,5 +85,17 @@ namespace ProyectoEntityFramework.Repositories
             context.DEPT.Remove(dept);
             context.SaveChanges();
         }
+
+        
+        public PAGINAR_DEPT_Result PaginarDepartamentos(int position)
+        {
+            var resultado = this.context.PAGINAR_DEPT(position);
+            return resultado.FirstOrDefault();
+        }
+        public int GetNumroDepartamentos()
+        {
+            return context.DEPT.Count();
+        }
+
     }
 }

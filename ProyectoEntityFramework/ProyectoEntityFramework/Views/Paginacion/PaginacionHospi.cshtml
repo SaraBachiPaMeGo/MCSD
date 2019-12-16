@@ -1,0 +1,58 @@
+﻿@using ProyectoEntityFramework.Models;
+@model List<DOCTOR>
+@{
+    ViewBag.Title = "PaginacionHospi";
+}
+
+<h2>Paginacion Hospital</h2>
+
+@Html.Raw(ViewBag.LinksHospi)
+@Html.Raw(ViewBag.NumeroHospitales)
+@{
+    ModeloHospital datos = ViewBag.Hospital;
+
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>REGISTROS</th>
+        <th>Nombre</th>
+        <th>Dirección</th>
+        <th>Telefono</th>
+        <th>Número de camas</th>
+    </tr>
+
+    <tr>
+        <td>@datos.NumeroRegistros</td>
+        <td>@datos.Hospital.NOMBRE</td>
+        <td>@datos.Hospital.DIRECCION</td>
+        <td>@datos.Hospital.TELEFONO</td>
+        <td>@datos.Hospital.NUM_CAMA</td>
+
+    </tr>
+</table>
+
+<div>
+    @Html.ActionLink("Primero", "PaginacionHospi", "Paginacion", new { posicion = 1 }, null)
+    @Html.ActionLink("Siguiente", "PaginacionHospi", "Paginacion", new { posicion = ViewBag.Siguiente }, null)
+    @Html.ActionLink("Anterior", "PaginacionHospi", "Paginacion", new { posicion = ViewBag.Anterior }, null)
+    @Html.ActionLink("Último", "PaginacionHospi", "Paginacion", new { posicion = ViewBag.Ultimo }, null)
+</div>
+
+<table class="table table-bordered">
+    <tr>
+        <th>APELLIDO</th>
+        <th>ESPECIALIDAD</th>
+        <th>SALARIO</th>
+        <th>HOSPITAL</th>
+    </tr>
+    @foreach (DOCTOR dato in Model) { 
+<tr>
+    <td>@dato.APELLIDO</td>
+    <td>@dato.ESPECIALIDAD</td>
+    <td>@dato.SALARIO</td>
+    <td>@dato.HOSPITAL_COD</td>
+</tr>
+    }
+    
+</table>

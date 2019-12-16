@@ -25,5 +25,61 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="SubirSalarioOficio" FunctionName="HospitalModel.Store.SubirSalarioOficio" />
+    <FunctionImportMapping FunctionImportName="TODOSEMP" FunctionName="HospitalModel.Store.TODOSEMP" />
+    <FunctionImportMapping FunctionImportName="PAGINAR_DEPT" FunctionName="HospitalModel.Store.PAGINAR_DEPT">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HospitalModel.PAGINAR_DEPT_Result">
+          <ScalarProperty Name="POSICION" ColumnName="POSICION" />
+          <ScalarProperty Name="DEPT_NO" ColumnName="DEPT_NO" />
+          <ScalarProperty Name="DNOMBRE" ColumnName="DNOMBRE" />
+          <ScalarProperty Name="LOC" ColumnName="LOC" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="PAGINARGRUPO" FunctionName="HospitalModel.Store.PAGINARGRUPO">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HospitalModel.PAGINARGRUPO_Result">
+          <ScalarProperty Name="POSICION" ColumnName="POSICION" />
+          <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+          <ScalarProperty Name="FUNCION" ColumnName="FUNCION" />
+          <ScalarProperty Name="TURNO" ColumnName="TURNO" />
+          <ScalarProperty Name="SALARIO" ColumnName="SALARIO" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="DOCTOR">
+      <EntityTypeMapping TypeName="HospitalModel.DOCTOR">
+        <MappingFragment StoreEntitySet="DOCTOR">
+          <ScalarProperty Name="SALARIO" ColumnName="SALARIO" />
+          <ScalarProperty Name="ESPECIALIDAD" ColumnName="ESPECIALIDAD" />
+          <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+          <ScalarProperty Name="DOCTOR_NO" ColumnName="DOCTOR_NO" />
+          <ScalarProperty Name="HOSPITAL_COD" ColumnName="HOSPITAL_COD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HOSPITAL">
+      <EntityTypeMapping TypeName="HospitalModel.HOSPITAL">
+        <MappingFragment StoreEntitySet="HOSPITAL">
+          <ScalarProperty Name="NUM_CAMA" ColumnName="NUM_CAMA" />
+          <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="HOSPITAL_COD" ColumnName="HOSPITAL_COD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="PAGINARHOSPITALES" FunctionName="HospitalModel.Store.PAGINARHOSPITALES">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HospitalModel.PAGINARHOSPITALES_Result">
+          <ScalarProperty Name="POSICION" ColumnName="POSICION" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+          <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+          <ScalarProperty Name="NUM_CAMA" ColumnName="NUM_CAMA" />
+          <ScalarProperty Name="HOSPITAL_COD" ColumnName="HOSPITAL_COD" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

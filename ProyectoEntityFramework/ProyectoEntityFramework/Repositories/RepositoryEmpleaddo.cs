@@ -12,6 +12,7 @@ using System.Web;
 //    WHERE OFICIO = @OFICIO
 //go
 
+
 namespace ProyectoEntityFramework.Repositories
 {
     public class RepositoryEmpleaddo

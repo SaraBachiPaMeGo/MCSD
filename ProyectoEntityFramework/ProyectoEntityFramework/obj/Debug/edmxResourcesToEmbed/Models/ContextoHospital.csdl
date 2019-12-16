@@ -15,6 +15,20 @@
       <Parameter Name="oficio" Mode="In" Type="String" />
       <Parameter Name="incr" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="TODOSEMP" EntitySet="EMP" ReturnType="Collection(HospitalModel.EMP)" />
+    <FunctionImport Name="PAGINAR_DEPT" ReturnType="Collection(HospitalModel.PAGINAR_DEPT_Result)">
+      <Parameter Name="POSICION" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PAGINARGRUPO" ReturnType="Collection(HospitalModel.PAGINARGRUPO_Result)">
+      <Parameter Name="POSICION" Mode="In" Type="Int32" />
+      <Parameter Name="REGISTROS" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="DOCTOR" EntityType="HospitalModel.DOCTOR" />
+    <EntitySet Name="HOSPITAL" EntityType="HospitalModel.HOSPITAL" />
+    <FunctionImport Name="PAGINARHOSPITALES" ReturnType="Collection(HospitalModel.PAGINARHOSPITALES_Result)">
+      <Parameter Name="POSICION" Mode="In" Type="Int32" />
+      <Parameter Name="REGISTROS" Mode="InOut" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="EMP">
     <Key>
@@ -29,4 +43,45 @@
     <Property Name="COMISION" Type="Int32" />
     <Property Name="DEPT_NO" Type="Int32" />
   </EntityType>
+  <ComplexType Name="PAGINAR_DEPT_Result">
+    <Property Type="Int64" Name="POSICION" Nullable="true" />
+    <Property Type="Int32" Name="DEPT_NO" Nullable="false" />
+    <Property Type="String" Name="DNOMBRE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LOC" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="PAGINARGRUPO_Result">
+    <Property Type="Int64" Name="POSICION" Nullable="true" />
+    <Property Type="String" Name="APELLIDO" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="FUNCION" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="TURNO" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SALARIO" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <EntityType Name="DOCTOR">
+    <Key>
+      <PropertyRef Name="DOCTOR_NO" />
+    </Key>
+    <Property Name="HOSPITAL_COD" Type="Int32" />
+    <Property Name="DOCTOR_NO" Type="Int32" Nullable="false" />
+    <Property Name="APELLIDO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ESPECIALIDAD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SALARIO" Type="Int32" />
+  </EntityType>
+  <EntityType Name="HOSPITAL">
+    <Key>
+      <PropertyRef Name="HOSPITAL_COD" />
+    </Key>
+    <Property Name="HOSPITAL_COD" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DIRECCION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TELEFONO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NUM_CAMA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <ComplexType Name="PAGINARHOSPITALES_Result">
+    <Property Type="Int64" Name="POSICION" Nullable="true" />
+    <Property Type="String" Name="NOMBRE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DIRECCION" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="TELEFONO" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NUM_CAMA" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="HOSPITAL_COD" Nullable="false" />
+  </ComplexType>
 </Schema>

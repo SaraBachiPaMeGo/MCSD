@@ -8,6 +8,16 @@
     <Property Name="DNOMBRE" Type="nvarchar" MaxLength="50" />
     <Property Name="LOC" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="DOCTOR">
+    <Key>
+      <PropertyRef Name="DOCTOR_NO" />
+    </Key>
+    <Property Name="HOSPITAL_COD" Type="int" />
+    <Property Name="DOCTOR_NO" Type="int" Nullable="false" />
+    <Property Name="APELLIDO" Type="nvarchar" MaxLength="50" />
+    <Property Name="ESPECIALIDAD" Type="nvarchar" MaxLength="50" />
+    <Property Name="SALARIO" Type="int" />
+  </EntityType>
   <EntityType Name="EMP">
     <Key>
       <PropertyRef Name="EMP_NO" />
@@ -21,12 +31,36 @@
     <Property Name="COMISION" Type="int" />
     <Property Name="DEPT_NO" Type="int" />
   </EntityType>
+  <EntityType Name="HOSPITAL">
+    <Key>
+      <PropertyRef Name="HOSPITAL_COD" />
+    </Key>
+    <Property Name="HOSPITAL_COD" Type="int" Nullable="false" />
+    <Property Name="NOMBRE" Type="nvarchar" MaxLength="50" />
+    <Property Name="DIRECCION" Type="nvarchar" MaxLength="50" />
+    <Property Name="TELEFONO" Type="nvarchar" MaxLength="50" />
+    <Property Name="NUM_CAMA" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Function Name="PAGINAR_DEPT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="POSICION" Type="int" Mode="In" />
+  </Function>
+  <Function Name="PAGINARGRUPO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="POSICION" Type="int" Mode="In" />
+    <Parameter Name="REGISTROS" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="PAGINARHOSPITALES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="POSICION" Type="int" Mode="In" />
+    <Parameter Name="REGISTROS" Type="int" Mode="InOut" />
+  </Function>
   <Function Name="SubirSalarioOficio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="oficio" Type="nvarchar" Mode="In" />
     <Parameter Name="incr" Type="int" Mode="In" />
   </Function>
+  <Function Name="TODOSEMP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="HospitalModelStoreContainer">
     <EntitySet Name="DEPT" EntityType="Self.DEPT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DOCTOR" EntityType="Self.DOCTOR" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EMP" EntityType="Self.EMP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HOSPITAL" EntityType="Self.HOSPITAL" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>
