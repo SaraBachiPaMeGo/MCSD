@@ -1,0 +1,58 @@
+﻿@using ProyectoEntityFramework.Models
+@model List<VISTADOCPLANT>
+@{
+    ViewBag.Title = "PaginacionVista";
+}
+
+@{ 
+    int numPag = 1;
+    int numReg = int.Parse(ViewBag.Registros.ToString());
+}
+<h2>Paginacion Vista</h2>
+
+<form method="post">
+    <label>Registros:</label>
+    <select name="numReg">
+        <option>Seleccione:</option>
+        @for (int i=1; i<= 7; i++) { 
+    <option value="@i">@i</option>
+        }        
+    </select>
+    <button type="submit" class="btn-danger">Cambiar</button>
+</form>
+
+<p>@ViewBag.Registros</p>
+
+<table class="table table-bordered">
+    <tr>
+        <td>Número emp: </td>
+        <td>Apellido:</td>
+        <td>Trabajo:</td>
+        <td>Salario:</td>
+        <td>Nombre del hospital:</td>
+    </tr>
+    @if (Model != null)
+    {
+        foreach (VISTADOCPLANT emp in Model)
+        {
+            <tr>
+                <td>@emp.DOCTOR_NO</td>
+                <td>@emp.APELLIDO</td>
+                <td>@emp.ESPECIALIDAD</td>
+                <td>@emp.SALARIO</td>
+                <td>@emp.NOMBRE</td>
+            </tr>
+        }
+    }
+</table>
+
+<div>
+
+    @for (int i =1; i<= numReg; i+=3) { //Cuántas páginas va a haber 
+        //1, 2, 3        
+        
+        int posicion = numPag - 1;
+        @Html.ActionLink(numPag.ToString(),"PaginacionVista","Paginacion", new { posicion= posicion},null)
+        numPag += 1;
+    }
+</div>

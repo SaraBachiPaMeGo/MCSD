@@ -41,6 +41,18 @@
     <Property Name="TELEFONO" Type="nvarchar" MaxLength="50" />
     <Property Name="NUM_CAMA" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Hospital.dbo.VISTADOCPLANT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VISTADOCPLANT">
+    <Key>
+      <PropertyRef Name="DOCTOR_NO" />
+    </Key>
+    <Property Name="DOCTOR_NO" Type="int" Nullable="false" />
+    <Property Name="APELLIDO" Type="nvarchar" MaxLength="50" />
+    <Property Name="ESPECIALIDAD" Type="nvarchar" MaxLength="50" />
+    <Property Name="SALARIO" Type="int" />
+    <Property Name="NOMBRE" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <Function Name="PAGINAR_DEPT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="POSICION" Type="int" Mode="In" />
   </Function>
@@ -52,6 +64,11 @@
     <Parameter Name="POSICION" Type="int" Mode="In" />
     <Parameter Name="REGISTROS" Type="int" Mode="InOut" />
   </Function>
+  <Function Name="PROCEDVISTA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="POSICION" Type="int" Mode="In" />
+    <Parameter Name="REGISTROS" Type="int" Mode="InOut" />
+    <Parameter Name="PARAM" Type="int" Mode="In" />
+  </Function>
   <Function Name="SubirSalarioOficio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="oficio" Type="nvarchar" Mode="In" />
     <Parameter Name="incr" Type="int" Mode="In" />
@@ -62,5 +79,14 @@
     <EntitySet Name="DOCTOR" EntityType="Self.DOCTOR" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EMP" EntityType="Self.EMP" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="HOSPITAL" EntityType="Self.HOSPITAL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VISTADOCPLANT" EntityType="Self.VISTADOCPLANT" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VISTADOCPLANT].[DOCTOR_NO] AS [DOCTOR_NO], 
+    [VISTADOCPLANT].[APELLIDO] AS [APELLIDO], 
+    [VISTADOCPLANT].[ESPECIALIDAD] AS [ESPECIALIDAD], 
+    [VISTADOCPLANT].[SALARIO] AS [SALARIO], 
+    [VISTADOCPLANT].[NOMBRE] AS [NOMBRE]
+    FROM [dbo].[VISTADOCPLANT] AS [VISTADOCPLANT]</DefiningQuery>
+    </EntitySet>
   </EntityContainer>
 </Schema>

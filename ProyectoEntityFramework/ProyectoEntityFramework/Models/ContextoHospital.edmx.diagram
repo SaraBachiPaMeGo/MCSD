@@ -7,8 +7,9 @@
       <Diagram DiagramId="bf4c47a3720348a58580d207170f14cc" Name="Diagram1">
         <EntityTypeShape EntityType="HospitalModel.DEPT" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HospitalModel.EMP" Width="1.375" PointX="3.375" PointY="0.75" />
-        <EntityTypeShape EntityType="HospitalModel.DOCTOR" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="HospitalModel.DOCTOR" Width="1.5" PointX="8.625" PointY="0.75" />
         <EntityTypeShape EntityType="HospitalModel.HOSPITAL" Width="1.5" PointX="5.25" PointY="0.75" />
+        <EntityTypeShape EntityType="HospitalModel.VISTADOCPLANT" Width="1.5" PointX="7" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

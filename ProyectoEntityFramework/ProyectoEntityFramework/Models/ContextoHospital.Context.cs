@@ -31,6 +31,7 @@ namespace ProyectoEntityFramework.Models
         public virtual DbSet<EMP> EMP { get; set; }
         public virtual DbSet<DOCTOR> DOCTOR { get; set; }
         public virtual DbSet<HOSPITAL> HOSPITAL { get; set; }
+        public virtual DbSet<VISTADOCPLANT> VISTADOCPLANT { get; set; }
     
         public virtual int SubirSalarioOficio(string oficio, Nullable<int> incr)
         {
@@ -80,6 +81,32 @@ namespace ProyectoEntityFramework.Models
                 new ObjectParameter("POSICION", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PAGINARHOSPITALES_Result>("PAGINARHOSPITALES", pOSICIONParameter, rEGISTROS);
+        }
+    
+        public virtual ObjectResult<VISTADOCPLANT> PROCEDVISTA(Nullable<int> pOSICION, ObjectParameter rEGISTROS, Nullable<int> pARAM)
+        {
+            var pOSICIONParameter = pOSICION.HasValue ?
+                new ObjectParameter("POSICION", pOSICION) :
+                new ObjectParameter("POSICION", typeof(int));
+    
+            var pARAMParameter = pARAM.HasValue ?
+                new ObjectParameter("PARAM", pARAM) :
+                new ObjectParameter("PARAM", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VISTADOCPLANT>("PROCEDVISTA", pOSICIONParameter, rEGISTROS, pARAMParameter);
+        }
+    
+        public virtual ObjectResult<VISTADOCPLANT> PROCEDVISTA(Nullable<int> pOSICION, ObjectParameter rEGISTROS, Nullable<int> pARAM, MergeOption mergeOption)
+        {
+            var pOSICIONParameter = pOSICION.HasValue ?
+                new ObjectParameter("POSICION", pOSICION) :
+                new ObjectParameter("POSICION", typeof(int));
+    
+            var pARAMParameter = pARAM.HasValue ?
+                new ObjectParameter("PARAM", pARAM) :
+                new ObjectParameter("PARAM", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VISTADOCPLANT>("PROCEDVISTA", mergeOption, pOSICIONParameter, rEGISTROS, pARAMParameter);
         }
     }
 }

@@ -14,11 +14,13 @@ namespace ProyectoEntityFramework.Controllers
         RepositoryDepartamento repo;
         RepositoryPlantilla repoPlan;
         RepositoryHospital repoHospi;
+        RepositoryEmpleaddo repoEmp;
         public PaginacionController()
         {            
             repo = new RepositoryDepartamento();
             repoPlan = new RepositoryPlantilla();
             repoHospi = new RepositoryHospital();
+            repoEmp = new RepositoryEmpleaddo();
         }
 
         public ActionResult Individual(int? position)
@@ -100,10 +102,78 @@ namespace ProyectoEntityFramework.Controllers
             return View(hospi.ListaDoctores);
         }
 
-        // GET: Paginacion
-        public ActionResult Index()
+        public ActionResult PaginacionEmpleados(int? posicion) 
         {
-            return View();
+            if (posicion == null) {
+                posicion = 0;
+            }
+
+            List<int> links = new List<int>();
+            //List<String> strings = new List<String>();
+
+            int primero,siguiente, anterior, ultimo;
+            //String prim = "Primero";
+            //String siguient = "Siguiente";
+            //String anterio = "Anterior";
+            //String ultim = "Último";
+
+            primero = 1;
+            siguiente = posicion.Value + 1;
+            anterior = posicion.Value - 1;
+            ultimo = repoEmp.GetEmpleadoPag(posicion.Value).Count();
+
+            if (siguiente >ultimo)
+            {
+                siguiente = ultimo;
+            }
+
+            if (anterior < 1)
+            {
+                anterior = 1;
+            }
+
+            links.Add(primero);
+            links.Add(siguiente);
+            links.Add(anterior);
+            links.Add(ultimo);
+
+            //strings.Add(prim);
+            //strings.Add(siguient);
+            //strings.Add(anterio);
+            //strings.Add(ultim);
+
+            ViewBag.Links = links;
+            //ViewBag.Strings = strings;
+            ViewBag.NumReg = repoEmp.GetRegistros();
+
+            return View(repoEmp.GetEmpleadoPag(posicion.Value));
         }
+
+        [HttpGet]
+
+        public ActionResult PaginacionVista(int? posicion, int? numReg)
+        {
+            if (posicion == null)
+            {
+                posicion = 0;
+            }
+
+            if (numReg == null) {
+                numReg = 3;
+            }
+
+            ViewBag.Registros = repoEmp.NumRegistrosEmp();
+            return View(repoEmp.GetTodosEmpl(posicion.Value, numReg.Value));
+        }
+
+        [HttpPost]
+
+        public ActionResult PaginacionVista(, int numReg)
+        {
+           
+            ViewBag.Registros = repoEmp.NumRegistrosEmp();
+            return View(repoEmp.GetTodosEmpl(0, numReg));
+        }
+
     }
 }

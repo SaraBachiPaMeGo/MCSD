@@ -1,0 +1,55 @@
+﻿@using ProyectoEntityFramework.Models
+@model List<EMP>
+@{
+    ViewBag.Title = "PaginacionEmpleados";
+}
+
+@*@{
+    ViewBag.Links;
+    ViewBag.Strings;
+}*@
+
+@{
+    //int pag = ViewBag.NumReg / 5;
+    int numreg = int.Parse(ViewBag.NumReg.ToString());
+    int numpagina = 1;
+ }
+
+<h2>PaginacionEmpleados</h2>
+
+
+    @for(int i =1; i <= numreg; i+=5)
+    {
+        //foreach (String declar in ViewBag.Strings)
+        //{
+        int pagina = numpagina - 1;
+        @Html.ActionLink(pagina.ToString(), "PaginacionEmpleados", "Paginacion", new { posicion = pagina },null);
+        //}
+        numpagina += 1;
+        <span>-</span>
+
+    }
+
+<table class="table table-bordered">
+    <tr>
+        <th>REGISTROS</th>
+        <th>Nombre</th>
+        <th>DEPT_NO</th>
+        <th>Salario</th>
+        <th>Fecha de alta</th>
+    </tr>
+    @if (Model != null)
+    {
+        foreach (EMP emp in Model)
+        {
+            <tr>
+                <td>@ViewBag.NumReg</td>
+                <td>@emp.APELLIDO</td>
+                <td>@emp.DEPT_NO</td>
+                <td>@emp.SALARIO</td>
+                <td>@emp.FECHA_ALT</td>
+            </tr>
+        }
+    }
+</table>
+    

@@ -81,5 +81,17 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <EntitySetMapping Name="VISTADOCPLANT">
+      <EntityTypeMapping TypeName="HospitalModel.VISTADOCPLANT">
+        <MappingFragment StoreEntitySet="VISTADOCPLANT">
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="SALARIO" ColumnName="SALARIO" />
+          <ScalarProperty Name="ESPECIALIDAD" ColumnName="ESPECIALIDAD" />
+          <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+          <ScalarProperty Name="DOCTOR_NO" ColumnName="DOCTOR_NO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="PROCEDVISTA" FunctionName="HospitalModel.Store.PROCEDVISTA" />
   </EntityContainerMapping>
 </Mapping>

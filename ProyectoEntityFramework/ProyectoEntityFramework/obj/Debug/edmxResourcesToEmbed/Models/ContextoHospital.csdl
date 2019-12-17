@@ -29,6 +29,12 @@
       <Parameter Name="POSICION" Mode="In" Type="Int32" />
       <Parameter Name="REGISTROS" Mode="InOut" Type="Int32" />
     </FunctionImport>
+    <EntitySet Name="VISTADOCPLANT" EntityType="HospitalModel.VISTADOCPLANT" />
+    <FunctionImport Name="PROCEDVISTA" EntitySet="VISTADOCPLANT" ReturnType="Collection(HospitalModel.VISTADOCPLANT)">
+      <Parameter Name="POSICION" Mode="In" Type="Int32" />
+      <Parameter Name="REGISTROS" Mode="InOut" Type="Int32" />
+      <Parameter Name="PARAM" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="EMP">
     <Key>
@@ -84,4 +90,14 @@
     <Property Type="String" Name="NUM_CAMA" Nullable="true" MaxLength="50" />
     <Property Type="Int32" Name="HOSPITAL_COD" Nullable="false" />
   </ComplexType>
+  <EntityType Name="VISTADOCPLANT">
+    <Key>
+      <PropertyRef Name="DOCTOR_NO" />
+    </Key>
+    <Property Name="DOCTOR_NO" Type="Int32" Nullable="false" />
+    <Property Name="APELLIDO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ESPECIALIDAD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SALARIO" Type="Int32" />
+    <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

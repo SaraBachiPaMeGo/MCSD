@@ -46,6 +46,18 @@
           <Property Name="TELEFONO" Type="nvarchar" MaxLength="50" />
           <Property Name="NUM_CAMA" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Hospital.dbo.VISTADOCPLANT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VISTADOCPLANT">
+          <Key>
+            <PropertyRef Name="DOCTOR_NO" />
+          </Key>
+          <Property Name="DOCTOR_NO" Type="int" Nullable="false" />
+          <Property Name="APELLIDO" Type="nvarchar" MaxLength="50" />
+          <Property Name="ESPECIALIDAD" Type="nvarchar" MaxLength="50" />
+          <Property Name="SALARIO" Type="int" />
+          <Property Name="NOMBRE" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <Function Name="PAGINAR_DEPT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="POSICION" Type="int" Mode="In" />
         </Function>
@@ -57,6 +69,11 @@
           <Parameter Name="POSICION" Type="int" Mode="In" />
           <Parameter Name="REGISTROS" Type="int" Mode="InOut" />
         </Function>
+        <Function Name="PROCEDVISTA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="POSICION" Type="int" Mode="In" />
+          <Parameter Name="REGISTROS" Type="int" Mode="InOut" />
+          <Parameter Name="PARAM" Type="int" Mode="In" />
+        </Function>
         <Function Name="SubirSalarioOficio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="oficio" Type="nvarchar" Mode="In" />
           <Parameter Name="incr" Type="int" Mode="In" />
@@ -67,6 +84,15 @@
           <EntitySet Name="DOCTOR" EntityType="Self.DOCTOR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EMP" EntityType="Self.EMP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HOSPITAL" EntityType="Self.HOSPITAL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VISTADOCPLANT" EntityType="Self.VISTADOCPLANT" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VISTADOCPLANT].[DOCTOR_NO] AS [DOCTOR_NO], 
+    [VISTADOCPLANT].[APELLIDO] AS [APELLIDO], 
+    [VISTADOCPLANT].[ESPECIALIDAD] AS [ESPECIALIDAD], 
+    [VISTADOCPLANT].[SALARIO] AS [SALARIO], 
+    [VISTADOCPLANT].[NOMBRE] AS [NOMBRE]
+    FROM [dbo].[VISTADOCPLANT] AS [VISTADOCPLANT]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -100,6 +126,12 @@
           <FunctionImport Name="PAGINARHOSPITALES" ReturnType="Collection(HospitalModel.PAGINARHOSPITALES_Result)">
             <Parameter Name="POSICION" Mode="In" Type="Int32" />
             <Parameter Name="REGISTROS" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="VISTADOCPLANT" EntityType="HospitalModel.VISTADOCPLANT" />
+          <FunctionImport Name="PROCEDVISTA" EntitySet="VISTADOCPLANT" ReturnType="Collection(HospitalModel.VISTADOCPLANT)">
+            <Parameter Name="POSICION" Mode="In" Type="Int32" />
+            <Parameter Name="REGISTROS" Mode="InOut" Type="Int32" />
+            <Parameter Name="PARAM" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="EMP">
@@ -156,6 +188,16 @@
           <Property Type="String" Name="NUM_CAMA" Nullable="true" MaxLength="50" />
           <Property Type="Int32" Name="HOSPITAL_COD" Nullable="false" />
         </ComplexType>
+        <EntityType Name="VISTADOCPLANT">
+          <Key>
+            <PropertyRef Name="DOCTOR_NO" />
+          </Key>
+          <Property Name="DOCTOR_NO" Type="Int32" Nullable="false" />
+          <Property Name="APELLIDO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ESPECIALIDAD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SALARIO" Type="Int32" />
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -242,6 +284,18 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="VISTADOCPLANT">
+            <EntityTypeMapping TypeName="HospitalModel.VISTADOCPLANT">
+              <MappingFragment StoreEntitySet="VISTADOCPLANT">
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="SALARIO" ColumnName="SALARIO" />
+                <ScalarProperty Name="ESPECIALIDAD" ColumnName="ESPECIALIDAD" />
+                <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+                <ScalarProperty Name="DOCTOR_NO" ColumnName="DOCTOR_NO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="PROCEDVISTA" FunctionName="HospitalModel.Store.PROCEDVISTA" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
