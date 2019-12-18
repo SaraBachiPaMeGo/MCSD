@@ -93,5 +93,17 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="PROCEDVISTA" FunctionName="HospitalModel.Store.PROCEDVISTA" />
+    <EntitySetMapping Name="EMPEADOSDEPT">
+      <EntityTypeMapping TypeName="HospitalModel.EMPEADOSDEPT">
+        <MappingFragment StoreEntitySet="EMPEADOSDEPT">
+          <ScalarProperty Name="DNOMBRE" ColumnName="DNOMBRE" />
+          <ScalarProperty Name="LOC" ColumnName="LOC" />
+          <ScalarProperty Name="SALARIO" ColumnName="SALARIO" />
+          <ScalarProperty Name="OFICIO" ColumnName="OFICIO" />
+          <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+          <ScalarProperty Name="POSICION" ColumnName="POSICION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

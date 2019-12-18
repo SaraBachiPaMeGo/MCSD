@@ -32,6 +32,7 @@ namespace ProyectoEntityFramework.Models
         public virtual DbSet<DOCTOR> DOCTOR { get; set; }
         public virtual DbSet<HOSPITAL> HOSPITAL { get; set; }
         public virtual DbSet<VISTADOCPLANT> VISTADOCPLANT { get; set; }
+        public virtual DbSet<EMPEADOSDEPT> EMPEADOSDEPT { get; set; }
     
         public virtual int SubirSalarioOficio(string oficio, Nullable<int> incr)
         {

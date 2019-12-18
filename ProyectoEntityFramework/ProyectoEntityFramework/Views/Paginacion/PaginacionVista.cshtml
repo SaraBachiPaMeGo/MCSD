@@ -6,19 +6,25 @@
 
 @{ 
     int numPag = 1;
-    int numReg = int.Parse(ViewBag.Registros.ToString());
+    int registros =ViewBag.Registros;
+    int numReg =ViewBag.NumReg ;
+    
 }
 <h2>Paginacion Vista</h2>
 
 <form method="post">
     <label>Registros:</label>
-    <select name="numReg">
+    <select name="registros">
         <option>Seleccione:</option>
-        @for (int i=1; i<= 7; i++) { 
-    <option value="@i">@i</option>
-        }        
+        @for (int i = 1; i <= 7; i++)
+        {
+            
+            <option value="@i" >@i</option>
+        }
     </select>
+    <input type="number" name="pos" value="@ViewBag.Posicion"  />
     <button type="submit" class="btn-danger">Cambiar</button>
+    
 </form>
 
 <p>@ViewBag.Registros</p>
@@ -48,11 +54,12 @@
 
 <div>
 
-    @for (int i =1; i<= numReg; i+=3) { //Cuántas páginas va a haber 
+    @for (int i =1; i<= registros; i+=numReg) { //Cuántas páginas va a haber 
         //1, 2, 3        
         
         int posicion = numPag - 1;
-        @Html.ActionLink(numPag.ToString(),"PaginacionVista","Paginacion", new { posicion= posicion},null)
+        @Html.ActionLink(numPag.ToString(),"PaginacionVista","Paginacion", new { posicion= posicion , numReg = numReg},null)
         numPag += 1;
+        ViewBag.Posicion = posicion;
     }
 </div>

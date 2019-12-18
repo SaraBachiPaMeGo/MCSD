@@ -1,0 +1,47 @@
+﻿@using ProyectoPruebaPractica.Models
+@model List<EMP>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<form method="post" name="name">
+    <select name="name">
+        <option ></option>
+        <option value="asc">Ordenar de forma ascendente</option>
+        <option value="desc">Ordenar de forma descendente</option>
+    </select>
+    @*<button type="submit" name="name" value="asc" class="btn-success">Ordenar de forma ascendente</button>
+    <button type="submit" name="name" value="desc" class="btn-info">Ordenar de forma descendente</button>*@
+    <select name="campo">
+        <option></option>
+        <option value="APELLIDO">Apellido</option>
+        <option value="SALARIO">Salario</option>
+        <option value="FECHA_ALT">Fecha de alta</option>
+    </select>
+    <button type="submit" class="btn-info">Ordenar</button>
+</form>
+
+<table class="table table-bordered">
+    <tr>
+        <td>Número emp: </td>
+        <td>Apellido:</td>
+        <td>Fecha de alta:</td>
+        <td>Salario:</td>
+        <td>DEPT_NO:</td>
+    </tr>
+    @if (Model != null)
+    {
+        foreach (EMP emp in Model)
+        {
+            <tr>
+                <td>@emp.EMP_NO</td>
+                <td>@emp.APELLIDO</td>
+                <td>@emp.FECHA_ALT</td>
+                <td>@emp.SALARIO</td>
+                <td>@emp.DEPT_NO</td>
+            </tr>
+        }
+    }
+</table>

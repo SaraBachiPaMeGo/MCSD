@@ -159,6 +159,9 @@
     <Compile Include="Models\EMP.cs">
       <DependentUpon>ContextoHospital.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\EMPEADOSDEPT.cs">
+      <DependentUpon>ContextoHospital.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\GrupoPlantilla.cs" />
     <Compile Include="Models\HOSPITAL.cs">
       <DependentUpon>ContextoHospital.tt</DependentUpon>
@@ -243,6 +246,8 @@
     <Content Include="Views\Paginacion\PaginacionHospi.cshtml" />
     <Content Include="Views\Paginacion\PaginacionEmpleados.cshtml" />
     <Content Include="Views\Paginacion\PaginacionVista.cshtml" />
+    <Content Include="Views\Empleados\EmpleadosDepartamento.cshtml" />
+    <Content Include="Views\Empleados\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

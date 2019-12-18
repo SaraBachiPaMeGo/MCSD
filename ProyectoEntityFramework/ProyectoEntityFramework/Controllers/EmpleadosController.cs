@@ -36,5 +36,15 @@ namespace ProyectoEntityFramework.Controllers
 
             return View(repo.GetEmpleados(oficios));
         }
+
+        public ActionResult EmpleadosDepartamento() 
+        {            
+            return View(repo.GetEmpDept());
+        }
+
+        public ActionResult Details(int posicion) 
+        {
+            return View(repo.BuscarEmp(posicion));
+        }
     }
 }

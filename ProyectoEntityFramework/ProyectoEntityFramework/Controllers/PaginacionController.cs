@@ -148,9 +148,9 @@ namespace ProyectoEntityFramework.Controllers
 
             return View(repoEmp.GetEmpleadoPag(posicion.Value));
         }
-
+      
         [HttpGet]
-
+        
         public ActionResult PaginacionVista(int? posicion, int? numReg)
         {
             if (posicion == null)
@@ -163,16 +163,17 @@ namespace ProyectoEntityFramework.Controllers
             }
 
             ViewBag.Registros = repoEmp.NumRegistrosEmp();
+            ViewBag.NumReg = numReg;
             return View(repoEmp.GetTodosEmpl(posicion.Value, numReg.Value));
         }
-
+              
         [HttpPost]
 
-        public ActionResult PaginacionVista(, int numReg)
+        public ActionResult PaginacionVista(int registros)
         {
-           
             ViewBag.Registros = repoEmp.NumRegistrosEmp();
-            return View(repoEmp.GetTodosEmpl(0, numReg));
+            ViewBag.NumReg = registros;
+            return View(repoEmp.GetTodosEmpl(0, registros));
         }
 
     }

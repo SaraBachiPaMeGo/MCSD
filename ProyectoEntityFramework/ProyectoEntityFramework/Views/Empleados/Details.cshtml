@@ -1,0 +1,65 @@
+﻿@model ProyectoEntityFramework.Models.EMPEADOSDEPT
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EMPEADOSDEPT</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.POSICION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.POSICION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.APELLIDO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.APELLIDO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OFICIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OFICIO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SALARIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SALARIO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LOC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LOC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DNOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DNOMBRE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Volver", "EmpleadosDepartamento", "Empleados")
+</p>

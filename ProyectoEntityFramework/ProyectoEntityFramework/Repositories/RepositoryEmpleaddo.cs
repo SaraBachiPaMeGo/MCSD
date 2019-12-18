@@ -46,6 +46,24 @@ using System.Web;
 //    WHERE POSICION> @POSICION*3 AND POSICION<= (@POSICION*3) +3
 //GO
 
+//ALTER VIEW EMPEADOSDEPT
+//AS
+
+//    SELECT ISNULL(
+//    ROW_NUMBER() OVER (ORDER BY APELLIDO),0) AS
+//    POSICION,
+
+//    EMP.APELLIDO, EMP.OFICIO,
+//	EMP.SALARIO,DEPT.LOC, DEPT.DNOMBRE
+//    FROM EMP
+//    INNER JOIN DEPT
+
+//    ON EMP.DEPT_NO = DEPT.DEPT_NO
+//	-- NO ADMITIRÁ VALORES NULOS, EL 0 VALOR POR DEFECTO
+//	-- Si no hay pk hacemos el row_number para que se convierta
+//	-- en la pk
+//GO
+
 namespace ProyectoEntityFramework.Repositories
 {
     public class RepositoryEmpleaddo
@@ -128,6 +146,20 @@ namespace ProyectoEntityFramework.Repositories
         {
             return context.VISTADOCPLANT.Count();
         }
+
+        public List<EMPEADOSDEPT> GetEmpDept() 
+        {
+            var consulta = from datos in context.EMPEADOSDEPT
+                           select datos;
+            return consulta.ToList();
+        }
+
+        public EMPEADOSDEPT BuscarEmp(int posicion) 
+        {
+            return context.EMPEADOSDEPT.SingleOrDefault(z => z.POSICION == posicion);
+        }
+
+
 
     }
 }

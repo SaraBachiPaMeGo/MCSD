@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ProyectoEntityFramework.Models.EMPEADOSDEPT>
+
+@{
+    ViewBag.Title = "EmpleadosDepartamento";
+}
+
+<h2>EmpleadosDepartamento</h2>
+
+<table class="table">
+    <tr>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.APELLIDO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OFICIO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SALARIO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LOC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DNOMBRE)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.POSICION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.APELLIDO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OFICIO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SALARIO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LOC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DNOMBRE)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { posicion = item.POSICION }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

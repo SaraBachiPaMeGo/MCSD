@@ -47,6 +47,19 @@
           <Property Name="NUM_CAMA" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'Hospital.dbo.EMPEADOSDEPT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="EMPEADOSDEPT">
+          <Key>
+            <PropertyRef Name="POSICION" />
+          </Key>
+          <Property Name="POSICION" Type="bigint" Nullable="false" />
+          <Property Name="APELLIDO" Type="nvarchar" MaxLength="50" />
+          <Property Name="OFICIO" Type="nvarchar" MaxLength="50" />
+          <Property Name="SALARIO" Type="int" />
+          <Property Name="LOC" Type="nvarchar" MaxLength="50" />
+          <Property Name="DNOMBRE" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'Hospital.dbo.VISTADOCPLANT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VISTADOCPLANT">
           <Key>
@@ -84,6 +97,16 @@ warning 6002: The table/view 'Hospital.dbo.VISTADOCPLANT' does not have a primar
           <EntitySet Name="DOCTOR" EntityType="Self.DOCTOR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EMP" EntityType="Self.EMP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HOSPITAL" EntityType="Self.HOSPITAL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EMPEADOSDEPT" EntityType="Self.EMPEADOSDEPT" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [EMPEADOSDEPT].[POSICION] AS [POSICION], 
+    [EMPEADOSDEPT].[APELLIDO] AS [APELLIDO], 
+    [EMPEADOSDEPT].[OFICIO] AS [OFICIO], 
+    [EMPEADOSDEPT].[SALARIO] AS [SALARIO], 
+    [EMPEADOSDEPT].[LOC] AS [LOC], 
+    [EMPEADOSDEPT].[DNOMBRE] AS [DNOMBRE]
+    FROM [dbo].[EMPEADOSDEPT] AS [EMPEADOSDEPT]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="VISTADOCPLANT" EntityType="Self.VISTADOCPLANT" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [VISTADOCPLANT].[DOCTOR_NO] AS [DOCTOR_NO], 
@@ -133,6 +156,7 @@ warning 6002: The table/view 'Hospital.dbo.VISTADOCPLANT' does not have a primar
             <Parameter Name="REGISTROS" Mode="InOut" Type="Int32" />
             <Parameter Name="PARAM" Mode="In" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="EMPEADOSDEPT" EntityType="HospitalModel.EMPEADOSDEPT" />
         </EntityContainer>
         <EntityType Name="EMP">
           <Key>
@@ -197,6 +221,17 @@ warning 6002: The table/view 'Hospital.dbo.VISTADOCPLANT' does not have a primar
           <Property Name="ESPECIALIDAD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SALARIO" Type="Int32" />
           <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="EMPEADOSDEPT">
+          <Key>
+            <PropertyRef Name="POSICION" />
+          </Key>
+          <Property Name="POSICION" Type="Int64" Nullable="false" />
+          <Property Name="APELLIDO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OFICIO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SALARIO" Type="Int32" />
+          <Property Name="LOC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DNOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -296,6 +331,18 @@ warning 6002: The table/view 'Hospital.dbo.VISTADOCPLANT' does not have a primar
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="PROCEDVISTA" FunctionName="HospitalModel.Store.PROCEDVISTA" />
+          <EntitySetMapping Name="EMPEADOSDEPT">
+            <EntityTypeMapping TypeName="HospitalModel.EMPEADOSDEPT">
+              <MappingFragment StoreEntitySet="EMPEADOSDEPT">
+                <ScalarProperty Name="DNOMBRE" ColumnName="DNOMBRE" />
+                <ScalarProperty Name="LOC" ColumnName="LOC" />
+                <ScalarProperty Name="SALARIO" ColumnName="SALARIO" />
+                <ScalarProperty Name="OFICIO" ColumnName="OFICIO" />
+                <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+                <ScalarProperty Name="POSICION" ColumnName="POSICION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
