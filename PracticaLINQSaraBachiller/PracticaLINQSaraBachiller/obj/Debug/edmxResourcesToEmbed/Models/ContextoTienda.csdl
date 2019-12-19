@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TiendaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ContextoTienda" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Clientes" EntityType="TiendaModel.Clientes" />
+    <EntitySet Name="Productos" EntityType="TiendaModel.Productos" />
+    <EntitySet Name="VISTAPEDIDOS" EntityType="TiendaModel.VISTAPEDIDOS" />
+  </EntityContainer>
+  <EntityType Name="Clientes">
+    <Key>
+      <PropertyRef Name="CodigoCliente" />
+    </Key>
+    <Property Name="CodigoCliente" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Empresa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Contacto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Cargo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Ciudad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Telefono" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Productos">
+    <Key>
+      <PropertyRef Name="IdProducto" />
+    </Key>
+    <Property Name="IdProducto" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Precio" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Stock" Type="Int32" />
+  </EntityType>
+  <EntityType Name="VISTAPEDIDOS">
+    <Key>
+      <PropertyRef Name="Posicion" />
+    </Key>
+    <Property Name="Posicion" Type="Int64" Nullable="false" />
+    <Property Name="CodigoCliente" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="NombreProducto" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Precio" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PrecioTotal" Type="Int32" />
+    <Property Name="Cantidad" Type="Int32" />
+    <Property Name="FechaPedido" Type="DateTime" Precision="3" />
+  </EntityType>
+</Schema>

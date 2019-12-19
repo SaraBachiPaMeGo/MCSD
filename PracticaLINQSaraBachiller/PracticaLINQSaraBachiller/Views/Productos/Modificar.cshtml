@@ -1,0 +1,21 @@
+﻿@using PracticaLINQSaraBachiller.Models;
+@model Productos
+@{
+    ViewBag.Title = "Modificar";
+}
+
+<h2>Modificar</h2>
+
+<form method="post">
+    <label>Número de Producto:</label>
+    <input type="number" name="idProd" value="@Model.IdProducto" class="form-control" readonly />
+    <label>Nombre:</label>
+    <input type="text" name="nombre" value="@Model.Nombre" class="form-control" />
+    <label>Precio:</label>
+    <input type="text" name="precio" value="@Model.Precio" class="form-control" />
+    <label>Stock:</label>
+    <input type="number" name="stock" value="@Model.Stock" class="form-control" />
+    <button type="submit">Añadir</button>
+</form>
+
+@Html.ActionLink("Volver", "PaginaProductos", "Productos")

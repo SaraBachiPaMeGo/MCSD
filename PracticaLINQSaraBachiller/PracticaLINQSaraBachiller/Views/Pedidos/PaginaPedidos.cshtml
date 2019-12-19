@@ -1,0 +1,62 @@
+﻿@model IEnumerable<PracticaLINQSaraBachiller.Models.VISTAPEDIDOS>
+
+@{
+    ViewBag.Title = "PaginaPedidos";
+}
+
+<h2>PaginaPedidos</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Posicion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CodigoCliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreProducto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Precio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrecioTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaPedido)
+        </th>
+       
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Posicion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CodigoCliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreProducto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Precio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrecioTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cantidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaPedido)
+        </td>
+        
+    </tr>
+}
+
+</table>

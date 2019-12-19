@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Crear";
+}
+
+<h2>Crear</h2>
+int idProd, String nombre, String precio, int stock
+
+<form method="post">
+    <label>Número de Producto:</label>
+    <input type="number" name="idProd" class="form-control" />
+    <label>Nombre:</label>
+    <input type="text" name="nombre" class="form-control" />
+    <label>Precio:</label>
+    <input type="text" name="precio" class="form-control" />
+    <label>Stock:</label>
+    <input type="number" name="stock" class="form-control" />
+    <button type="submit">Añadir</button>
+</form>
+
+@Html.ActionLink("Volver", "PaginaProductos", "Productos")

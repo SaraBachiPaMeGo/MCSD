@@ -1,0 +1,50 @@
+﻿@model PracticaLINQSaraBachiller.Models.Productos
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Detalles de Producto</h2>
+
+<div>
+    <h4>Productos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdProducto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdProducto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Precio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Precio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stock)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    
+    @Html.ActionLink("Volver", "PaginaProductos")
+</p>

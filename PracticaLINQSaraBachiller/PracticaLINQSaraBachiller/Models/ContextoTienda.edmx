@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TiendaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="CodigoCliente" />
+          </Key>
+          <Property Name="CodigoCliente" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Empresa" Type="nvarchar(max)" />
+          <Property Name="Contacto" Type="nvarchar(max)" />
+          <Property Name="Cargo" Type="nvarchar(max)" />
+          <Property Name="Ciudad" Type="nvarchar(max)" />
+          <Property Name="Telefono" Type="int" />
+        </EntityType>
+        <EntityType Name="Productos">
+          <Key>
+            <PropertyRef Name="IdProducto" />
+          </Key>
+          <Property Name="IdProducto" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="255" />
+          <Property Name="Precio" Type="nvarchar" MaxLength="255" />
+          <Property Name="Stock" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Tienda.dbo.VISTAPEDIDOS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VISTAPEDIDOS">
+          <Key>
+            <PropertyRef Name="Posicion" />
+          </Key>
+          <Property Name="Posicion" Type="bigint" Nullable="false" />
+          <Property Name="CodigoCliente" Type="nvarchar" MaxLength="10" />
+          <Property Name="NombreProducto" Type="nvarchar" MaxLength="255" />
+          <Property Name="Precio" Type="nvarchar" MaxLength="255" />
+          <Property Name="PrecioTotal" Type="int" />
+          <Property Name="Cantidad" Type="int" />
+          <Property Name="FechaPedido" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="TiendaModelStoreContainer">
+          <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Productos" EntityType="Self.Productos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VISTAPEDIDOS" EntityType="Self.VISTAPEDIDOS" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VISTAPEDIDOS].[Posicion] AS [Posicion], 
+    [VISTAPEDIDOS].[CodigoCliente] AS [CodigoCliente], 
+    [VISTAPEDIDOS].[NombreProducto] AS [NombreProducto], 
+    [VISTAPEDIDOS].[Precio] AS [Precio], 
+    [VISTAPEDIDOS].[PrecioTotal] AS [PrecioTotal], 
+    [VISTAPEDIDOS].[Cantidad] AS [Cantidad], 
+    [VISTAPEDIDOS].[FechaPedido] AS [FechaPedido]
+    FROM [dbo].[VISTAPEDIDOS] AS [VISTAPEDIDOS]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TiendaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ContextoTienda" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="Clientes" EntityType="TiendaModel.Clientes" />
+          <EntitySet Name="Productos" EntityType="TiendaModel.Productos" />
+          <EntitySet Name="VISTAPEDIDOS" EntityType="TiendaModel.VISTAPEDIDOS" />
+        </EntityContainer>
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="CodigoCliente" />
+          </Key>
+          <Property Name="CodigoCliente" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Empresa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Contacto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Cargo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Ciudad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Telefono" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Productos">
+          <Key>
+            <PropertyRef Name="IdProducto" />
+          </Key>
+          <Property Name="IdProducto" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Precio" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Stock" Type="Int32" />
+        </EntityType>
+        <EntityType Name="VISTAPEDIDOS">
+          <Key>
+            <PropertyRef Name="Posicion" />
+          </Key>
+          <Property Name="Posicion" Type="Int64" Nullable="false" />
+          <Property Name="CodigoCliente" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="NombreProducto" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Precio" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PrecioTotal" Type="Int32" />
+          <Property Name="Cantidad" Type="Int32" />
+          <Property Name="FechaPedido" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TiendaModelStoreContainer" CdmEntityContainer="ContextoTienda" >
+          <EntitySetMapping Name="Clientes">
+            <EntityTypeMapping TypeName="TiendaModel.Clientes">
+              <MappingFragment StoreEntitySet="Clientes">
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+                <ScalarProperty Name="Contacto" ColumnName="Contacto" />
+                <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+                <ScalarProperty Name="CodigoCliente" ColumnName="CodigoCliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Productos">
+            <EntityTypeMapping TypeName="TiendaModel.Productos">
+              <MappingFragment StoreEntitySet="Productos">
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VISTAPEDIDOS">
+            <EntityTypeMapping TypeName="TiendaModel.VISTAPEDIDOS">
+              <MappingFragment StoreEntitySet="VISTAPEDIDOS">
+                <ScalarProperty Name="FechaPedido" ColumnName="FechaPedido" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="PrecioTotal" ColumnName="PrecioTotal" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
+                <ScalarProperty Name="CodigoCliente" ColumnName="CodigoCliente" />
+                <ScalarProperty Name="Posicion" ColumnName="Posicion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

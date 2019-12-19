@@ -1,0 +1,58 @@
+﻿@model IEnumerable<PracticaLINQSaraBachiller.Models.Clientes>
+
+@{
+    ViewBag.Title = "PaginaClientes";
+}
+
+<h2>PaginaClientes</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CodigoCliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Empresa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contacto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cargo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ciudad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CodigoCliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Empresa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contacto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cargo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ciudad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefono)
+        </td>
+        <td>
+            @Html.ActionLink("Ver pedidos","PaginaPedidos", "Pedidos", new { idCli = item.CodigoCliente },null) 
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,89 @@
+﻿@model IEnumerable<PracticaLINQSaraBachiller.Models.Productos>
+
+@{
+    ViewBag.Title = "PaginaProductos";
+}
+
+<h2>Pagina Productos</h2>
+
+<link href="~/Content/sweetalert2.min.css" rel="stylesheet" />
+
+@section scripts{
+    <script src="~/Scripts/sweetalert2.all.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn").click(function () {
+                alert("Holi");
+            });
+            $(".btn").click(function () {
+                var _form = $(this).closest("form");
+                /*alert("Holi");*/
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: '¡¿Estás seguro de que quieres eliminar?!'
+                }).then(function () {
+                    //user selected "Yes", Let's submit the form
+                    _form.show();
+                });
+            });
+        });
+    </script>
+}
+<button id="btn" type="button">Alert</button>
+<p>
+    @Html.ActionLink("Añadir un nuevo producto", "Crear", "Productos")
+</p>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdProducto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Precio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stock)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdProducto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Precio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stock)
+            </td>
+            <td>
+                @Html.ActionLink("Modificar", "Modificar", "Productos", new
+                {
+                    idProd = item.IdProducto,
+                    nombre = item.Nombre,
+                    precio = item.Precio,
+                    stock = item.Stock
+                }, null) |
+                @Html.ActionLink("Detalles", "Detalles", "Productos", new { idProd = item.IdProducto }, null) |
+                <span>@Html.ActionLink("Eliminar", "Eliminar", "Productos", new { idProd = item.IdProducto }, new { @class = "btn" })</span>
+
+            </td>
+        </tr>
+
+    }
+
+</table>
+
+
+

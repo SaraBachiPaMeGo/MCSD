@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TiendaModelStoreContainer" CdmEntityContainer="ContextoTienda">
+    <EntitySetMapping Name="Clientes">
+      <EntityTypeMapping TypeName="TiendaModel.Clientes">
+        <MappingFragment StoreEntitySet="Clientes">
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+          <ScalarProperty Name="Contacto" ColumnName="Contacto" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="CodigoCliente" ColumnName="CodigoCliente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Productos">
+      <EntityTypeMapping TypeName="TiendaModel.Productos">
+        <MappingFragment StoreEntitySet="Productos">
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VISTAPEDIDOS">
+      <EntityTypeMapping TypeName="TiendaModel.VISTAPEDIDOS">
+        <MappingFragment StoreEntitySet="VISTAPEDIDOS">
+          <ScalarProperty Name="FechaPedido" ColumnName="FechaPedido" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="PrecioTotal" ColumnName="PrecioTotal" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
+          <ScalarProperty Name="CodigoCliente" ColumnName="CodigoCliente" />
+          <ScalarProperty Name="Posicion" ColumnName="Posicion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
