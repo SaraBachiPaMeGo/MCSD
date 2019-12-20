@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Crear";
+}
+
+<h2>Crear</h2>
+
+<form method="post">
+    <label>Número de Hospital:</label>
+    <input type="number" name="CodHospi" class="form-control" />
+    <label>Nombre:</label>
+    <input type="text" name="Nombre" class="form-control" />
+    <label>Direccion:</label>
+    <input type="text" name="Direccion" class="form-control" />
+    <label>Teléfono:</label>
+    <input type="number" name="Tlf" class="form-control" />
+    <label>Número de camas:</label>
+    <input type="number" name="NumCamas" class="form-control" />
+    <button type="submit" class="btn-success">Añadir</button>
+</form>
+
+@Html.ActionLink("Volver", "Index", "Hospital")
