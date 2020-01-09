@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "JavaScript";
+}
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $("#btnCambiar").click(function () {
+                $.getScript("/Contenido/EjecutarJs");  //Llamamos al método que está dentro
+                //de "Contenido"
+            });
+        });
+    </script>
+}
+
+<h2>JavaScript: devolver contenido JavaScript,File y JSON</h2>
+<div>
+    <img src="~/Assets/anochecer2.jpg" id="img" />
+</div>
+<hr />
+<button type="button" id="btnCambiar" class="btn-info">Cambiar imagen </button>
+
+@Html.ActionLink("Content File", "GetFile", "Contenido", null, new { @class = "btn-success" })
+@Html.ActionLink("Content JSON", "ContenidoJson", "Contenido", null, new { @class = "btn-danger" })

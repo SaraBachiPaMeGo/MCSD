@@ -1,0 +1,24 @@
+﻿@using MvcProject.Models
+@model List<Empleado>
+@{
+    ViewBag.Title = "AlmacenarSalarios";
+}
+
+<h2>Almacenar Salarios Session</h2>
+@Html.ActionLink("Ver suma salarial", "SumaSalarial"
+    , "Sesiones")
+<h3>
+    @ViewBag.Mensaje
+</h3>
+<ul>
+    @foreach (Empleado emp in Model)
+    {
+        <li>
+            @emp.Apellido
+            @Html.ActionLink("Almacenar salario"
+           , "AlmacenarSalarios", "Sesiones"
+           , new { salario = emp.Salario }, null)
+        </li>
+    }
+</ul>
+

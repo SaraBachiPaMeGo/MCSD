@@ -1,0 +1,36 @@
+﻿@using MvcProject.Models
+@model Persona
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Ejemplo validaciones Mvc Model</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <div>
+        @Html.LabelFor(x => x.Nombre)
+        @Html.EditorFor(x => x.Nombre)
+        @Html.ValidationMessageFor(x => x.Nombre)
+    </div>
+    <div>
+        @Html.LabelFor(z => z.Apellidos)
+        @Html.EditorFor(z => z.Apellidos)
+        @Html.ValidationMessageFor(z => z.Apellidos)
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Edad)
+        @Html.EditorFor(x => x.Edad)
+        @Html.ValidationMessageFor(x => x.Edad)
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Email)
+        @Html.EditorFor(x => x.Email)
+        @Html.ValidationMessageFor(x => x.Email)
+    </div>
+    <button type="submit">
+        Enviar datos
+    </button>
+}
+

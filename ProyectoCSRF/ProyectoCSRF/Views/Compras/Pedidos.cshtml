@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Pedidos";
+}
+
+<h2>Productos de usuario</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <ul>
+        <li>
+            Transmisor FM 20€
+            <input type="checkbox" name="producto" value="Transmisor FM 20€" />
+        </li>
+        <li>
+            Botella de vino 150€
+            <input type="checkbox" name="producto" value="Botella de vino 150€" />
+        </li>
+        <li>
+            Paquete de cigarillos 4.65€
+            <input type="checkbox" name="producto" value="Paquete de cigarillos 4.65€" />
+        </li>
+        <li>
+            Gafas de sol 10€
+            <input type="checkbox" name="producto" value="Gafas de sol 10€" />
+        </li>
+    </ul>
+    <div>
+        <label>Dirección del pedido</label>
+        <input type="text" name="direccion" class="form-control" />
+    </div>
+    <br />
+    <button type="submit" class="btn-success">Comprar productos</button>
+}
+
+
+
+

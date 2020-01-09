@@ -1,0 +1,26 @@
+﻿@using MvcProject.Models
+@model List<Empleado>
+
+@{
+    ViewBag.Title = "EmpleadosSeleccionados";
+}
+
+<h2>Empleados Seleccionados Session</h2>
+@Html.ActionLink("Volver a selección empleados"
+    , "AlmacenarEmpleados", "Sesiones")
+@if (Session["EMPLEADOS"] == null)
+{
+    <h1 style="color:red">No hay empleados almacenados</h1>
+}
+else
+{
+    <dl>
+        @foreach (Empleado emp in Model)
+        {
+            <dt>@emp.Apellido </dt>
+            <dd>@emp.Oficio</dd>
+            <dd>@Html.ActionLink("Quitar de la sesión", "EmpleadosSeleccionados","Sesiones",
+               new {eliminar = emp.EmpleadoNumero},null)</dd>
+        }
+    </dl>
+}

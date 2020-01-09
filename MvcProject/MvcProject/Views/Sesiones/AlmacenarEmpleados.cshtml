@@ -1,0 +1,44 @@
+﻿@using MvcProject.Models
+@model List<Empleado>
+
+@{
+    ViewBag.Title = "AlmacenarEmpleados";
+    List<int> seleccionados = Session["EMPLEADOS"] as List<int>;
+}
+
+<h2>Almacenar Empleados Session</h2>
+@Html.ActionLink("Mostrar empleados seleccionados"
+    , "EmpleadosSeleccionados", "Sesiones")
+<h2 style="color:blue">@ViewBag.Mensaje</h2>
+<ul>
+    @foreach (Empleado emp in Model)
+    {
+    <li>
+        @emp.Apellido
+        @if (seleccionados == null)
+        {
+            //Dibujamos actionLink para todos
+            @Html.ActionLink("Almacenar empleado"
+       , "AlmacenarEmpleados", "Sesiones"
+       , new { empno = emp.EmpleadoNumero }, null)
+        }
+        else
+        {
+            if (seleccionados.Contains(emp.EmpleadoNumero))
+            {
+                //Si existe el empleado  --> Imagen
+                <img src="~/Assets/check.png" style="width:20px; height:20px;"/>
+            }
+            else
+            {
+                //Dibujamos el actionLink
+                @Html.ActionLink("Almacenar empleado", "AlmacenarEmpleados", "Sesiones"
+                , new { empno = emp.EmpleadoNumero }, null)
+            }
+
+        }
+
+    </li>
+        
+    }
+</ul>

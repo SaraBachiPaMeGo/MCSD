@@ -1,0 +1,15 @@
+﻿@using MvcProyectCache.Models
+@model List<Empleado>
+@{
+    ViewBag.Title = "AlmacenarSalarios";
+}
+
+<h2>Almacenar Salarios Session</h2>
+
+<ul>
+    @foreach (Empleado emp in Model)
+    {
+        <li>@emp.Nombre</li>
+    }
+</ul>
+

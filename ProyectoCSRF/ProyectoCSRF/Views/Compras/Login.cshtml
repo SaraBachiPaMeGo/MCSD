@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+@Html.ActionLink("Pedidos", "Pedidos")
+
+@using (Html.BeginForm())
+{@*Si lo haces con razor por defecto es siempre post*@
+
+<fieldset>
+    <legend>Validación</legend>
+    <label>Usuario:</label>
+    <input type="text" name="usuario" class="form-control" />
+    <label>Password:</label>
+    <input type="password" name="pass" class="form-control" />
+    <br />
+    <button type="submit" class="btn-success">Entrar</button>
+</fieldset>
+
+}
+<h1>
+    @ViewBag.Mensaje
+</h1>
+

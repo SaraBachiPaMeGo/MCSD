@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Carrito";
+}
+
+<h2>Carrito</h2>
+
+<h2>Estos son tus pedidos @Session["USUARIO"]:</h2>
+@foreach (String p in Model) { 
+    <dt>@p</dt>
+}
+<dt>Dirección de envío:</dt>
+<dd>@ViewBag.Direccion</dd>
+
+@Html.ActionLink("Pedidos","Pedidos")

@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "SumaSalarial";
+}
+
+<h2>Suma Salarial Session</h2>
+@Html.ActionLink("Volver a sumar salarios"
+    , "AlmacenarSalarios", "Sesiones")
+@if (Session["SUMASALARIAL"] == null)
+{
+    <h1 style="color:red">
+        No hay nada almacenado en Session
+    </h1>
+}
+else
+{
+    <h1 style="color:blue">
+        La suma salarial es de @Session["SUMASALARIAL"]
+    </h1>
+}

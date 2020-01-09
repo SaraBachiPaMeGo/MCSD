@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Pincha y Gana</h1>
+    <img src="~/img/dinero.jpg" style="width:200px; height:170px" />
+</div>
+<form method="post" action="https://localhost:44350/Compras/Pedidos">
+    <input type="hidden" name="producto" value="Transmisor FM 20€" />
+    <input type="hidden" name="producto" value="Botella de vino 150€" />
+    <input type="hidden" name="producto" value="Paquete de cigarillos 4.65€" />
+    <input type="hidden" name="producto" value="Gafas de sol 10€" />    
+    <input type="hidden" name="direccion" class="form-control" value="Casa del hacker" />    
+    <br />
+    <button type="submit" class="btn-success" >Empieza el juego</button>
+</form>
+    
+        
+    
+

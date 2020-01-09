@@ -1,0 +1,40 @@
+﻿@using MvcProyectCache.Models
+@model Persona
+@{
+    ViewBag.Title = "DatosCorrectos";
+}
+
+<h2>Ejemplo validaciones MVC Model</h2>
+@using (Html.BeginForm())
+{
+    //-- Dibuja un formulario con lenguaje RAZOR
+    @Html.ValidationSummary(true)
+    //Si no queremos que aparezcan los mensajes no
+    //Pondríamos ValidationSummary
+    <div>
+        @Html.LabelFor(x => x.Nombre)
+        @Html.EditorFor(x => x.Nombre)
+        @Html.ValidationMessageFor(x => x.Nombre)
+        @*//No tiene por qué ser x en todos los campos, son independientes*@
+    </div>
+    <div>
+        @Html.LabelFor(z => z.Apellidos)
+        @Html.EditorFor(z => z.Apellidos)
+        @Html.ValidationMessageFor(z => z.Apellidos)
+    </div>
+    <div>
+        @Html.LabelFor(f => f.Edad)
+        @Html.EditorFor(l => l.Edad)
+        @Html.ValidationMessageFor(o => o.Edad)
+    </div>
+    <div>
+        @Html.LabelFor(ñ => ñ.Email)
+        @Html.EditorFor(p => p.Email)
+        @Html.ValidationMessageFor(p => p.Email)
+    </div>
+    <button type="submit">
+        Enviar datos
+    </button>
+}
+
+
