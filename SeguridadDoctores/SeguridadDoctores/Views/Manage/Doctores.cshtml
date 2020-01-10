@@ -1,0 +1,29 @@
+﻿@using SeguridadDoctores.Models;
+@model List<Doctor>
+@{
+    ViewBag.Title = "Doctores";
+}
+
+<h2>Doctores</h2>
+
+<table class="table-bordered table-responsive table-striped table-hover table-condensed" >
+    <tr>
+        <th>Número:</th>
+        <th>Apellido:</th>
+        <th>Especialidad:</th>
+        <th>Código de hospital:</th>
+        <th>Salario:</th>
+    </tr>
+    
+        @foreach (Doctor doc in Model)
+        {
+<tr>
+    <td>@doc.Doctor_no</td>
+    <td>@doc.Apellido</td>
+    <td>@doc.Especialidad</td>
+    <td>@doc.Hospital_cod</td>
+    <td>@doc.Salario</td>
+</tr>
+    }
+
+</table>
