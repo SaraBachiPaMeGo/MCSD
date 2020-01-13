@@ -1,0 +1,46 @@
+﻿@model IEnumerable<SeguridadEmpleados.Models.Empleados>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Oficio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Salario)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Oficio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Salario)
+        </td>
+        <td>
+            @if (HttpContext.Current.User.IsInRole("PRESIDENTE"))
+            {
+                @Html.ActionLink("Edit", "ModificarEmpleado", "Manager", new { empno = item.Emp_no }, null)
+            }
+        </td>
+    </tr>
+}
+
+</table>

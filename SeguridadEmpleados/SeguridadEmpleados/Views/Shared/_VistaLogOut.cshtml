@@ -1,0 +1,17 @@
+﻿@using SeguridadEmpleados.Models;
+
+@{ 
+    EmpleadoPrincipal user = HttpContext.Current.User
+        as EmpleadoPrincipal;
+}
+
+@if (user != null) { 
+
+    <div style="float: right; color: white;">
+        <span>Bienvenido, Sr/Sra 
+        @user.Nombre</span>
+        <br />
+        <span>@user.Oficio</span>
+    </div>
+    @Html.ActionLink("Cerrar sesión","CerrarSesion","Manager")
+}
