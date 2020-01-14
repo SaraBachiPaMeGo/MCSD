@@ -1,4 +1,5 @@
-﻿using SeguridadEmpleados.Models;
+﻿using SeguridadEmpleados.Authorization;
+using SeguridadEmpleados.Models;
 using SeguridadEmpleados.Repositories;
 using System;
 using System.Collections.Generic;
@@ -39,11 +40,13 @@ namespace SeguridadEmpleados.Controllers
                 HttpCookie cookie = new HttpCookie("EMPLEADO",datos);
                 //Añado la cookie al response
                 Response.Cookies.Add(cookie);
-                
-                AuthorizationContext filterContext = HttpContext.Request ;
-                String ruta = filterContext.RouteData.Route ;
 
-                return RedirectToAction("Index","Empleado");
+                //Debemos recuperar el action y el controller para que la navegación
+                //en la seguridad sea dinámica
+                String action = TempData["ACTION"].ToString();
+                String controller = TempData["CONTROLLER"].ToString();
+
+                return RedirectToAction(action, controller);
             }
             else
             {
@@ -57,6 +60,8 @@ namespace SeguridadEmpleados.Controllers
         {
             return View();
         }
+
+        [Autorizacion]
         //GET
         public ActionResult ModificarEmpleado(int empno) 
         {

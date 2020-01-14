@@ -183,6 +183,8 @@
     <Content Include="Views\Manager\ModificarEmpleado.cshtml" />
     <Content Include="Views\Shared\_VistaLogOut.cshtml" />
     <Content Include="Views\Administracion\Index.cshtml" />
+    <Content Include="Views\Empleado\EmpleadosOficio.cshtml" />
+    <Content Include="Views\Shared\_MenuOficios.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

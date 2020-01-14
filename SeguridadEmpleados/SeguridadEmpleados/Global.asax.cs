@@ -48,7 +48,7 @@ namespace SeguridadEmpleados
                 user.Salario = emp.Salario;
 
                 HttpContext.Current.User = user; 
-                //Creamos una clase que here de iprincipal, porque user necesita un objeto y un generic ppal
+                //Creamos una clase que herede de iprincipal, porque user necesita un objeto y un generic ppal
             }
         }
     }

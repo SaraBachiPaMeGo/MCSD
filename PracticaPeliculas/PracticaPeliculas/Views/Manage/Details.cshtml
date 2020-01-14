@@ -1,0 +1,77 @@
+﻿@model PracticaPeliculas.Models.Peli
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details Peli</h2>
+
+    <div>
+        <h4>Peli</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.IdDistribuidor)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.IdDistribuidor)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.IdGenero)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.IdGenero)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Titulo)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Titulo)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.IdNacionalidad)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.IdNacionalidad)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Argumento)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Argumento)
+            </dd>
+    
+            <dt>
+                <img src="~/Assets/@Html.DisplayNameFor(model => model.Foto)" style="width:50px; height:100px;"/>                
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Foto)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Fecha_Estreno)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Fecha_Estreno)
+            </dd>
+    
+        </dl>
+        @*@Html.actio*@
+        @*//Tenemos que mandar el id de la película para guardarla en la sesión*@
+        <button type="button" class="btn-success">Comprar</button>
+    </div>
+    <p>
+        @Html.ActionLink("Volver", "Index","Home")
+    </p>
+

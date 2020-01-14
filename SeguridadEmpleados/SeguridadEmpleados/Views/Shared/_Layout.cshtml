@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/css") 
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
@@ -32,6 +32,11 @@
         </div>
     </div>
     <div class="container body-content">
+        @*@Html.RenderAction //Para mandar parámetros a la vista parcial*@
+        @*//Para poder cargar las vistas parciales que tengan código controller se pone de esta manera:*@
+        @{ 
+            Html.RenderAction("_MenuOficios", "Empleado");
+        }
         @RenderBody()
         <hr />
         <footer>

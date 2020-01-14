@@ -1,0 +1,9 @@
+﻿@model List<String>
+
+<ul>
+    @foreach (String ofi in Model) { 
+        <li>
+    @Html.ActionLink(ofi.ToString(), "EmpleadosOficio","Empleado", new { oficio = ofi}, null)
+        </li>
+    }
+</ul>

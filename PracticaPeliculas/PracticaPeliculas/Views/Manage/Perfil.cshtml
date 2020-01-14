@@ -1,0 +1,27 @@
+﻿@using PracticaPeliculas.Models;
+
+@{
+    ViewBag.Title = "Perfil";
+}
+
+<h2>Mi perfil</h2>
+
+@{
+    ClientePrincipal user = (ClientePrincipal)HttpContext.Current.User;
+}
+
+@if (user != null)
+{
+    <h2>Bienvenido @user.Nombre, estás en tu perfil</h2>
+
+
+    <p>@user.IdCliente</p>
+    <p>@user.PaginaWeb</p>
+    <p>@user.Email</p>
+    <p>@user.Imagen_Cliente</p>
+
+}
+
+
+
+

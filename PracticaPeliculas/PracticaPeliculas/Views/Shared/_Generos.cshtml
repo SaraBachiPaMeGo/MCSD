@@ -1,0 +1,9 @@
+﻿@using PracticaPeliculas.Models;
+@model List<Genero>
+
+<ul>
+    @foreach (Genero genero in Model)
+    { 
+    <li>@Html.ActionLink(genero.Generos, "Peliculas","Manage", new { genero = genero.IdGenero},null)</li>
+    }
+</ul>

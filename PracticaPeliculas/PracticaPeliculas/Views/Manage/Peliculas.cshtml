@@ -1,0 +1,28 @@
+﻿@using PracticaPeliculas.Models;
+@model List<Peli>
+
+@{
+    ViewBag.Title = "Peliculas";
+}
+
+<h2>Peliculas</h2>
+
+<table class="table table-bordered table-responsive" >
+    <tr>
+        <th>Titulo</th>
+        <th>Argumento</th>
+        <th>Fecha de estreno</th>
+        <th>Foto</th>
+    </tr>
+    
+        @foreach (Peli pe in Model)
+        {
+<tr>
+    <td>@Html.ActionLink(pe.Titulo, "Details", "Manage", new { idPeli = pe.IdPelicula }, null) </td>
+    <td>@pe.Argumento</td>
+    <td>@pe.Fecha_Estreno</td>
+    <td> <img src="~/Assets/@pe.Foto" style="width:50px; height:100px;"/></td>
+</tr>
+    }
+
+    </table>

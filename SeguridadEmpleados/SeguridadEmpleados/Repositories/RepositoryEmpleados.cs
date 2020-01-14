@@ -45,5 +45,20 @@ namespace SeguridadEmpleados.Repositories
 
             this.context.SaveChanges();
         }
+
+        public List<String> GetOficios() 
+        {
+            var consulta = (from data in context.Empleados
+                           select data.Oficio).Distinct();
+            return consulta.ToList();
+        }
+
+        public List<Empleados> GetEmpleadosOficio(String oficio)
+        { 
+            var consulta = from datos in context.Empleados
+                           where datos.Oficio == oficio 
+                           select datos;
+            return consulta.ToList();
+        }
     }
 }

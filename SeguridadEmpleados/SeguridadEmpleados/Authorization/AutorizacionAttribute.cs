@@ -29,6 +29,20 @@ namespace SeguridadEmpleados.Authorization
             }
             else
             {
+                //Capturamos el action que se haya activado
+                String action = filterContext.RouteData.Values["action"].ToString();
+
+                //Qué control ha hecho la petición
+                String controller =
+                filterContext.RouteData.Values["controller"].ToString();
+
+                //Cómo enviamos esta informacion hasta el controller de Manager?
+                // session --> Ocupa más memoria
+                //TempData pertenece a los controladores pero desde filtercontext
+                //podemos acceder a todo de un controller
+                filterContext.Controller.TempData["ACTION"] = action;
+                filterContext.Controller.TempData["CONTROLLER"] = controller;                
+
                 //No existe, lo llevamos a login
                 filterContext.Result = GetRoute("Login", "Manager");
             }
