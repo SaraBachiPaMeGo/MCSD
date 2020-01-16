@@ -22,7 +22,10 @@ namespace InyeccionHospitales.App_Start
             builder.RegisterControllers(Assembly.GetExecutingAssembly());
 
             //Creamos la clase context
-            builder.Register(z => new ContextoHospital()).InstancePerRequest();
+            //builder.Register(z => new ContextoHospitalSQL()).InstancePerRequest();
+
+            //Tipo para la interface context
+            builder.RegisterType<ContextoHospitalMySQL>().As<IContextoHospital>().InstancePerRequest();
 
             //Establecemos el tipo de IRepo para la clase repo
             builder.RegisterType<RepositoryHospitalSQL>().As<IRepositoryHospital>().InstancePerRequest();

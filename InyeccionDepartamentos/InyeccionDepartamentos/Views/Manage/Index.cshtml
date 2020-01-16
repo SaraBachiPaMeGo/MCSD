@@ -1,0 +1,37 @@
+﻿@model IEnumerable<InyeccionDepartamentos.Models.Departamento>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DNombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Loc)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DNombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Loc)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { num=item.Dept_no, nombre = item.DNombre, loc=item.Loc },null) 
+        </td>
+    </tr>
+}
+
+</table>

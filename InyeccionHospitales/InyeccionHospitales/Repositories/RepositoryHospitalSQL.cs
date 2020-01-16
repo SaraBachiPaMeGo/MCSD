@@ -9,8 +9,8 @@ namespace InyeccionHospitales.Repositories
 {
     public class RepositoryHospitalSQL : IRepositoryHospital
     {
-        ContextoHospital context;
-        public RepositoryHospitalSQL(ContextoHospital context)//Inyección
+        IContextoHospital context;
+        public RepositoryHospitalSQL(IContextoHospital context)//Inyección
         {
             this.context = context;   
         }

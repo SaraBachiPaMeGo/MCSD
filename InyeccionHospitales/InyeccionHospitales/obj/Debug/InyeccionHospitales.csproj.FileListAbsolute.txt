@@ -82,3 +82,12 @@ C:\Users\AlumnoMCSD\source\repos\InyeccionHospitales\InyeccionHospitales\bin\Aut
 C:\Users\AlumnoMCSD\source\repos\InyeccionHospitales\InyeccionHospitales\bin\Autofac.pdb
 C:\Users\AlumnoMCSD\source\repos\InyeccionHospitales\InyeccionHospitales\bin\Autofac.xml
 C:\Users\AlumnoMCSD\source\repos\InyeccionHospitales\InyeccionHospitales\bin\Autofac.Integration.Mvc.xml
+C:\Users\AlumnoMCSD\source\repos\InyeccionHospitales\InyeccionHospitales\bin\BouncyCastle.Crypto.dll
+C:\Users\AlumnoMCSD\source\repos\InyeccionHospitales\InyeccionHospitales\bin\Google.Protobuf.dll
+C:\Users\AlumnoMCSD\source\repos\InyeccionHospitales\InyeccionHospitales\bin\MySql.Data.dll
+C:\Users\AlumnoMCSD\source\repos\InyeccionHospitales\InyeccionHospitales\bin\MySql.Data.Entity.EF6.dll
+C:\Users\AlumnoMCSD\source\repos\InyeccionHospitales\InyeccionHospitales\bin\Renci.SshNet.dll
+C:\Users\AlumnoMCSD\source\repos\InyeccionHospitales\InyeccionHospitales\bin\Google.Protobuf.xml
+C:\Users\AlumnoMCSD\source\repos\InyeccionHospitales\InyeccionHospitales\bin\MySql.Data.xml
+C:\Users\AlumnoMCSD\source\repos\InyeccionHospitales\InyeccionHospitales\bin\MySql.Data.Entity.EF6.xml
+C:\Users\AlumnoMCSD\source\repos\InyeccionHospitales\InyeccionHospitales\bin\Renci.SshNet.xml
