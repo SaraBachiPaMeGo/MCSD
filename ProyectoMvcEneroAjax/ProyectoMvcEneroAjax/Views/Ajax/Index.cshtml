@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@section scripts
+{
+    <script>
+        $(document).ready(function(){
+            $("#buttonBuscar").click(function () {
+                var idHospital = $("#hospiCod").val();
+                $("#resultado").load("/Ajax/PlantillaHospital?hospiCod=" + idHospital);
+            });
+        });
+    </script>
+}
+
+
+<h2>Index</h2>
+
+<div >
+    <label>Código de Hospital:</label>
+    <input type="number" class="form-control" id="hospiCod" />
+    <button type="button" id="buttonBuscar" class="btn-success">Buscar Plantilla</button>
+</div>
+<div id="resultado"></div>

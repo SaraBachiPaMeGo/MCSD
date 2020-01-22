@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ProyectoMvcEneroAjax.Models.Hospital>
+
+@{
+    ViewBag.Title = "Hospitales";
+}
+
+@section scripts
+{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+}
+
+<h2>Hospitales</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tlf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumCamas)
+        </th>
+        <th></th>
+    </tr>
+    <p>CADENA : @ViewBag.Cadena</p>
+    
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tlf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumCamas)
+            </td>
+            <td>
+                @Ajax.ActionLink("Ver Plantilla", "PlantillaHospital",
+               new { hospiCod = item.HospiCod }, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "resultado" },
+               null)
+                
+            </td>
+        </tr>
+    }
+
+</table>
+<hr />
+
+<div id="resultado">
+
+</div>

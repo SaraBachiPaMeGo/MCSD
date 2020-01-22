@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ProyectoMvcEneroAjax.Models.Plantilla>
+
+@{
+    ViewBag.Title = "PlantillaHospital";
+}
+
+<h2>Plantilla Hospital</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Apellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Funcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Turno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdHospital)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Apellido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Funcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Turno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdHospital)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdPlantilla }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdPlantilla }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdPlantilla })
+        </td>
+    </tr>
+}
+
+</table>

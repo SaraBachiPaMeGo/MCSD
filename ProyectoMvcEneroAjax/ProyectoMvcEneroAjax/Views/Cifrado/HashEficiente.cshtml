@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "HashEficiente";
+}
+
+<h2>Hash Eficiente</h2>
+
+<form method="post">
+    <div>
+        <label>Introduzca texto a cifrar:</label>
+        <input name="texto" type="text" class="form-control" />
+    </div>
+    <div>
+        <label>Iteraciones:</label>
+        <input name="iteraciones" type="text" class="form-control" />
+    </div>
+    <div>
+        <label>Salt:</label>
+        <input name="salt" type="text" class="form-control" />
+    </div>
+    <div>
+        <label>Resultado cifrado:</label>
+        <textarea rows="5" class="form-control" name="resultado">@ViewBag.Cifrado</textarea>
+    </div>
+    <div>
+        <button type="submit" class="btn-success" value="cifrar" name="accion">Cifrar</button>
+        <button type="submit" class="btn-primary" value="comparar" name="accion">Comparar textos cifrados</button>
+    </div>
+
+</form>
+
+<h1>@ViewBag.Mensaje</h1>

@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Enviar correos Visual Studio</h2>
+
+<form method="post" enctype="multipart/form-data">
+    <div>
+        <label>Para:</label>
+        <input type="text" name="para" class="form-control"/>
+    </div>
+    <div>
+        <label>Subject:</label>
+        <input type="text" class="form-control" name="asunto"/>
+    </div>
+    <div>
+        <label>Mensaje:</label>
+        <textarea name="mensaje" class="form-control" type="text" rows="4" cols="20"></textarea>
+    </div>
+    <div>
+        <label>Archivo:</label>
+        <input type="file" name="archivo" class="form-control"/>
+    </div>
+    <div>
+        <button type="submit" class="btn-success">Enviar</button>
+    </div>
+</form>
+
+<h1>Mensaje: @ViewBag.Mensaje</h1>
+<h1>Ruta: @ViewBag.Ruta</h1>

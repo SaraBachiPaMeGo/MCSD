@@ -1,0 +1,135 @@
+﻿@model IEnumerable<ProyectoMvcEneroAjax.Models.Plantilla>
+
+@{
+    ViewBag.Title = "AllPlantillas";
+}
+
+<style>
+    /* Z-index of #mask must lower than #boxes .window */
+#mask {
+  position:absolute;
+  z-index:9000;
+  /*background-color:#808080;*/
+  display:none;
+}
+  
+#boxes .window {
+  position:fixed;
+  width:440px;
+  height:200px;
+  display:none;
+  z-index:9999;
+  padding:20px;
+}
+
+
+/* Customize your modal window here, you can add background image too */
+#boxes #dialog {
+  width:375px; 
+  height:203px;
+}
+</style>
+
+@section scripts
+{
+
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script>
+        $(document).ready(function() {  
+
+        //select all the a tag with name equal to modal
+        $('.ventanaModal').click(function(e) {
+                //Cancel the link behavior
+                e.preventDefault();
+                //Get the A tag
+                var id = $(this).attr('href');
+        
+                //Get the screen height and width
+                var maskHeight = $(document).height();
+                var maskWidth = $(window).width();
+        
+                //Set height and width to mask to fill up the whole screen
+                $('#mask').css({'width':maskWidth/4,'height':maskHeight/2});
+                
+                //transition effect             
+                $('#mask').fadeIn(1000);        
+                $('#mask').fadeTo("slow",0.8);  
+        
+                //Get the window height and width
+                var winH = $(window).height();
+                var winW = $(window).width();
+              
+                //Set the popup window to center
+                //$(id).css('top',  winH/2-$(id).height()/2);
+                //$(id).css('left', winW/2-$(id).width()/2);
+        
+                //transition effect
+                $(id).fadeIn(2000); 
+        
+        });                   
+        
+});
+    </script>
+}
+
+<h2>All Plantillas</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Apellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Funcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Turno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdHospital)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Funcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Turno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdHospital)
+            </td>
+            <td>
+                @Ajax.ActionLink("Details", "Details", new { idPlantilla = item.IdPlantilla },
+        new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "detallesPlantilla" }, new { @class = "ventanaModal"})
+                @*@Html.ActionLink("Detalles", "Details", "Ajax", new { idPlantilla = item.IdPlantilla },null)*@
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div id="boxes">
+    <div id="dialog" class="window" >
+        <b>Testing of Modal Window</b> |
+
+
+    </div>
+    <!-- Do not remove div#mask, because you'll need it to fill the whole screen -->
+    <div id="mask">
+
+        <div id="detallesPlantilla" style="background-color:antiquewhite">
+
+        </div>
+    </div>
+</div>

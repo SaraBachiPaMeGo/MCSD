@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "CifrarMensaje";
+}
+
+<h2>Cifrar-Descifrar Mensaje</h2>
+
+<form>
+    <div>
+        <label>Clave:</label>
+        <input type="text" name="pass" class="form-control" />
+    </div>
+    <div>
+        <label>Mensaje:</label>
+        <input type="text" name="mensaje" class="form-control" />
+    </div>
+    
+    <div>
+        <button type="submit" class="btn-primary btn" name="accion" value="cifrar">Cifrar</button>
+        <button type="submit" class="btn-success btn" name="accion" value="descifrar">Descifrar</button>
+    </div>
+    <div>
+        <div>
+            <label>Mensaje cifrado:</label>
+            <input type="text" name="resultado" value="@ViewBag.Resultado2" class="form-control" />
+        </div>
+        
+    </div>
+</form>
+

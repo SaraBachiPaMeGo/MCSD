@@ -1,0 +1,50 @@
+﻿@model ProyectoMvcEneroAjax.Models.Plantilla
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div >
+    <h4>Plantilla</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Apellido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Apellido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Funcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Funcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Turno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Turno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdHospital)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdHospital)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Volver", "AllPlantillas", "Ajax", new { @class = "btn-success"})
+    @Html.ActionLink("Eliminar", "Delete", new { IdPlantilla = Model.IdPlantilla },new { @class = "btn-danger"})
+</p>
