@@ -14,11 +14,13 @@ namespace ProyectoErrores
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            FilterConfig.RegisterGlobalFilters
+                (GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             
         }
+
         //Cuando no hemos cogido las excepciones
         //protected void Application_Error()
         //{

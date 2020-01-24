@@ -12,5 +12,6 @@ namespace ProyectoErrores.Data
         public ContextoHospital() : base("name=conexionhospital")
         { }
         public DbSet<Empleado> Empleados { get; set; }
+        public DbSet<Excepcion> Excepciones { get; set; }
     }
 }

@@ -1,0 +1,68 @@
+﻿@using ProyectoErrores.Models;
+@model List<Empleado>
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+<form method="post">
+
+    <div class="form-horizontal">
+        <h4>Empleado</h4>
+        <hr />
+        <div class="form-group">
+            <label>Emp número</label>
+            <input class="form-control" name="empno" />
+        </div>
+        <div class="form-group">
+            <label>Nombre</label>
+            <input class="form-control" name="nombre" />
+
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Oficio</label>
+            <select name="oficio" class="form-control">
+                @foreach (String ofi in ViewBag.Oficios)
+                {
+                    <option value="@ofi">@ofi</option>
+                }
+
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Director</label>
+            <select name="dir" class="form-control">
+                @foreach (Empleado emp in Model)
+                {
+                    <option value="@emp.Emp_no">@emp.Nombre</option>
+                }
+
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Salario</label>
+            <input class="form-control" name="salario" />
+        </div>
+
+        <div class="form-group">
+            <label>Dept número</label>
+            <input class="form-control" name="dept_no" />
+
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

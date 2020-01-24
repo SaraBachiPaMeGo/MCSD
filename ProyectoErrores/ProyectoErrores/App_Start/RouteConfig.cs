@@ -14,6 +14,17 @@ namespace ProyectoErrores
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "ErrorSalario",
+                url: "Empleados/ErrorSalarios/{msj}",
+                defaults: new
+                {
+                    controller = "Empleados",
+                    action = "ErrorSalarios",
+                    msj = UrlParameter.Optional
+                }
+                );
+
+            routes.MapRoute(
                 name: "EliminarEmpleados",
                 url: "{controller}/{action}/{id}",
                 defaults:
