@@ -1,0 +1,47 @@
+﻿<div class="jumbotron">
+    <h1>Web Api Doctores</h1>
+    <button type="button" class="btn-success btn" id="btn">Mostrar Doctores</button>
+    <hr />
+    <table class="table table-bordered table-striped" id="tabla">
+        <thead>
+            <tr>
+                <th>Apellido</th>
+                <th>Especialidad</th>
+                <th>Salario</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+
+    </table>
+
+</div>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $("#btn").click(function () {
+                $.ajax({
+                    url: "/api/Doctor",
+                    type: "GET",
+                    datatype: "application/json",
+                    //datatype: "application/xml",
+                    success: function (data) {
+                        var html = "";
+                        console.log("Leyendo...");
+                        $.each(data, function (pos, doctor) {
+                            html += "<tr>";
+
+                            html += "<td>" + doctor.Apellido + "</td>";
+                            html += "<td>" + doctor.Especialidad + "</td>";
+                            html += "<td>" + doctor.Salario + "</td>";
+
+                            html += "</tr>";
+                        });
+                        $("#tabla tbody").html(html);
+                    }
+                });
+            });
+        });
+    </script>
+    
+    }

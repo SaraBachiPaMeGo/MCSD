@@ -1,0 +1,45 @@
+﻿<div class="jumbotron">
+    <h1>Servicio Api Personas</h1>
+    <button type="button" class="btn-success btn" id="btncargar">Mostrar Personas</button>
+    <table class="table table-bordered" id="tabla">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Edad</th>
+            </tr>
+        </thead>
+        <tbody>
+
+
+        </tbody>
+    </table>
+</div>
+
+@section scripts 
+    {
+    <script>
+        $(document).ready(function () {
+            $("#btncargar").click(function () {
+                $.ajax({
+                    url: "/api/Personas",
+                    type: "GET",
+                    datatype: "application/json",
+                    success: function (data) {
+                        console.log("Leyendo...");
+                        var html = "";
+                        $.each(data, function (posicion, persona) {
+                            html += "<tr>";
+                            //Propiedades dinámicas
+                            html += "<td>" + persona.Nombre + "</td>";
+                            html += "<td>" + persona.Email + "</td>";
+                            html += "<td>" + persona.Edad + "</td>";
+                            html += "</tr>";
+                        });
+                        $("#tabla tbody").html(html);
+                    }
+                });
+            });
+        });
+    </script>
+    }

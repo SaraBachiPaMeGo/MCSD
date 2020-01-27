@@ -1,0 +1,109 @@
+﻿<div class="jumbotron">
+    <h1>CLIENTE ---------------- Web Api Doctores</h1>
+    <button type="button" class="btn-success btn" id="btn">Mostrar Doctores</button>
+    <hr />
+    <table class="table table-bordered table-striped" id="tabla">
+        <thead>
+            <tr>
+                <th>Apellido</th>
+                <th>Especialidad</th>
+                <th>Salario</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+
+    </table>
+
+</div>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $("#btn").click(function () {
+                $.ajax({
+                    url: "https://localhost:44310/api/Doctor",
+                    type: "GET",
+                    datatype: "application/json",
+                    //datatype: "application/xml",
+                    success: function (data) {
+                        var html = "";
+                        console.log("Leyendo...");
+                        $.each(data, function (pos, doctor) {
+                            html += "<tr>";
+
+                            html += "<td>" + doctor.Apellido + "</td>";
+                            html += "<td>" + doctor.Especialidad + "</td>";
+                            html += "<td>" + doctor.Salario + "</td>";
+
+                            html += "</tr>";
+                        });
+                        $("#tabla tbody").html(html);
+                    }
+                });
+            });
+        });
+    </script>
+
+}
+
+@*@{
+        ViewBag.Title = "Home Page";
+    }
+
+    @section styles {
+        <style>
+            img {
+                width: 150px;
+                height: 100px;
+            }
+        </style>
+    }
+
+    <div class="jumbotron">
+        <h1>Clientes Api Coches</h1>
+        <button type="button" class="btn-success btn" id="btn">Mostrar Coches</button>
+        <hr />
+        <table class="table table-bordered table-striped" id="tabla">
+            <thead>
+                <tr>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Conductor</th>
+                    <th>Imagen</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+
+        </table>
+    </div>
+
+    @section scripts{
+        <script>
+
+            $(document).ready(function () {
+                $("#btn").click(function () {
+                    $.ajax({
+                        url: "https://localhost:44368/api/Coches",
+                        type: "GET",
+                        datatype: "application/json",
+                        success: function (data) {
+                            console.log("Leyendo...");
+                            var html = "";
+                            $.each(data, function (pos, coche) {
+                                html += "<tr>";
+
+                                html += "<td>" + coche.Marca + "</td>";
+                                html += "<td>" + coche.Modelo + "</td>";
+                                html += "<td>" + coche.Conductor + "</td>";
+                                html += "<td><img src='" + coche.Imagen + "'/></td>";
+
+                                html += "</tr>";
+                            });
+                            $("#tabla tbody").html(html);
+                        }
+                    });
+                });
+            });
+        </script>
+
+    }*@
