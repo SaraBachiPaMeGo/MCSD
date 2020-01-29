@@ -1,0 +1,40 @@
+﻿@using ExamenMVCSaraBachiller.Models;
+@{
+    ViewBag.Title = "Carrito";
+}
+
+@{ 
+    List<Libro> Lista = (List<Libro>) Session["LibrosComprados"];
+    UsuarioPrincipal user = HttpContext.Current.User as UsuarioPrincipal;
+    int cantidad;
+}
+
+<h2>Carrito</h2>
+
+@if (Session["LibrosComprados"] != null)
+{
+<form method="post">
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>Titulo</th>
+            <th>Portada</th>
+            <th>Cantidad</th>
+        </tr>
+        @foreach (Libro libro in Lista)
+        {
+            <tr>
+                <td>@libro.Titulo</td>
+                <td>@libro.Portada</td>
+                <td><input type="number" name="cantidad" class="form-control" /></td>
+            </tr>
+
+        }
+    </table>
+    <button type="submit" class="btn-success">Finalizar</button>
+    
+</form>
+    }
+    else
+    {
+    <h1>Aún no has hecho ningún pedido</h1>
+    }

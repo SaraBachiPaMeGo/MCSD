@@ -1,0 +1,29 @@
+﻿@model IEnumerable<ExamenMVCSaraBachiller.Models.Genero>
+
+@{
+    ViewBag.Title = "Generos";
+}
+
+<h2>Generos</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreGenero)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink(item.NombreGenero,"LibrosGenero","Libros", new { idGenero=item.IdGenero},null)
+            @*@Html.DisplayFor(modelItem => item.NombreGenero)*@
+        </td>
+    </tr>
+}
+
+</table>

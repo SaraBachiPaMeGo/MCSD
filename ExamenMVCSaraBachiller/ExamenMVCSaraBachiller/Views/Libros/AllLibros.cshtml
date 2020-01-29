@@ -1,0 +1,67 @@
+﻿@model IEnumerable<ExamenMVCSaraBachiller.Models.Libro>
+
+@{
+    ViewBag.Title = "AllLibros";
+}
+
+<h2>AllLibros</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Autor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Editorial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Portada)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Resumen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Precio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdGenero)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Titulo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Autor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Editorial)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Portada)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Resumen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Precio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdGenero)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id=item.IdLibro }) 
+        </td>
+    </tr>
+}
+
+</table>

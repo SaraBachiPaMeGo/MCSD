@@ -1,0 +1,23 @@
+﻿@model ICoche
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Inyección de dependencias</h2>
+
+<dt>@Model.Marca</dt>
+<dd>@Model.Modelo</dd>
+<dd>Velodicad : @Model.Velocidad</dd>
+<dd> Velodicad Máxima: @Model.VelocidadMax</dd>
+
+<img src="~/assets/@Model.Imagen" style="height:200px;width:250px"/>
+
+<hr />
+
+<form method="post">
+    <fieldset>
+        <legend>Acciones</legend>
+        <button class="btn-danger" type="submit" name="accion" value="acelerar">Acelerar</button>
+        <button class="btn-primary" type="submit" name="accion" value="frenar">Frenar</button>
+    </fieldset>
+</form>

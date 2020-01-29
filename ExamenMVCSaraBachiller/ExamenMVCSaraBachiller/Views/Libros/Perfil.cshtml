@@ -1,0 +1,21 @@
+﻿@using ExamenMVCSaraBachiller.Models;
+@{
+    ViewBag.Title = "Perfil";
+}
+
+@{
+    UsuarioPrincipal user = (UsuarioPrincipal)HttpContext.Current.User;
+}
+
+<h2>Perfil</h2>
+
+@if (user != null)
+{
+<h1>Bienvenido a tu perfil @user.Nombre</h1>
+<img src="@user.Foto"/>
+<p>Estos son tus datos:</p>
+<ul>
+    <li>@user.Email</li>
+    <li>@user.Apellidos</li>
+</ul>
+}

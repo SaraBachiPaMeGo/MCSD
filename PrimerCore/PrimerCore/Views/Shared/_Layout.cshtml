@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mi primer App Core</title>
+    <environment include="Development">
+        <link href="~/css/bootstrap.css" rel="stylesheet" />
+    </environment>
+    <environment exclude="Production">
+        <link href="~/css/bootstrap.css" rel="stylesheet" />
+    </environment>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div>
+                @*//class="navbar-collapse collapse"*@
+                <ul class="nav navbar-nav">
+                    <li><a asp-action="Index" asp-controller="Coches" class="nav-link">Coches DI</a></li>
+                    <li><a asp-action="Index" asp-controller="Home" class="nav-link">Index</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        <button type="button" id="btn" class="btn-success">Botón</button>
+        <p style="color:red" id="msj">Voy a cambiar</p>
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Mi primer App Core</p>
+        </footer>
+    </div>
+
+    <environment include="Development">
+        <script src="~/js/jquery-3.3.1.js"></script>
+        <script src="~/js/bootstrap.js"></script>
+    </environment>
+    <environment exclude="Production">
+        <script src="~/js/jquery-3.3.1.js"></script>
+        <script src="~/js/bootstrap.js"></script>
+    </environment>
+
+    <script>
+        $(document).ready(function () {
+            $("#btn").click(function () {
+                $("#msj").text("He cambiado");
+                $("#msj").attr("style",'color:blue');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+﻿@using ExamenMVCSaraBachiller.Models;
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div>
+    <ul>
+        @foreach (Genero g in ViewBag.Generos)
+        { 
+        <li>
+            @Html.ActionLink(@g.NombreGenero,"LibrosGenero","Libros", new { idGenero = g.IdGenero}, null)
+        </li>
+        }
+    </ul>
+</div>
