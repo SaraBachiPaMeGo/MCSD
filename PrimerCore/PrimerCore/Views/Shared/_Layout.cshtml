@@ -6,15 +6,18 @@
     <title>@ViewBag.Title - Mi primer App Core</title>
     <environment include="Development">
         <link href="~/css/bootstrap.css" rel="stylesheet" />
+        <link href="~/css/cookiealert.css" rel="stylesheet" />
     </environment>
     <environment exclude="Production">
         <link href="~/css/bootstrap.css" rel="stylesheet" />
+        <link href="~/css/cookiealert.css" rel="stylesheet" />
     </environment>
 
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
+            <partial name="_PartialCookieConsent" />
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
@@ -46,10 +49,12 @@
     <environment include="Development">
         <script src="~/js/jquery-3.3.1.js"></script>
         <script src="~/js/bootstrap.js"></script>
+        <script src="~/js/cookiealert.js"></script>
     </environment>
     <environment exclude="Production">
         <script src="~/js/jquery-3.3.1.js"></script>
         <script src="~/js/bootstrap.js"></script>
+        <script src="~/js/cookiealert.js"></script>
     </environment>
 
     <script>

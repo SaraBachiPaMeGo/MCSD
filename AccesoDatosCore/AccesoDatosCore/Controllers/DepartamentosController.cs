@@ -16,6 +16,7 @@ namespace AccesoDatosCore.Controllers
         }
         public IActionResult Index()
         {
+            ViewData["Mensaje"] = "Mensaje desde Azure!!";
             return View(repo.GetDepartamentos());
         }
     }

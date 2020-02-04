@@ -37,8 +37,8 @@ namespace AccesoDatosCore
             //Para poder recuperar la cadena de conexion de AppSetting 
             //debemos inyectar dentro de de startup
             //IConfiguration, que nos lo ofrece en el servidor
-            //String cadena = this.Configuration.GetConnectionString("cadenahospital");
-            String cadenaX = this.Configuration.GetConnectionString("cadenaMySql");
+            String cadena = this.Configuration.GetConnectionString("cadenaAzure");
+            //String cadenaX = this.Configuration.GetConnectionString("cadenaMySql");
             
             //Resolvemos la dependencia del repositorio
             //services.AddTransient<RepositoryDept>();
@@ -49,14 +49,14 @@ namespace AccesoDatosCore
             //services.AddDbContext<HospitalContext>
             //    (options => options.UseSqlServer(cadena));
 
-            //services.AddDbContext<IHospitalContext, HospitalContextMySql>
-            //    (options => options.UseSqlServer(cadena));
+            services.AddDbContext<IHospitalContext, HospitalContext>
+                (options => options.UseSqlServer(cadena));
 
             //El método para utilizar cadenas en options cambia respecto a cada
             //Proveedor
             //Mysql --> .UseMySql()
-            services.AddDbContext<IHospitalContext, HospitalContextMySql>
-                (options => options.UseMySql(cadenaX));
+            //services.AddDbContext<IHospitalContext, HospitalContextMySql>
+            //    (options => options.UseMySql(cadenaX));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

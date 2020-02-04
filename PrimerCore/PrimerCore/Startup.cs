@@ -17,6 +17,17 @@ namespace PrimerCore
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            //Debemos configurar la política de cookies
+            //para nuestro site
+            services.Configure<CookiePolicyOptions>(
+                options =>
+                {
+                    options.CheckConsentNeeded =
+                        consent => true;
+                    options.MinimumSameSitePolicy =
+                    SameSiteMode.None;
+                });
+
             //Esto es nuestro container
             //IoC --> Inversión de control
             //Transient crea un objeto por REQUEST
@@ -51,6 +62,9 @@ namespace PrimerCore
             }
 
             app.UseStaticFiles();
+
+            //Debemos indicar que utilizamos la potítica de cookies
+            app.UseCookiePolicy();
 
             app.UseMvc(routes =>
             {
