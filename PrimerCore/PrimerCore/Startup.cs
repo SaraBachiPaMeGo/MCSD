@@ -50,6 +50,24 @@ namespace PrimerCore
                 Imagen = "Coche3.jpg"
 
             }) ;
+
+            //Debemos configurar el uso de la sesión,
+            //Por ejemplo el tiempo de vida 
+            services.AddSession(
+                options=> options.IdleTimeout =
+                TimeSpan.FromSeconds(30)
+                );
+
+            services.AddDistributedMemoryCache();
+
+            services.AddSession(
+                options =>
+                {
+                    options.IdleTimeout = TimeSpan.FromSeconds(30);
+                    options.Cookie.HttpOnly = true;
+                    options.Cookie.IsEssential = true;
+                });
+
             services.AddMvc();
         }
 
@@ -65,6 +83,10 @@ namespace PrimerCore
 
             //Debemos indicar que utilizamos la potítica de cookies
             app.UseCookiePolicy();
+
+            //Indicamos al servidor que utilizamos Session
+            app.UseSession();
+
 
             app.UseMvc(routes =>
             {

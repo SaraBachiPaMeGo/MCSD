@@ -1,18 +1,19 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Mi primer App Core</title>
-    <environment include="Development">
+    <environment exclude="Development">
         <link href="~/css/bootstrap.css" rel="stylesheet" />
         <link href="~/css/cookiealert.css" rel="stylesheet" />
     </environment>
-    <environment exclude="Production">
+    <environment include="Production">
         <link href="~/css/bootstrap.css" rel="stylesheet" />
         <link href="~/css/cookiealert.css" rel="stylesheet" />
     </environment>
-
+    @RenderSection("styles", false)
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -31,7 +32,9 @@
                 <ul class="nav navbar-nav">
                     <li><a asp-action="Index" asp-controller="Coches" class="nav-link">Coches DI</a></li>
                     <li><a asp-action="Index" asp-controller="Home" class="nav-link">Index</a></li>
-                    
+                    <li><a asp-action="SesionSimple" asp-controller="Sesion" class="nav-link">Sesion</a></li>
+                    <li><a asp-action="SesionObjeto" asp-controller="Sesion" class="nav-link">Sesion objeto</a></li>
+
                 </ul>
             </div>
         </div>
@@ -46,17 +49,17 @@
         </footer>
     </div>
 
-    <environment include="Development">
+    <environment exclude="Development">
         <script src="~/js/jquery-3.3.1.js"></script>
         <script src="~/js/bootstrap.js"></script>
         <script src="~/js/cookiealert.js"></script>
     </environment>
-    <environment exclude="Production">
+    <environment include="Production">
         <script src="~/js/jquery-3.3.1.js"></script>
         <script src="~/js/bootstrap.js"></script>
         <script src="~/js/cookiealert.js"></script>
     </environment>
-
+    @RenderSection("scripts",false)
     <script>
         $(document).ready(function () {
             $("#btn").click(function () {

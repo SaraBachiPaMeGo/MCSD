@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29411.108
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DonativosCore", "DonativosCore\DonativosCore.csproj", "{A0DDC025-015C-4334-82DF-38CBB123ADAD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A0DDC025-015C-4334-82DF-38CBB123ADAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0DDC025-015C-4334-82DF-38CBB123ADAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0DDC025-015C-4334-82DF-38CBB123ADAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0DDC025-015C-4334-82DF-38CBB123ADAD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1F9DD932-2034-4EA0-BB43-452D18C1FCCB}
+	EndGlobalSection
+EndGlobal

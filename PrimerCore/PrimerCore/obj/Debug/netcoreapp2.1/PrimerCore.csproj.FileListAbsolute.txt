@@ -26,3 +26,5 @@ C:\Users\AlumnoMCSD\source\repos\PrimerCore\PrimerCore\obj\Debug\netcoreapp2.1\R
 C:\Users\AlumnoMCSD\source\repos\PrimerCore\PrimerCore\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.cshtml.g.cs
 C:\Users\AlumnoMCSD\source\repos\PrimerCore\PrimerCore\obj\Debug\netcoreapp2.1\Razor\Views\Coches\Index.cshtml.g.cs
 C:\Users\AlumnoMCSD\source\repos\PrimerCore\PrimerCore\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_PartialCookieConsent.cshtml.g.cs
+C:\Users\AlumnoMCSD\source\repos\PrimerCore\PrimerCore\obj\Debug\netcoreapp2.1\Razor\Views\Sesion\SesionSimple.cshtml.g.cs
+C:\Users\AlumnoMCSD\source\repos\PrimerCore\PrimerCore\obj\Debug\netcoreapp2.1\Razor\Views\Sesion\SesionObjeto.cshtml.g.cs

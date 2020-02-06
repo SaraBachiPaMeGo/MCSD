@@ -1,0 +1,46 @@
+﻿@section styles {
+    <link href="~/css/jquery.countdown.css" rel="stylesheet" />
+}
+
+@section scripts {
+    <script src="~/js/jquery.countdown.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#tiempo").countdown({
+                "seconds": 30,
+                "warning-time": 5,
+                "normal-class": "countdown-normal",
+                "warning-class": "countdown-warning",
+                "stop-class": "countdown-stop"
+            });
+        });
+    </script>
+}
+
+<h2>@ViewData["MENSAJE"]</h2>
+
+<div class="alert example countdown-stop" id="tiempo">00:00</div>
+<ul class="list-inline">
+
+    <li class="list-inline-item">
+        <a asp-controller="Sesion" asp-action="SesionObjeto" asp-route-accion="guardar">Guardar Session</a>
+    </li>
+    <li class="list-inline-item">
+        <a asp-controller="Sesion" asp-action="SesionObjeto" asp-route-accion="mostrar">Mostrar Session</a>
+    </li>
+</ul>
+
+<div>
+    <h3>Nombre: @ViewData["NOMBRE"]</h3>
+    <h3>App: @ViewData["APP"]</h3>
+    <h3>Edad: @ViewData["EDAD"]</h3>
+</div>
+
+<hr />
+
+<div>
+    <h3>Nombre: @ViewData["MARCA"]</h3>
+    <h3>App: @ViewData["MODELO"]</h3>
+    <h3>Edad: @ViewData["VELOCIDAD"]</h3>
+    <img src="~/assets/@ViewData["IMAGEN"]" />
+</div>
