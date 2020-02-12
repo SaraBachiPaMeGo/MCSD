@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewData["Title"] = "Perfil";
+}
+
+<h2>Perfil del empleado</h2>
+
+<table class="table-bordered table table-striped">
+    <thead>
+        <tr>
+            <th>Id Empleado:</th>
+            <th>Nombre:</th>
+            <th>Oficio:</th>
+        </tr>
+    </thead>
+    <tr>
+        <td>@User.FindFirst(ClaimTypes.NameIdentifier).Value</td>
+        <td>@User.FindFirst(ClaimTypes.Name).Value</td>
+        <td>@User.FindFirst(ClaimTypes.Role).Value</td>
+    </tr>
+</table>
+
+<ul>
+    @foreach (var claim in User.Claims)
+    { 
+        <li>@claim.Type | @claim.Value</li>
+    }
+</ul>

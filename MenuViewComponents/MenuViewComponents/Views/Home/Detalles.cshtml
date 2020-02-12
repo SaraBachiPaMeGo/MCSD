@@ -1,0 +1,36 @@
+﻿@model MenuViewComponents.Models.Departamento
+
+@{
+    ViewData["Title"] = "Detalles";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Departamento</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Dept_no)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Dept_no)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DNombre)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DNombre)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Loc)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Loc)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>

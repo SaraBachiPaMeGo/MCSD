@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>Jumbotron Template · Bootstrap</title>
+    <environment include="Development">
+        <link href="~/css/bootstrap.css" rel="stylesheet" />
+        <link href="~/css/jumbotron.css" rel="stylesheet" />
+    </environment>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a asp-action="Index" class="nav-link" asp-controller="Home">Home</a>        
+                </li>
+                <li>
+                    <a asp-action="Perfil" class="nav-link" asp-controller="Usuario">Perfil</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <partial name="_MenuLogOut" />
+        </div>
+        
+    </nav>
+
+    <main role="main">
+        <div class="jumbotron">
+            <div class="container">
+                @RenderBody()
+            </div>
+        </div>
+    </main>
+
+    <footer class="container">
+        <p>&copy; Company 2017-2018</p>
+    </footer>
+    <environment include="Development">
+        <script src="~/js/jquery-3.3.1.min.js"></script>
+        <script src="~/js/bootstrap.js"></script>
+    </environment>
+</body>
+</html>
+
+

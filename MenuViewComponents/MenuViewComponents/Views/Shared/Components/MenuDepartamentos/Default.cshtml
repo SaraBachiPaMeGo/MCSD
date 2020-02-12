@@ -1,0 +1,20 @@
+﻿@model IEnumerable<MenuViewComponents.Models.Departamento>
+@{
+    ViewData["Title"] = "Default";
+}
+
+<h2>Render Partial Core</h2>
+
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>
+            @Html.DisplayFor(modelItem => item.DNombre)
+        </li>
+        <li>
+           <a asp-controller="Home" asp-action="Detalles" asp-route-idDept="@item.Dept_no">Detalles</a>
+        </li>
+
+    }
+</ul>

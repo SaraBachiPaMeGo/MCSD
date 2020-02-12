@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewData["Title"] = "LogIn";
+}
+
+<h2>LogIn</h2>
+
+<form method="post">
+    <fieldset>
+        <div>
+            <label>Usuario:</label>
+            <input class="form-control" name="usuario" />
+        </div>
+        <div>
+            <label>Password:</label>
+            <input class="form-control" name="password" />
+        </div>
+        <button type="submit" class="btn-success btn">Log In </button>
+    </fieldset>
+</form>
+
+<h1>@ViewData["MENSAJE"]</h1>

@@ -1,0 +1,9 @@
+﻿@if (Context.User.Identity.IsAuthenticated == false)
+{
+    <a asp-action="Index" asp-controller="Empleados" class="btn-success btn"> Log In</a>
+}
+else
+{
+    <h2>@Context.User.Identity.Name</h2>
+    <a asp-action="CerrarSesion" asp-controller="Empleados" class="btn-danger btn"> Cerrar Sesión</a>
+}
