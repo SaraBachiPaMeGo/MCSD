@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Imagenes";
+    //Layout ="~/Views/Home/Index.cshtml" ;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section img {
+    @*AÑADIR UN ELEMENTO EN UNA ZONA DENTRO DEL LAYOUT
+        UTIL PARA MENUS PERSONALIZADOS, POR EJEMPLO*@
+    <h3>Imagen con RenderSection()</h3>
+    <img src="~/Assets/Bosque.jpg" />
+}
+
+@section menu{
+    @*AÑADIMOS NUEVOS ELEMENTOS AL MENU*@
+    <li>@Html.ActionLink("Nuevo1", "Contact", "Home")</li>
+    <li>@Html.ActionLink("Nuevo2", "Contact", "Home")</li>
+    <li>@Html.ActionLink("Nuevo3", "Contact", "Home")</li>
+}
